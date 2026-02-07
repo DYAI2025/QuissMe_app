@@ -8,40 +8,12 @@ type Props = {
   navigation: NativeStackNavigationProp<RootStackParamList, any>;
 };
 
-// Placeholder screens - to be implemented
-export function OnboardingScreen({ navigation }: Props) {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.emoji}>🌟</Text>
-      <Text style={styles.title}>Die Reise der Synchronisation</Text>
-      <Text style={styles.desc}>Entdecke eure kosmische Verbindung</Text>
-    </View>
-  );
-}
-
-export function BirthInputScreen({ navigation }: Props) {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.emoji}>📅</Text>
-      <Text style={styles.title}>Deine Geburtsdaten</Text>
-    </View>
-  );
-}
-
-export function AstroResultScreen({ navigation }: Props) {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.emoji}>♊</Text>
-      <Text style={styles.title}>Dein Astro-Profil</Text>
-    </View>
-  );
-}
-
 export function PartnerInviteScreen({ navigation }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.emoji}>💌</Text>
       <Text style={styles.title}>Partner einladen</Text>
+      <Text style={styles.desc}>QR Code / Magic Link</Text>
     </View>
   );
 }
@@ -51,6 +23,7 @@ export function WaitingRoomScreen({ navigation }: Props) {
     <View style={styles.container}>
       <Text style={styles.emoji}>⏳</Text>
       <Text style={styles.title}>Warten auf Partner...</Text>
+      <Text style={styles.desc}>Zeigarnik-Effekt</Text>
     </View>
   );
 }
@@ -60,6 +33,7 @@ export function BlindModeScreen({ navigation }: Props) {
     <View style={styles.container}>
       <Text style={styles.emoji}>🎯</Text>
       <Text style={styles.title}>Blind-Mode Quiz</Text>
+      <Text style={styles.desc}>Fragen beantworten</Text>
     </View>
   );
 }
@@ -69,6 +43,7 @@ export function SynchronizationScreen({ navigation }: Props) {
     <View style={styles.container}>
       <Text style={styles.emoji}>✨</Text>
       <Text style={styles.title}>Synchronisation...</Text>
+      <Text style={styles.desc}>Merge Animation</Text>
     </View>
   );
 }
@@ -78,6 +53,7 @@ export function InsightDropScreen({ navigation }: Props) {
     <View style={styles.container}>
       <Text style={styles.emoji}>🏆</Text>
       <Text style={styles.title}>Insight Drop</Text>
+      <Text style={styles.desc}>Ergebnis + Trophy</Text>
     </View>
   );
 }
@@ -87,6 +63,7 @@ export function BuffsScreen({ navigation }: Props) {
     <View style={styles.container}>
       <Text style={styles.emoji}>✨</Text>
       <Text style={styles.title}>Buffs & Challenges</Text>
+      <Text style={styles.desc}>Daily Missions</Text>
     </View>
   );
 }
@@ -96,6 +73,7 @@ export function WishesScreen({ navigation }: Props) {
     <View style={styles.container}>
       <Text style={styles.emoji}>💝</Text>
       <Text style={styles.title}>Deine Wünsche</Text>
+      <Text style={styles.desc}>KI-Rewrite</Text>
     </View>
   );
 }
@@ -105,6 +83,7 @@ export function SettingsScreen({ navigation }: Props) {
     <View style={styles.container}>
       <Text style={styles.emoji}>⚙️</Text>
       <Text style={styles.title}>Einstellungen</Text>
+      <Text style={styles.desc}>Profil & mehr</Text>
     </View>
   );
 }

@@ -5,12 +5,14 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 // Screens
 import SplashScreen from './src/screens/SplashScreen';
+import OnboardingScreen from './src/screens/OnboardingScreen';
 import AuthScreen from './src/screens/AuthScreen';
+import BirthInputScreen from './src/screens/BirthInputScreen';
+import AstroResultScreen from './src/screens/AstroResultScreen';
 import DashboardScreen from './src/screens/DashboardScreen';
-import {
-  OnboardingScreen,
-  BirthInputScreen,
-  AstroResultScreen,
+
+// Placeholders - to be implemented
+import { 
   PartnerInviteScreen,
   WaitingRoomScreen,
   BlindModeScreen,
