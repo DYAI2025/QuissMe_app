@@ -25,6 +25,7 @@
     "expo-linear-gradient": "~14.0.0",
     "expo-blur": "~14.0.0",
     "lottie-react-native": "7.1.0",
+    "@react-native-community/datetime-picker": "8.2.0",
     "zustand": "^5.0.0"
   },
   "devDependencies": {
