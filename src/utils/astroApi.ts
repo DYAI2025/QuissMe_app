@@ -3,7 +3,7 @@ import { Platform } from 'react-native';
 const API_BASE_URL = Platform.select({
   ios: 'http://localhost:8080',
   android: 'http://10.0.2.2:8080',
-  default: 'https://bazi-engine-v2-production.up.railway.app',
+  default: 'https://bafe.fly.dev', // Fly.io URL
 });
 
 export interface BirthData {
