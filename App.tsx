@@ -3,25 +3,21 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-// Screens
+// All Screens
 import SplashScreen from './src/screens/SplashScreen';
 import OnboardingScreen from './src/screens/OnboardingScreen';
 import AuthScreen from './src/screens/AuthScreen';
 import BirthInputScreen from './src/screens/BirthInputScreen';
 import AstroResultScreen from './src/screens/AstroResultScreen';
+import PartnerInviteScreen from './src/screens/PartnerInviteScreen';
+import WaitingRoomScreen from './src/screens/WaitingRoomScreen';
+import BlindModeScreen from './src/screens/BlindModeScreen';
+import SynchronizationScreen from './src/screens/SynchronizationScreen';
+import InsightDropScreen from './src/screens/InsightDropScreen';
 import DashboardScreen from './src/screens/DashboardScreen';
-
-// Placeholders - to be implemented
-import { 
-  PartnerInviteScreen,
-  WaitingRoomScreen,
-  BlindModeScreen,
-  SynchronizationScreen,
-  InsightDropScreen,
-  BuffsScreen,
-  WishesScreen,
-  SettingsScreen,
-} from './src/screens/PlaceholderScreens';
+import BuffsScreen from './src/screens/BuffsScreen';
+import WishesScreen from './src/screens/WishesScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
 
 export type RootStackParamList = {
   Splash: undefined;
