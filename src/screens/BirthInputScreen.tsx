@@ -6,13 +6,16 @@ import {
   TextInput, 
   TouchableOpacity,
   ScrollView,
-  Platform
+  Platform,
+  ActivityIndicator,
+  Alert
 } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { LinearGradient } from 'expo-linear-gradient';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../App';
 import { theme } from '../utils/theme';
+import { geocodeLocation } from '../utils/astroApi';
 
 type BirthInputScreenProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'BirthInput'>;
@@ -22,6 +25,7 @@ export default function BirthInputScreen({ navigation }: BirthInputScreenProps) 
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
   const [location, setLocation] = useState('');
+  const [loading, setLoading] = useState(false);
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [showTimePicker, setShowTimePicker] = useState(false);
 
@@ -35,11 +39,44 @@ export default function BirthInputScreen({ navigation }: BirthInputScreenProps) 
     if (selectedTime) setTime(selectedTime);
   };
 
-  const handleContinue = () => {
-    // TODO: Calculate astro data
-    navigation.navigate('AstroResult', { 
-      birthData: { date, time, location } 
-    });
+  const handleContinue = async () => {
+    if (!location.trim()) {
+      Alert.alert('Fehler', 'Bitte gib einen Geburtsort ein');
+      return;
+    }
+
+    setLoading(true);
+    
+    try {
+      // Geocode location to get coordinates
+      const coords = await geocodeLocation(location);
+      
+      navigation.navigate('AstroResult', { 
+        birthData: { 
+          date, 
+          time, 
+          location,
+          lat: coords?.lat || 52.52,
+          lon: coords?.lon || 13.405,
+        } 
+      });
+    } catch (error) {
+      Alert.alert(
+        'Fehler', 
+        'Ort konnte nicht gefunden werden. Standard-Koordinaten werden verwendet.'
+      );
+      navigation.navigate('AstroResult', { 
+        birthData: { 
+          date, 
+          time, 
+          location,
+          lat: 52.52,
+          lon: 13.405,
+        } 
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -99,25 +136,30 @@ export default function BirthInputScreen({ navigation }: BirthInputScreenProps) 
             <Text style={styles.label}>Geburtsort</Text>
             <TextInput
               style={styles.textInput}
-              placeholder="z.B. Berlin"
+              placeholder="z.B. Berlin, Hamburg, München"
               placeholderTextColor={theme.colors.muted}
               value={location}
               onChangeText={setLocation}
+              autoCapitalize="words"
             />
           </View>
         </View>
 
         <TouchableOpacity 
           onPress={handleContinue}
-          disabled={!location}
+          disabled={!location.trim() || loading}
         >
           <LinearGradient
             colors={[theme.colors.indigo, theme.colors.violet]}
-            style={[styles.button, !location && styles.buttonDisabled]}
+            style={[styles.button, (!location.trim() || loading) && styles.buttonDisabled]}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
           >
-            <Text style={styles.buttonText}>Weiter ➝</Text>
+            {loading ? (
+              <ActivityIndicator color="white" />
+            ) : (
+              <Text style={styles.buttonText}>Weiter ➝</Text>
+            )}
           </LinearGradient>
         </TouchableOpacity>
 
