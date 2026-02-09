@@ -1,8 +1,8 @@
 // QuissMe Quiz Logic v1
 // Zone Calculation, State Management, Cluster Completion, Drop & Buff Generation
 
-import { MOSAIC_QUIZZES, Quiz, Zone } from './mosaicQuizzes';
-import { DUO_TRAITS, TraitLevel, CLUSTER_BUFFS, Buff } from './traits';
+import { MOSAIC_QUIZZES, Quiz, Zone } from '../data/mosaicQuizzes';
+import { DUO_TRAITS, TraitLevel, CLUSTER_BUFFS, Buff } from '../data/traits';
 
 // ============================================================================
 // TYPES

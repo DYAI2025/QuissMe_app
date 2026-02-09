@@ -1,49 +1,84 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../../App';
 import { theme } from '../utils/theme';
+import { MOSAIC_QUIZZES, getQuizById } from '../data/mosaicQuizzes';
+import { QuizStateManager, QuizAnswer } from '../utils/quizLogic';
 
 type BlindModeScreenProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'BlindMode'>;
+  route?: {
+    params?: {
+      quizId?: string;
+    };
+  };
 };
 
-const questions = [
+// Mock questions for demo (will be replaced with mosaicQuizzes data)
+const DEMO_QUESTIONS = [
   {
-    id: 1,
+    id: 'demo_1',
     question: 'Was ist euch in einer Beziehung am wichtigsten?',
     options: [
-      { id: 'a', text: 'Vertrauen & Ehrlichkeit', icon: '🤝' },
-      { id: 'b', text: 'Gemeinsame Abenteuer', icon: '🏔️' },
-      { id: 'c', text: 'Tiefe Gespräche', icon: '💭' },
-      { id: 'd', text: 'Körperliche Nähe', icon: '❤️' },
+      { index: 0, text: 'Vertrauen & Ehrlichkeit', icon: '🤝' },
+      { index: 1, text: 'Gemeinsame Abenteuer', icon: '🏔️' },
+      { index: 2, text: 'Tiefe Gespräche', icon: '💭' },
+      { index: 3, text: 'Körperliche Nähe', icon: '❤️' },
     ],
   },
   {
-    id: 2,
+    id: 'demo_2',
     question: 'Wie entspannt ihr am liebsten?',
     options: [
-      { id: 'a', text: 'Zuhause entspannen', icon: '🏠' },
-      { id: 'b', text: 'Draußen in der Natur', icon: '🌲' },
-      { id: 'c', text: 'Sport treiben', icon: '⚡' },
-      { id: 'd', text: 'Freunde treffen', icon: '🎉' },
+      { index: 0, text: 'Zuhause entspannen', icon: '🏠' },
+      { index: 1, text: 'Draußen in der Natur', icon: '🌲' },
+      { index: 2, text: 'Sport treiben', icon: '⚡' },
+      { index: 3, text: 'Freunde treffen', icon: '🎉' },
     ],
   },
 ];
 
-export default function BlindModeScreen({ navigation }: BlindModeScreenProps) {
+export default function BlindModeScreen({ navigation, route }: BlindModeScreenProps) {
   const [currentQ, setCurrentQ] = useState(0);
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selected, setSelected] = useState<number | null>(null);
+  const [quizState] = useState(() => new QuizStateManager());
+  const [partnerType] = useState<'A' | 'B'>('A'); // In production, get from auth
+  
+  const quizId = route?.params?.quizId || DEMO_QUESTIONS[currentQ].id;
+  const questions = DEMO_QUESTIONS; // Will use MOSAIC_QUIZZES in production
   const progress = ((currentQ + 1) / questions.length) * 100;
 
-  const handleSelect = (optionId: string) => {
-    setSelected(optionId);
+  const handleSelect = async (optionIndex: number) => {
+    setSelected(optionIndex);
+
+    // Submit answer
+    const answer: QuizAnswer = {
+      quizId,
+      selectedOptionIndex: optionIndex,
+      partnerType,
+      timestamp: Date.now(),
+    };
+    
+    const result = quizState.submitAnswer(answer);
+    
+    // Delay for animation
     setTimeout(() => {
+      setSelected(null);
+      
       if (currentQ < questions.length - 1) {
+        // Next question
         setCurrentQ(currentQ + 1);
-        setSelected(null);
       } else {
-        navigation.navigate('Synchronization');
+        // Quiz complete - check if both partners finished
+        const completed = quizState.getCompletedQuizzes();
+        if (completed.length >= 2) {
+          // Both answered - navigate to synchronization/gate
+          navigation.navigate('Synchronization');
+        } else {
+          // Only one answered - wait for partner
+          navigation.navigate('Synchronization');
+        }
       }
     }, 600);
   };
@@ -54,7 +89,9 @@ export default function BlindModeScreen({ navigation }: BlindModeScreenProps) {
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Blind-Mode</Text>
-        <Text style={styles.headerSubtitle}>Frage {currentQ + 1} von {questions.length}</Text>
+        <Text style={styles.headerSubtitle}>
+          Frage {currentQ + 1} von {questions.length}
+        </Text>
         <View style={styles.progressBar}>
           <View style={[styles.progressFill, { width: `${progress}%` }]} />
         </View>
@@ -65,31 +102,33 @@ export default function BlindModeScreen({ navigation }: BlindModeScreenProps) {
       </View>
 
       <View style={styles.options}>
-        {q.options.map((option) => (
+        {q.options.map((option, index) => (
           <TouchableOpacity
-            key={option.id}
+            key={index}
             style={[
               styles.optionBtn,
-              selected === option.id && styles.optionSelected,
+              selected === index && styles.optionSelected,
             ]}
-            onPress={() => handleSelect(option.id)}
+            onPress={() => handleSelect(index)}
             disabled={selected !== null}
           >
             <Text style={styles.optionIcon}>{option.icon}</Text>
             <Text style={[
               styles.optionText,
-              selected === option.id && styles.optionTextSelected,
+              selected === index && styles.optionTextSelected,
             ]}>
               {option.text}
             </Text>
-            {selected === option.id && <Text style={styles.check}>✓</Text>}
+            {selected === index && <Text style={styles.check}>✓</Text>}
           </TouchableOpacity>
         ))}
       </View>
 
       <View style={styles.blindIndicator}>
         <View style={styles.blindDot} />
-        <Text style={styles.blindText}>Du siehst nicht, was dein Partner wählt</Text>
+        <Text style={styles.blindText}>
+          Du siehst nicht, was dein Partner wählt
+        </Text>
       </View>
     </View>
   );
@@ -127,7 +166,6 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: theme.colors.violet,
     borderRadius: 2,
-    transition: 'width 0.3s',
   },
   questionCard: {
     backgroundColor: theme.colors.panel,
