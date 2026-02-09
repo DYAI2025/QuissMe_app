@@ -18,6 +18,9 @@ import DashboardScreen from './src/screens/DashboardScreen';
 import BuffsScreen from './src/screens/BuffsScreen';
 import WishesScreen from './src/screens/WishesScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
+import QuizLibraryScreen from './src/screens/QuizLibraryScreen';
+import TraitVisualizationScreen from './src/screens/TraitVisualizationScreen';
+import JourneyScreen from './src/screens/JourneyScreen';
 
 export type RootStackParamList = {
   Splash: undefined;
@@ -34,6 +37,9 @@ export type RootStackParamList = {
   Buffs: undefined;
   Wishes: undefined;
   Settings: undefined;
+  QuizLibrary: undefined;
+  TraitVisualization: undefined;
+  Journey: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -63,6 +69,9 @@ export default function App() {
           <Stack.Screen name="Buffs" component={BuffsScreen} />
           <Stack.Screen name="Wishes" component={WishesScreen} />
           <Stack.Screen name="Settings" component={SettingsScreen} />
+          <Stack.Screen name="QuizLibrary" component={QuizLibraryScreen} />
+          <Stack.Screen name="TraitVisualization" component={TraitVisualizationScreen} />
+          <Stack.Screen name="Journey" component={JourneyScreen} />
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="light" />
