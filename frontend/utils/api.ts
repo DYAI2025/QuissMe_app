@@ -24,6 +24,7 @@ export const api = {
   getQuizzes: () => apiFetch('/api/quizzes'),
   getQuiz: (id: string) => apiFetch(`/api/quizzes/${id}`),
   submitQuiz: (data: any) => apiFetch('/api/quiz/submit', { method: 'POST', body: JSON.stringify(data) }),
+  getQuizResult: (id: string) => apiFetch(`/api/quiz/result/${id}`),
   getCoupleResults: (id: string) => apiFetch(`/api/quiz/results/${id}`),
 };
 
