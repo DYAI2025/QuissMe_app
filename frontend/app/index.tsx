@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Animated, Dimensions } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -6,19 +6,21 @@ import { COLORS, SPACING } from '../utils/theme';
 
 const { width, height } = Dimensions.get('window');
 
+const STAR_POSITIONS = Array.from({ length: 12 }, (_, i) => ({
+  x: ((i * 37 + 13) % 100) / 100 * width,
+  y: ((i * 53 + 7) % 100) / 100 * height * 0.6,
+  size: (i % 3) + 1,
+}));
+
 export default function SplashScreen() {
   const router = useRouter();
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(0.8)).current;
   const subtitleFade = useRef(new Animated.Value(0)).current;
-  const starAnims = useRef(
-    Array.from({ length: 12 }, () => ({
-      opacity: new Animated.Value(0),
-      x: Math.random() * width,
-      y: Math.random() * height * 0.6,
-      size: Math.random() * 3 + 1,
-    }))
-  ).current;
+  const starAnims = useMemo(
+    () => STAR_POSITIONS.map(() => new Animated.Value(0)),
+    []
+  );
 
   useEffect(() => {
     Animated.sequence([
