@@ -1,0 +1,209 @@
+{
+  "identity": {
+    "persona": "E1",
+    "mission": "Create 'QuissMe' - a dual-mode (Night/Dusk) relationship discovery app for German couples.",
+    "core_principles": [
+      "Entertainment first. Connection always.",
+      "Dual-Style Visual System: Mystery (Night) vs. Warmth (Dusk).",
+      "Glassmorphism: Frosted depth over flat surfaces.",
+      "No Photorealism: Use vector/abstract aesthetics."
+    ]
+  },
+  "typography": {
+    "font_families": {
+      "brand": "Fraunces",
+      "ui": "Sora"
+    },
+    "loading_strategy": "Use expo-font to load Google Fonts asynchronously in App.js/Layout.",
+    "styles": {
+      "display": {
+        "size": 36,
+        "lineHeight": 44,
+        "fontFamily": "Fraunces",
+        "weight": "700",
+        "letterSpacing": -0.5
+      },
+      "heading": {
+        "size": 28,
+        "lineHeight": 34,
+        "fontFamily": "Fraunces",
+        "weight": "600",
+        "letterSpacing": -0.25
+      },
+      "subheading": {
+        "size": 20,
+        "lineHeight": 28,
+        "fontFamily": "Sora",
+        "weight": "600"
+      },
+      "body": {
+        "size": 16,
+        "lineHeight": 24,
+        "fontFamily": "Sora",
+        "weight": "400"
+      },
+      "caption": {
+        "size": 12,
+        "lineHeight": 16,
+        "fontFamily": "Sora",
+        "weight": "400",
+        "letterSpacing": 0.5,
+        "uppercase": true
+      }
+    }
+  },
+  "colors": {
+    "night_mode": {
+      "background": "#0F1B2D",
+      "surface": "#1E2D4A",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "#B0B8C6",
+      "accent": "#7351B7",
+      "particles": "#E2E8F0"
+    },
+    "dusk_mode": {
+      "background_gradient_start": "#2D1B4E",
+      "background_gradient_end": "#E8854B",
+      "accent_gold": "#D4A338",
+      "text_primary": "#FFF5E1",
+      "text_secondary": "#FFD6BA"
+    },
+    "glass": {
+      "background": "rgba(255, 255, 255, 0.1)",
+      "border": "rgba(255, 255, 255, 0.2)",
+      "text": "#FFFFFF"
+    },
+    "functional": {
+      "success": "#34D399",
+      "error": "#F87171",
+      "warning": "#FBBF24"
+    }
+  },
+  "visual_enhancers": {
+    "glassmorphism": {
+      "implementation": "Use 'expo-blur' component.",
+      "intensity": {
+        "light": 10,
+        "medium": 20,
+        "heavy": 30
+      },
+      "tint": "dark"
+    },
+    "gradients": {
+      "implementation": "Use 'expo-linear-gradient'.",
+      "presets": {
+        "dusk": ["#2D1B4E", "#E8854B"],
+        "night": ["#0F1B2D", "#1A2639"],
+        "button_primary": ["#7351B7", "#5B3A9B"],
+        "button_dusk": ["#E8854B", "#D4A338"]
+      }
+    },
+    "shadows": {
+      "soft": {
+        "shadowColor": "#000",
+        "shadowOffset": { "width": 0, "height": 4 },
+        "shadowOpacity": 0.1,
+        "shadowRadius": 8,
+        "elevation": 2
+      },
+      "glass": {
+        "shadowColor": "rgba(255,255,255,0.1)",
+        "shadowOffset": { "width": 0, "height": 8 },
+        "shadowOpacity": 0.2,
+        "shadowRadius": 16,
+        "elevation": 4
+      }
+    },
+    "border_radius": {
+      "card": 24,
+      "button": 9999,
+      "input": 16
+    }
+  },
+  "layout_guidelines": {
+    "spacing": {
+      "xs": 4,
+      "s": 8,
+      "m": 16,
+      "l": 24,
+      "xl": 32,
+      "xxl": 48
+    },
+    "grid": {
+      "base": 8,
+      "columns": 1,
+      "gutter": 16,
+      "margin": 20
+    },
+    "touch_targets": {
+      "min_height": 48,
+      "min_width": 48
+    },
+    "safe_area": "Use 'react-native-safe-area-context'."
+  },
+  "component_specs": {
+    "ScreenContainer": {
+      "description": "Base wrapper with gradient background or image background.",
+      "props": {
+        "mode": "night | dusk"
+      }
+    },
+    "GlassCard": {
+      "description": "Primary container for content blocks.",
+      "style": {
+        "borderRadius": 24,
+        "overflow": "hidden",
+        "borderWidth": 1,
+        "borderColor": "rgba(255,255,255,0.2)"
+      },
+      "children": "BlurView with tint='dark' intensity=20"
+    },
+    "PrimaryButton": {
+      "description": "Pill-shaped gradient button.",
+      "height": 56,
+      "borderRadius": 28,
+      "typography": "subheading (bold)"
+    },
+    "InputGlass": {
+      "description": "Text input with glass background.",
+      "height": 56,
+      "backgroundColor": "rgba(255,255,255,0.05)",
+      "borderColor": "rgba(255,255,255,0.1)",
+      "borderWidth": 1
+    }
+  },
+  "assets": {
+    "background_images": {
+      "night_texture": "https://images.unsplash.com/photo-1611169638716-72168bc5424b?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "dusk_texture": "https://images.unsplash.com/photo-1682610894989-2e6d09a16cf4?crop=entropy&cs=srgb&fm=jpg&q=85"
+    },
+    "icons": {
+      "library": "Lucide React Native (lucide-react-native)",
+      "style": "Stroke width 1.5 or 2, color matches text_primary."
+    }
+  },
+  "instructions_to_main_agent": {
+    "tech_stack": [
+      "React Native",
+      "Expo",
+      "StyleSheet",
+      "Reanimated",
+      "Expo Blur",
+      "Expo Linear Gradient",
+      "React Native SVG"
+    ],
+    "critical_rules": [
+      "Do NOT use HTML elements (div, span, p). Use View, Text, TouchableOpacity.",
+      "Do NOT use 'className'. Use 'style={styles.container}'.",
+      "All text strings must be in German (de-DE) as per requirements.",
+      "Ensure all interactive elements have 'data-testid' prop.",
+      "Use 'SafeAreaView' or 'useSafeAreaInsets' for layout protection.",
+      "Images must be 'ImageBackground' or absolute positioned 'Image' with 'z-index: -1' for backgrounds."
+    ]
+  },
+  "universal_guidelines": {
+    "interaction": "Add 'activeOpacity={0.8}' to all touchables. Use LayoutAnimation or Reanimated for state changes.",
+    "accessibility": "Ensure contrast ratios. Add 'accessibilityLabel' to buttons.",
+    "performance": "Use 'React.memo' for list items. Optimize images."
+  }
+}
