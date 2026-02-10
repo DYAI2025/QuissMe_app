@@ -8,6 +8,8 @@ export const COLORS = {
     text: '#FFFFFF',
     textSub: '#8B9AB5',
     star: '#E2E8F0',
+    textPrimary: '#FFFFFF',
+    textSecondary: '#8B9AB5',
   },
   warm: {
     bg: '#1C1232',
