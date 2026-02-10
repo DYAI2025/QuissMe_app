@@ -91,7 +91,7 @@ export default function ResultScreen() {
           <TouchableOpacity
             testID="solo-quiz-button"
             style={styles.secondaryButton}
-            onPress={() => router.push('/dashboard')}
+            onPress={() => router.push('/(tabs)')}
             activeOpacity={0.7}
           >
             <Text style={styles.secondaryButtonText}>Erst mal solo erkunden</Text>
