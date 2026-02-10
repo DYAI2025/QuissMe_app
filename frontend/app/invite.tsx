@@ -11,14 +11,14 @@ export default function InviteScreen() {
   const [inviteCode, setInviteCode] = useState('');
   const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    loadCode();
-  }, []);
-
   const loadCode = async () => {
     const code = await storage.getInviteCode();
     setInviteCode(code || 'XXXXXX');
   };
+
+  useEffect(() => {
+    loadCode();
+  }, []);
 
   const handleShare = async () => {
     try {
