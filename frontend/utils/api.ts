@@ -4,28 +4,27 @@ const BACKEND_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
 
 async function apiFetch(path: string, options?: RequestInit) {
   const url = `${BACKEND_URL}${path}`;
-  const res = await fetch(url, {
-    ...options,
-    headers: { 'Content-Type': 'application/json', ...options?.headers },
-  });
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(err);
-  }
+  const res = await fetch(url, { ...options, headers: { 'Content-Type': 'application/json', ...options?.headers } });
+  if (!res.ok) { const err = await res.text(); throw new Error(err); }
   return res.json();
 }
 
 export const api = {
-  registerUser: (data: any) => apiFetch('/api/users/register', { method: 'POST', body: JSON.stringify(data) }),
+  registerUser: (d: any) => apiFetch('/api/users/register', { method: 'POST', body: JSON.stringify(d) }),
   getUser: (id: string) => apiFetch(`/api/users/${id}`),
-  joinInvite: (data: any) => apiFetch('/api/invite/join', { method: 'POST', body: JSON.stringify(data) }),
+  joinInvite: (d: any) => apiFetch('/api/invite/join', { method: 'POST', body: JSON.stringify(d) }),
   getCouple: (id: string) => apiFetch(`/api/couple/${id}`),
-  getCoupleStatus: (id: string) => apiFetch(`/api/couple/${id}/status`),
   getQuizzes: () => apiFetch('/api/quizzes'),
   getQuiz: (id: string) => apiFetch(`/api/quizzes/${id}`),
-  submitQuiz: (data: any) => apiFetch('/api/quiz/submit', { method: 'POST', body: JSON.stringify(data) }),
+  getQuizWheel: (coupleId: string, userId: string) => apiFetch(`/api/quiz/wheel/${coupleId}/${userId}`),
+  activateQuiz: (d: any) => apiFetch('/api/quiz/activate', { method: 'POST', body: JSON.stringify(d) }),
+  submitQuiz: (d: any) => apiFetch('/api/quiz/submit', { method: 'POST', body: JSON.stringify(d) }),
+  revealQuiz: (cycleId: string) => apiFetch(`/api/quiz/reveal/${cycleId}`, { method: 'POST' }),
+  getCycle: (id: string) => apiFetch(`/api/cycle/${id}`),
+  getCycles: (coupleId: string) => apiFetch(`/api/cycles/${coupleId}`),
+  getGarden: (coupleId: string) => apiFetch(`/api/garden/${coupleId}`),
+  placeGardenItem: (d: any) => apiFetch('/api/garden/place', { method: 'POST', body: JSON.stringify(d) }),
   getQuizResult: (id: string) => apiFetch(`/api/quiz/result/${id}`),
-  getCoupleResults: (id: string) => apiFetch(`/api/quiz/results/${id}`),
 };
 
 export const storage = {
