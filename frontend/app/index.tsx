@@ -31,11 +31,11 @@ export default function SplashScreen() {
       Animated.timing(subtitleFade, { toValue: 1, duration: 800, useNativeDriver: true }),
     ]).start();
 
-    starAnims.forEach((star, i) => {
+    starAnims.forEach((anim, i) => {
       Animated.loop(
         Animated.sequence([
-          Animated.timing(star.opacity, { toValue: 0.8, duration: 1000 + i * 200, useNativeDriver: true }),
-          Animated.timing(star.opacity, { toValue: 0.2, duration: 1000 + i * 200, useNativeDriver: true }),
+          Animated.timing(anim, { toValue: 0.8, duration: 1000 + i * 200, useNativeDriver: true }),
+          Animated.timing(anim, { toValue: 0.2, duration: 1000 + i * 200, useNativeDriver: true }),
         ])
       ).start();
     });
