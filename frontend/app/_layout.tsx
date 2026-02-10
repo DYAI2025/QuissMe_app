@@ -16,7 +16,6 @@ export default function RootLayout() {
         <Stack.Screen name="quiz" />
         <Stack.Screen name="insight-drop" />
         <Stack.Screen name="reward-choice" />
-        <Stack.Screen name="garden-place" />
       </Stack>
     </>
   );
