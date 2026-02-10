@@ -428,6 +428,14 @@ async def submit_quiz(submission: QuizAnswerSubmit):
     return serialize_doc({**result_doc})
 
 
+@api_router.get("/quiz/result/{result_id}")
+async def get_quiz_result(result_id: str):
+    result = await db.quiz_results.find_one({"id": result_id}, {"_id": 0})
+    if not result:
+        raise HTTPException(status_code=404, detail="Result not found")
+    return result
+
+
 @api_router.get("/quiz/results/{couple_id}")
 async def get_couple_quiz_results(couple_id: str):
     results = await db.quiz_results.find({"couple_id": couple_id}, {"_id": 0}).to_list(100)
