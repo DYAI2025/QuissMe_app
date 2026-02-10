@@ -79,7 +79,7 @@ export default function MatchScreen() {
             <TouchableOpacity
               testID="go-dashboard-button"
               style={styles.ctaButton}
-              onPress={() => router.push('/dashboard')}
+              onPress={() => router.push('/(tabs)')}
               activeOpacity={0.8}
             >
               <Text style={styles.ctaText}>Zum Dashboard</Text>
