@@ -1,0 +1,1222 @@
+{
+  "_schema_version": "2.0",
+  "_generated": "2026-02-01",
+  "_total_quizzes": 15,
+  
+  "clusters": {
+    "passion": {
+      "name_de": "Leidenschaft",
+      "name_en": "Passion",
+      "buff_name": "Leidenschafts-Boost",
+      "buff_description": "Eure Verbindung lodert hell.",
+      "quiz_count": 5,
+      "quizzes": [
+        {
+          "id": "passion_01_initiative",
+          "name_de": "Wer zündet den Funken?",
+          "icon": "🔥",
+          "question_de": "Wer macht bei euch den ersten Schritt zur Nähe?",
+          "context_de": "Es war ein langer Tag. Endlich seid ihr allein. Die Stimmung ist weich, die Welt draußen fern.",
+          "options": [
+            { "text_de": "Ich – ich ziehe dich an mich und zeige dir, was ich fühle.", "type": "initiator", "score": 3 },
+            { "text_de": "Ich warte auf deinen Impuls und gehe dann voll mit.", "type": "responder", "score": 3 },
+            { "text_de": "Ich sage dir direkt, was ich mir wünsche.", "type": "expressor", "score": 3 },
+            { "text_de": "Ich zeige durch Körpersprache, dass ich bereit bin.", "type": "receiver", "score": 3 },
+            { "text_de": "Es fließt – mal ich, mal du, je nach Energie.", "type": "balanced", "score": 2 }
+          ],
+          "result_pairs": {
+            "initiator_initiator": {
+              "title_de": "Doppel-Feuer",
+              "description_de": "Ihr beide zündet! Manchmal kann es heiß werden, wenn zwei Flammen aufeinandertreffen. Achtet darauf, euch auch Zeit für sanfte Momente zu nehmen.",
+              "icon": "🔥🔥",
+              "strength_de": "Ihr habt unglaubliche Energie, wenn ihr zusammen startet.",
+              "tip_de": "Plant auch bewusst ruhige Momente ein, wo keiner von euch 'starten' muss."
+            },
+            "initiator_responder": {
+              "title_de": "Funke & Flamme",
+              "description_de": "Du zündest, dein Partner entfacht. Zusammen entsteht ein Feuer, das hell brennt und wärmt – und das ihr gemeinsam nährt.",
+              "icon": "🔥✨",
+              "strength_de": "Euer Wechselspiel aus Impuls und Verstärkung ist perfekt abgestimmt.",
+              "tip_de": "Tauscht manchmal die Rollen – es kann aufregend sein, wenn der Entfacher zum Zünder wird."
+            },
+            "initiator_expressor": {
+              "title_de": "Aktion & Ausdruck",
+              "description_de": "Du startest, dein Partner benennt die Gefühle. Zusammen schafft ihr eine Verbindung aus Tun und Sagen.",
+              "icon": "🔥💬",
+              "strength_de": "Ihr bringt Körper und Worte zusammen.",
+              "tip_de": "Achtet darauf, dass beide Sprachen gleichwertig sind."
+            },
+            "initiator_receiver": {
+              "title_de": "Geben & Empfangen",
+              "description_de": "Du gibst den Impuls, dein Partner nimmt ihn tief auf. Was du startest, landet vollständig bei eurem Partner.",
+              "icon": "🔥🌙",
+              "strength_de": "Eure Verbindung hat eine klare, schöne Richtung.",
+              "tip_de": "Frage manchmal nach, was dein Partner gerade braucht."
+            },
+            "responder_responder": {
+              "title_de": "Doppel-Entfacher",
+              "description_de": "Ihr wartet beide auf den Funken des anderen. Das kann sanft und tief sein – aber manchmal braucht es einen Anstoß von außen.",
+              "icon": "✨✨",
+              "strength_de": "Wenn ihr einmal in Gang kommt, ist eure Verbindung intensiv.",
+              "tip_de": "Vereinbart spielerisch, wer heute den ersten Schritt macht."
+            },
+            "responder_expressor": {
+              "title_de": "Verstärkung & Worte",
+              "description_de": "Dein Partner sagt, was er will – und du nimmst es auf und vertiefst es. Zusammen entsteht ein Dialog aus Ausdruck und Echo.",
+              "icon": "✨💬",
+              "strength_de": "Worte werden bei euch zu Taten.",
+              "tip_de": "Zeige deinem Partner auch non-verbal, wie sehr du seine Offenheit schätzt."
+            },
+            "responder_receiver": {
+              "title_de": "Doppel-Tiefe",
+              "description_de": "Ihr beide vertieft und empfangt. Eure Verbindung wächst in der Stille, in den Zwischenräumen.",
+              "icon": "✨🌙",
+              "strength_de": "Eure Intimität braucht keine großen Gesten.",
+              "tip_de": "Manchmal kann ein kleiner Impuls von außen (Musik, Ort) euch helfen zu starten."
+            },
+            "expressor_receiver": {
+              "title_de": "Strahlung & Empfang",
+              "description_de": "Du strahlst deine Gefühle aus, dein Partner empfängt sie vollständig. Was du gibst, landet tief.",
+              "icon": "💬🌙",
+              "strength_de": "Eure Kommunikation ist klar und wird gehört.",
+              "tip_de": "Frage manchmal deinen Partner, was er fühlt – auch Receiver haben Gefühle auszudrücken."
+            },
+            "balanced_balanced": {
+              "title_de": "Fließende Harmonie",
+              "description_de": "Bei euch wechselt es natürlich. Mal führt einer, mal der andere. Diese Flexibilität ist eure Stärke.",
+              "icon": "🌊",
+              "strength_de": "Ihr passt euch der Situation an.",
+              "tip_de": "Genießt eure Flexibilität – sie ist selten!"
+            }
+          }
+        },
+        {
+          "id": "passion_02_expression",
+          "name_de": "Wie zeigt ihr Begehren?",
+          "icon": "💫",
+          "question_de": "Wie drückst du aus, dass du deinen Partner begehrst?",
+          "context_de": "Ihr seid bei Freunden, aber du kannst nur an eines denken: dein Partner. Du willst ihm zeigen, wie sehr du ihn willst.",
+          "options": [
+            { "text_de": "Ich flüstere es dir ins Ohr – direkt und unmissverständlich.", "type": "expressor", "score": 3 },
+            { "text_de": "Ich berühre dich subtil, ein Versprechen auf später.", "type": "initiator", "score": 3 },
+            { "text_de": "Ich halte Blickkontakt, bis du es spürst.", "type": "receiver", "score": 3 },
+            { "text_de": "Ich warte, bis wir allein sind, dann explodiert es.", "type": "intensity_high", "score": 3 },
+            { "text_de": "Ich genieße die Vorfreude – das Warten ist Teil des Spiels.", "type": "intensity_low", "score": 3 }
+          ],
+          "result_pairs": {
+            "expressor_expressor": {
+              "title_de": "Offenes Feuer",
+              "description_de": "Ihr sagt euch alles – laut, klar, direkt. Keine Geheimnisse, keine Umwege. Eure Ehrlichkeit ist eure Superkraft.",
+              "icon": "💬💬",
+              "strength_de": "Bei euch gibt es keine Missverständnisse.",
+              "tip_de": "Lasst auch Raum für das Unausgesprochene – manchmal liegt Magie im Geheimnis."
+            },
+            "expressor_initiator": {
+              "title_de": "Worte & Taten",
+              "description_de": "Du sagst es, dein Partner tut es. Zusammen seid ihr unschlagbar in eurer Klarheit.",
+              "icon": "💬🔥",
+              "strength_de": "Vom Wunsch zur Realität ist es bei euch ein kurzer Weg.",
+              "tip_de": "Genießt auch das Vorspiel aus Worten und Andeutungen."
+            },
+            "expressor_receiver": {
+              "title_de": "Sender & Empfänger",
+              "description_de": "Du sendest klar, dein Partner empfängt vollständig. Eure Kommunikation ist wie ein perfekter Funkkanal.",
+              "icon": "💬🌙",
+              "strength_de": "Was du sagst, kommt an.",
+              "tip_de": "Frage auch mal, was dein Partner senden möchte."
+            },
+            "initiator_receiver": {
+              "title_de": "Impuls & Aufnahme",
+              "description_de": "Deine Berührungen sprechen, dein Partner hört mit dem ganzen Körper.",
+              "icon": "🔥🌙",
+              "strength_de": "Ihr kommuniziert ohne Worte perfekt.",
+              "tip_de": "Manchmal können Worte das Unausgesprochene noch verstärken."
+            },
+            "intensity_high_intensity_high": {
+              "title_de": "Vulkan-Duo",
+              "description_de": "Wenn es bei euch losgeht, dann richtig. Ihr lebt für die Höhepunkte.",
+              "icon": "🌋🌋",
+              "strength_de": "Eure Peaks sind legendär.",
+              "tip_de": "Achtet auf Erholung zwischen den Ausbrüchen."
+            },
+            "intensity_high_intensity_low": {
+              "title_de": "Feuer & Glut",
+              "description_de": "Du liebst die Explosion, dein Partner die beständige Wärme. Zusammen schafft ihr einen Rhythmus aus Höhepunkten und sanften Phasen.",
+              "icon": "🌋🕯️",
+              "strength_de": "Ihr balanciert einander perfekt aus.",
+              "tip_de": "Schätzt beide Arten der Verbindung gleichermaßen."
+            },
+            "intensity_low_intensity_low": {
+              "title_de": "Ewige Glut",
+              "description_de": "Eure Verbindung brennt langsam und stetig. Keine Ausbrüche, aber eine Wärme, die nie endet.",
+              "icon": "🕯️🕯️",
+              "strength_de": "Eure Beständigkeit ist selten und kostbar.",
+              "tip_de": "Gönnt euch manchmal einen bewussten Peak – zur Feier eurer Liebe."
+            },
+            "receiver_receiver": {
+              "title_de": "Stille Tiefe",
+              "description_de": "Ihr empfangt beide. In der Stille zwischen euch passiert mehr als in tausend Worten.",
+              "icon": "🌙🌙",
+              "strength_de": "Eure Verbindung braucht keine Show.",
+              "tip_de": "Versucht manchmal, einen Impuls zu geben – ihr werdet überrascht sein."
+            },
+            "balanced_balanced": {
+              "title_de": "Chamäleons der Liebe",
+              "description_de": "Ihr passt euch an, was der Moment braucht. Mal laut, mal leise, mal körperlich, mal verbal.",
+              "icon": "🎭",
+              "strength_de": "Eure Vielseitigkeit ist eure Stärke.",
+              "tip_de": "Feiert eure Flexibilität!"
+            }
+          }
+        },
+        {
+          "id": "passion_03_intensity",
+          "name_de": "Peaks oder Beständigkeit?",
+          "icon": "🌊",
+          "question_de": "Was macht eure Verbindung am lebendigsten?",
+          "context_de": "Ihr blickt auf eure bisherige Zeit zusammen. Was sind die Momente, die euch am meisten verbinden?",
+          "options": [
+            { "text_de": "Die großen Momente – Urlaube, Überraschungen, unvergessliche Nächte.", "type": "intensity_high", "score": 3 },
+            { "text_de": "Die kleinen Rituale – Morgenkaffee, Einschlafen, Alltagsmagie.", "type": "intensity_low", "score": 3 },
+            { "text_de": "Wenn wir etwas Neues zusammen entdecken.", "type": "explorer", "score": 3 },
+            { "text_de": "Wenn wir etwas Vertrautes noch tiefer machen.", "type": "cultivator", "score": 3 },
+            { "text_de": "Eine Mischung – mal so, mal so.", "type": "balanced", "score": 2 }
+          ],
+          "result_pairs": {
+            "intensity_high_intensity_high": {
+              "title_de": "Peak-Junkies",
+              "description_de": "Ihr lebt für die Höhepunkte! Das kann anstrengend sein, aber eure Erinnerungen sind Goldstücke.",
+              "icon": "⚡⚡",
+              "strength_de": "Langeweile kennt ihr nicht.",
+              "tip_de": "Plant bewusst Erholungsphasen zwischen den Abenteuern."
+            },
+            "intensity_high_intensity_low": {
+              "title_de": "Rhythmus-Meister",
+              "description_de": "Du bringst die Peaks, dein Partner die Konstanz. Zusammen seid ihr wie ein perfekter Song – mit Refrain und Strophe.",
+              "icon": "⚡🕯️",
+              "strength_de": "Ihr ergänzt euch perfekt.",
+              "tip_de": "Schätzt beide Beiträge gleichermaßen."
+            },
+            "intensity_low_intensity_low": {
+              "title_de": "Stetige Flamme",
+              "description_de": "Eure Liebe ist wie ein Kamin – immer warm, immer da, nie aufdringlich.",
+              "icon": "🕯️🕯️",
+              "strength_de": "Eure Beständigkeit ist ein seltenes Geschenk.",
+              "tip_de": "Plant manchmal einen besonderen Peak – es wird euch überraschen."
+            },
+            "explorer_explorer": {
+              "title_de": "Abenteurer-Duo",
+              "description_de": "Stillstand ist für euch Rückschritt. Ihr entdeckt die Welt und euch selbst – immer wieder neu.",
+              "icon": "🧭🧭",
+              "strength_de": "Bei euch wird es nie langweilig.",
+              "tip_de": "Schafft auch Heimat-Momente – Wurzeln geben Kraft zum Fliegen."
+            },
+            "explorer_cultivator": {
+              "title_de": "Entdecker & Gärtner",
+              "description_de": "Du findest Neues, dein Partner macht es zu eurem. Was ihr entdeckt, wird gepflegt und wächst.",
+              "icon": "🧭🌱",
+              "strength_de": "Ihr baut gemeinsam eine reiche Welt.",
+              "tip_de": "Der Gärtner darf auch mal explorieren, der Entdecker auch mal pflegen."
+            },
+            "cultivator_cultivator": {
+              "title_de": "Tiefenwurzler",
+              "description_de": "Ihr macht aus wenig viel. Eure Verbindung wächst in die Tiefe, nicht in die Breite.",
+              "icon": "🌱🌱",
+              "strength_de": "Eure Intimität ist fundiert und echt.",
+              "tip_de": "Wagt manchmal einen Sprung ins Unbekannte – zusammen."
+            },
+            "intensity_high_explorer": {
+              "title_de": "Adrenalin-Sucher",
+              "description_de": "Du willst es intensiv, dein Partner will es neu. Zusammen seid ihr unaufhaltsam.",
+              "icon": "⚡🧭",
+              "strength_de": "Eure Erlebnisse sind einzigartig.",
+              "tip_de": "Achtet auf Landepausen."
+            },
+            "intensity_low_cultivator": {
+              "title_de": "Warme Erde",
+              "description_de": "Beständigkeit und Pflege – ihr seid der Inbegriff von nachhaltigem Glück.",
+              "icon": "🕯️🌱",
+              "strength_de": "Eure Verbindung ist für die Ewigkeit gebaut.",
+              "tip_de": "Gönnt euch manchmal einen Ausbruch – zur Feier."
+            },
+            "balanced_balanced": {
+              "title_de": "Allrounder",
+              "description_de": "Ihr könnt alles – Peaks und Konstanz, Neues und Vertrautes. Das ist selten.",
+              "icon": "🎯",
+              "strength_de": "Eure Flexibilität ist eure Superkraft.",
+              "tip_de": "Genießt eure Vielseitigkeit bewusst."
+            }
+          }
+        },
+        {
+          "id": "passion_04_response",
+          "name_de": "Wie reagierst du auf Energie?",
+          "icon": "✨",
+          "question_de": "Wenn dein Partner Energie mitbringt – was passiert in dir?",
+          "context_de": "Dein Partner kommt mit einer Idee, einer Energie, einem Funken zu dir. Was ist deine natürliche Reaktion?",
+          "options": [
+            { "text_de": "Ich steige sofort ein und bringe meine eigene Energie mit.", "type": "initiator", "score": 3 },
+            { "text_de": "Ich nehme die Energie auf und verstärke sie.", "type": "responder", "score": 3 },
+            { "text_de": "Ich sage, wie sehr mich das bewegt.", "type": "expressor", "score": 3 },
+            { "text_de": "Ich absorbiere es und verarbeite es innerlich.", "type": "receiver", "score": 3 },
+            { "text_de": "Es kommt auf den Moment an – mal so, mal so.", "type": "balanced", "score": 2 }
+          ],
+          "result_pairs": {
+            "initiator_initiator": {
+              "title_de": "Energie-Explosion",
+              "description_de": "Wenn ihr beide reagiert, fliegen Funken! Eure Energie multipliziert sich – achtet darauf, euch nicht zu überhitzen.",
+              "icon": "⚡⚡",
+              "strength_de": "Gemeinsam seid ihr unaufhaltsam.",
+              "tip_de": "Plant Cooldown-Zeiten ein."
+            },
+            "initiator_responder": {
+              "title_de": "Ping-Pong-Meister",
+              "description_de": "Einer gibt, einer verstärkt. Eure Energie-Rallyes sind legendär.",
+              "icon": "⚡✨",
+              "strength_de": "Ihr pusht euch gegenseitig.",
+              "tip_de": "Wechselt manchmal die Rollen."
+            },
+            "responder_responder": {
+              "title_de": "Verstärker-Duo",
+              "description_de": "Ihr beide verstärkt, was der andere bringt. Das kann zu wunderbaren Crescendos führen – braucht aber einen ersten Ton.",
+              "icon": "✨✨",
+              "strength_de": "Wenn ihr einmal in Gang seid, ist es magisch.",
+              "tip_de": "Vereinbart, wer heute den ersten Impuls gibt."
+            },
+            "expressor_receiver": {
+              "title_de": "Echo-Kammer",
+              "description_de": "Du sprichst es aus, dein Partner nimmt es auf. Was gesagt wird, hallt lange nach.",
+              "icon": "💬🌙",
+              "strength_de": "Eure Kommunikation ist tief.",
+              "tip_de": "Der Receiver darf auch mal senden."
+            },
+            "expressor_expressor": {
+              "title_de": "Dialog-Champions",
+              "description_de": "Ihr redet beide – und hört beide. Ein lebendiger Austausch!",
+              "icon": "💬💬",
+              "strength_de": "Bei euch bleibt nichts ungesagt.",
+              "tip_de": "Achtet auf aktives Zuhören."
+            },
+            "receiver_receiver": {
+              "title_de": "Stille Verstehende",
+              "description_de": "Ihr beide nehmt auf. Eure Verbindung funktioniert auch ohne Worte.",
+              "icon": "🌙🌙",
+              "strength_de": "Eure Tiefe ist bemerkenswert.",
+              "tip_de": "Manchmal kann ein Impuls von außen helfen."
+            },
+            "initiator_expressor": {
+              "title_de": "Action-Talk",
+              "description_de": "Einer handelt, einer benennt. Zusammen schafft ihr lebendige Geschichten.",
+              "icon": "⚡💬",
+              "strength_de": "Bei euch wird aus Tun Erzählung.",
+              "tip_de": "Tauscht manchmal die Rollen."
+            },
+            "responder_receiver": {
+              "title_de": "Tiefenverarbeiter",
+              "description_de": "Ihr beide geht in die Tiefe. Was bei euch ankommt, wird gründlich verarbeitet.",
+              "icon": "✨🌙",
+              "strength_de": "Nichts geht verloren bei euch.",
+              "tip_de": "Gebt manchmal schnelles Feedback – nicht alles muss durchdacht werden."
+            },
+            "balanced_balanced": {
+              "title_de": "Anpassungskünstler",
+              "description_de": "Ihr reagiert, wie es der Moment braucht. Das ist eine seltene Fähigkeit.",
+              "icon": "🎭",
+              "strength_de": "Eure Flexibilität ist beeindruckend.",
+              "tip_de": "Feiert eure Vielseitigkeit!"
+            }
+          }
+        },
+        {
+          "id": "passion_05_reception",
+          "name_de": "Wie zeigst du Empfänglichkeit?",
+          "icon": "🌙",
+          "question_de": "Wie signalisierst du, dass du bereit bist für Nähe?",
+          "context_de": "Es ist Abend. Du hast Zeit, Energie, Lust auf Verbindung. Wie lässt du deinen Partner wissen, dass du offen bist?",
+          "options": [
+            { "text_de": "Ich sage es direkt – klar und deutlich.", "type": "expressor", "score": 3 },
+            { "text_de": "Ich schaffe die Atmosphäre – Kerzen, Musik, Nähe.", "type": "cultivator", "score": 3 },
+            { "text_de": "Ich berühre subtil und schaue, wie du reagierst.", "type": "initiator", "score": 3 },
+            { "text_de": "Ich bin einfach da – präsent, offen, still einladend.", "type": "receiver", "score": 3 },
+            { "text_de": "Ich schlage etwas Neues vor – eine Überraschung.", "type": "explorer", "score": 3 }
+          ],
+          "result_pairs": {
+            "expressor_expressor": {
+              "title_de": "Klartext-Paar",
+              "description_de": "Ihr sagt beide, was ihr wollt. Keine Rätsel, keine Missverständnisse.",
+              "icon": "💬💬",
+              "strength_de": "Eure Kommunikation ist kristallklar.",
+              "tip_de": "Lasst auch Raum für non-verbale Magie."
+            },
+            "cultivator_cultivator": {
+              "title_de": "Atmosphären-Künstler",
+              "description_de": "Ihr schafft beide Stimmung. Euer Zuhause ist ein Tempel der Verbindung.",
+              "icon": "🕯️🕯️",
+              "strength_de": "Bei euch stimmt immer die Atmosphäre.",
+              "tip_de": "Manchmal kann Spontanität auch schön sein."
+            },
+            "initiator_receiver": {
+              "title_de": "Signal & Empfang",
+              "description_de": "Du sendest subtile Signale, dein Partner empfängt sie perfekt.",
+              "icon": "🔥🌙",
+              "strength_de": "Eure non-verbale Kommunikation ist fein abgestimmt.",
+              "tip_de": "Sprecht manchmal auch aus, was ihr fühlt."
+            },
+            "explorer_explorer": {
+              "title_de": "Überraschungs-Duo",
+              "description_de": "Ihr überrascht euch gegenseitig! Bei euch ist jeder Abend ein Abenteuer.",
+              "icon": "🧭🧭",
+              "strength_de": "Langeweile kennt ihr nicht.",
+              "tip_de": "Genießt auch die vertrauten Momente."
+            },
+            "explorer_cultivator": {
+              "title_de": "Neuheit & Pflege",
+              "description_de": "Einer bringt Neues, einer macht es zu eurem. Eine perfekte Ergänzung.",
+              "icon": "🧭🕯️",
+              "strength_de": "Ihr baut eine reiche, wachsende Welt.",
+              "tip_de": "Beide Beiträge sind gleich wertvoll."
+            },
+            "expressor_receiver": {
+              "title_de": "Wort & Aufnahme",
+              "description_de": "Du sagst es, dein Partner nimmt es auf. Klare Kommunikation trifft tiefes Verstehen.",
+              "icon": "💬🌙",
+              "strength_de": "Was du sagst, kommt an.",
+              "tip_de": "Frage auch, was dein Partner braucht."
+            },
+            "initiator_cultivator": {
+              "title_de": "Impuls & Ritual",
+              "description_de": "Du startest, dein Partner schafft den Rahmen. Zusammen entsteht etwas Magisches.",
+              "icon": "🔥🕯️",
+              "strength_de": "Ihr verbindet Spontanität mit Tiefe.",
+              "tip_de": "Lasst beide Stile gleichwertig sein."
+            },
+            "receiver_receiver": {
+              "title_de": "Stille Offenheit",
+              "description_de": "Ihr seid beide einfach da – präsent und offen. In der Stille zwischen euch liegt alles.",
+              "icon": "🌙🌙",
+              "strength_de": "Eure Verbindung braucht keine Worte.",
+              "tip_de": "Manchmal kann ein kleines Signal den Anfang machen."
+            },
+            "balanced_balanced": {
+              "title_de": "Situationskünstler",
+              "description_de": "Ihr macht, was der Moment braucht. Mal direkt, mal atmosphärisch, mal überraschend.",
+              "icon": "🎭",
+              "strength_de": "Eure Vielseitigkeit ist eure Stärke.",
+              "tip_de": "Genießt eure Flexibilität bewusst."
+            }
+          }
+        }
+      ]
+    },
+    
+    "stability": {
+      "name_de": "Stabilität",
+      "name_en": "Stability",
+      "buff_name": "Fels in der Brandung",
+      "buff_description": "Euch kann nichts erschüttern.",
+      "quiz_count": 5,
+      "quizzes": [
+        {
+          "id": "stability_01_anchor",
+          "name_de": "Wer gibt Sicherheit?",
+          "icon": "⚓",
+          "question_de": "Wenn es in eurem Leben stürmt – wer ist euer Anker?",
+          "context_de": "Das Leben hat gerade Wellen. Stress, Unsicherheit, Veränderung. Wie findet ihr gemeinsam Halt?",
+          "options": [
+            { "text_de": "Ich bin der Fels – ruhig, beständig, immer da.", "type": "anchor", "score": 3 },
+            { "text_de": "Ich analysiere die Situation und finde Lösungen.", "type": "architect", "score": 3 },
+            { "text_de": "Ich halte an unseren Ritualen fest – sie geben Struktur.", "type": "routine_keeper", "score": 3 },
+            { "text_de": "Ich rede darüber und verarbeite es mit dir zusammen.", "type": "communicator", "score": 3 },
+            { "text_de": "Wir wechseln – mal gibt einer Halt, mal der andere.", "type": "balanced", "score": 2 }
+          ],
+          "result_pairs": {
+            "anchor_anchor": {
+              "title_de": "Doppel-Fels",
+              "description_de": "Ihr beide gebt Ruhe. Euer Zuhause ist ein Hafen der Beständigkeit – manchmal braucht es aber jemanden, der auch mal rüttelt.",
+              "icon": "⚓⚓",
+              "strength_de": "Euch kann nichts erschüttern.",
+              "tip_de": "Achtet darauf, dass Ruhe nicht zu Stillstand wird."
+            },
+            "anchor_architect": {
+              "title_de": "Ruhe & Strategie",
+              "description_de": "Du gibst emotionale Stabilität, dein Partner findet praktische Lösungen. Zusammen seid ihr unschlagbar.",
+              "icon": "⚓📐",
+              "strength_de": "Ihr kombiniert Herz und Kopf perfekt.",
+              "tip_de": "Würdigt beide Beiträge – sie sind gleich wichtig."
+            },
+            "anchor_routine_keeper": {
+              "title_de": "Fels & Ritual",
+              "description_de": "Emotionale Ruhe trifft strukturierte Gewohnheit. Eure Beziehung ist wie ein gut gepflegter Garten.",
+              "icon": "⚓📅",
+              "strength_de": "Eure Stabilität ist fundiert.",
+              "tip_de": "Lasst auch Raum für Spontanität."
+            },
+            "architect_architect": {
+              "title_de": "Strategie-Team",
+              "description_de": "Ihr plant und löst gemeinsam. Keine Herausforderung ist zu groß für euch.",
+              "icon": "📐📐",
+              "strength_de": "Eure Problemlösung ist legendär.",
+              "tip_de": "Manchmal ist es okay, auch mal keine Lösung zu brauchen."
+            },
+            "architect_routine_keeper": {
+              "title_de": "Plan & Umsetzung",
+              "description_de": "Einer plant, einer setzt es in Rituale um. Eure Effizienz ist beeindruckend.",
+              "icon": "📐📅",
+              "strength_de": "Ihr bringt Ideen in den Alltag.",
+              "tip_de": "Nicht alles muss optimiert werden."
+            },
+            "routine_keeper_routine_keeper": {
+              "title_de": "Ritual-Meister",
+              "description_de": "Eure Rituale sind euer Fundament. Jeder Tag hat seinen Rhythmus.",
+              "icon": "📅📅",
+              "strength_de": "Eure Beständigkeit ist ein seltenes Geschenk.",
+              "tip_de": "Brecht manchmal bewusst die Routine – es kann befreiend sein."
+            },
+            "communicator_communicator": {
+              "title_de": "Talk-Team",
+              "description_de": "Ihr redet alles durch. Nichts bleibt unausgesprochen.",
+              "icon": "💬💬",
+              "strength_de": "Eure Kommunikation ist eure Superkraft.",
+              "tip_de": "Manchmal ist schweigendes Zusammensein auch schön."
+            },
+            "anchor_communicator": {
+              "title_de": "Ruhe & Worte",
+              "description_de": "Einer gibt stille Stabilität, einer verarbeitet verbal. Zusammen findet ihr immer einen Weg.",
+              "icon": "⚓💬",
+              "strength_de": "Ihr balanciert Tun und Reden perfekt.",
+              "tip_de": "Beide Wege haben ihren Wert."
+            },
+            "balanced_balanced": {
+              "title_de": "Allrounder",
+              "description_de": "Ihr wechselt, was ihr braucht. Mal Anker, mal Architekt, mal Kommunikator.",
+              "icon": "🎯",
+              "strength_de": "Eure Flexibilität ist eure Stärke.",
+              "tip_de": "Genießt eure Vielseitigkeit!"
+            }
+          }
+        },
+        {
+          "id": "stability_02_architect",
+          "name_de": "Wer plant den Alltag?",
+          "icon": "📐",
+          "question_de": "Wie organisiert ihr euren gemeinsamen Alltag?",
+          "context_de": "Der Kühlschrank muss gefüllt werden, Termine koordiniert, der Haushalt gemanagt. Wer übernimmt welche Rolle?",
+          "options": [
+            { "text_de": "Ich plane gerne – Listen, Kalender, Struktur sind mein Ding.", "type": "architect", "score": 3 },
+            { "text_de": "Ich setze um, was wir gemeinsam beschließen.", "type": "executor", "score": 3 },
+            { "text_de": "Ich sorge dafür, dass wir es uns dabei gemütlich machen.", "type": "nester", "score": 3 },
+            { "text_de": "Ich achte darauf, dass wir uns nicht überlasten.", "type": "guardian", "score": 3 },
+            { "text_de": "Wir machen es spontan – was anfällt, wird erledigt.", "type": "spontaneous", "score": 3 }
+          ],
+          "result_pairs": {
+            "architect_architect": {
+              "title_de": "Planungs-Power",
+              "description_de": "Ihr beide plant gerne! Das kann super effizient sein – achtet darauf, euch nicht gegenseitig zu übersteuern.",
+              "icon": "📐📐",
+              "strength_de": "Eure Organisation ist makellos.",
+              "tip_de": "Lasst auch Raum für Chaos und Spontanität."
+            },
+            "architect_executor": {
+              "title_de": "Strategie & Action",
+              "description_de": "Einer denkt, einer macht. Eine klassische, effektive Kombination.",
+              "icon": "📐🔨",
+              "strength_de": "Vom Plan zur Realität ist es bei euch ein kurzer Weg.",
+              "tip_de": "Der Executor darf auch mal planen, der Architekt auch mal machen."
+            },
+            "architect_nester": {
+              "title_de": "Struktur & Geborgenheit",
+              "description_de": "Du planst, dein Partner macht es gemütlich. Euer Zuhause ist organisiert UND warm.",
+              "icon": "📐🏠",
+              "strength_de": "Ihr verbindet Effizienz mit Wohlgefühl.",
+              "tip_de": "Beide Beiträge sind gleich wichtig."
+            },
+            "executor_executor": {
+              "title_de": "Macher-Duo",
+              "description_de": "Ihr beide macht! Achtet darauf, dass jemand auch mal den Überblick behält.",
+              "icon": "🔨🔨",
+              "strength_de": "Bei euch wird nichts aufgeschoben.",
+              "tip_de": "Plant manchmal bewusst Pausen ein."
+            },
+            "nester_nester": {
+              "title_de": "Gemütlichkeits-Profis",
+              "description_de": "Euer Zuhause ist ein Wohlfühlort. Praktisches ist weniger euer Ding – aber das ist okay!",
+              "icon": "🏠🏠",
+              "strength_de": "Bei euch fühlt sich jeder willkommen.",
+              "tip_de": "Teilt praktische Aufgaben gerecht auf."
+            },
+            "guardian_guardian": {
+              "title_de": "Grenzen-Hüter",
+              "description_de": "Ihr achtet beide auf eure Kapazitäten. Stress hat bei euch keine Chance.",
+              "icon": "🛡️🛡️",
+              "strength_de": "Ihr schützt eure Energie gut.",
+              "tip_de": "Manchmal darf man sich auch mal fordern."
+            },
+            "spontaneous_spontaneous": {
+              "title_de": "Flow-Meister",
+              "description_de": "Ihr lebt im Moment! Das ist befreiend – achtet darauf, dass nichts Wichtiges durchrutscht.",
+              "icon": "🌊🌊",
+              "strength_de": "Eure Flexibilität ist beneidenswert.",
+              "tip_de": "Ein paar Basisstrukturen können helfen."
+            },
+            "architect_guardian": {
+              "title_de": "Plan & Balance",
+              "description_de": "Du planst, dein Partner achtet auf eure Grenzen. Zusammen seid ihr effizient ohne auszubrennen.",
+              "icon": "📐🛡️",
+              "strength_de": "Ihr seid produktiv UND nachhaltig.",
+              "tip_de": "Hört aufeinander – beide Stimmen sind wichtig."
+            },
+            "balanced_balanced": {
+              "title_de": "Alleskönner",
+              "description_de": "Ihr macht, was gerade nötig ist. Mal planen, mal machen, mal ausruhen.",
+              "icon": "🎯",
+              "strength_de": "Eure Flexibilität ist eure Stärke.",
+              "tip_de": "Feiert eure Vielseitigkeit!"
+            }
+          }
+        },
+        {
+          "id": "stability_03_routine",
+          "name_de": "Wie wichtig sind Rituale?",
+          "icon": "📅",
+          "question_de": "Welche Rolle spielen gemeinsame Rituale in eurem Leben?",
+          "context_de": "Morgenkaffee, Sonntagsfrühstück, Gute-Nacht-Küsse – kleine und große Rituale, die euch verbinden.",
+          "options": [
+            { "text_de": "Sehr wichtig – sie sind das Fundament unserer Beziehung.", "type": "ritual_lover", "score": 3 },
+            { "text_de": "Schön, aber nicht zwingend – Flexibilität ist mir wichtiger.", "type": "flexible", "score": 3 },
+            { "text_de": "Ich erfinde gerne neue Rituale – Abwechslung macht es spannend.", "type": "ritual_creator", "score": 3 },
+            { "text_de": "Ich brauche wenige, aber bedeutungsvolle Rituale.", "type": "selective", "score": 3 },
+            { "text_de": "Rituale ergeben sich bei uns von selbst.", "type": "organic", "score": 3 }
+          ],
+          "result_pairs": {
+            "ritual_lover_ritual_lover": {
+              "title_de": "Ritual-Seelen",
+              "description_de": "Rituale sind euer Herzschlag. Eure Verbindung ist reich an Traditionen.",
+              "icon": "📅❤️",
+              "strength_de": "Eure Beziehung hat ein starkes Fundament.",
+              "tip_de": "Lasst auch Raum für spontane Momente."
+            },
+            "ritual_lover_flexible": {
+              "title_de": "Struktur & Freiheit",
+              "description_de": "Einer liebt Rituale, einer braucht Flexibilität. Zusammen findet ihr die perfekte Balance.",
+              "icon": "📅🌊",
+              "strength_de": "Ihr ergänzt euch ideal.",
+              "tip_de": "Respektiert beide Bedürfnisse gleichermaßen."
+            },
+            "ritual_creator_ritual_creator": {
+              "title_de": "Traditions-Erfinder",
+              "description_de": "Ihr erfindet ständig neue Rituale! Eure Beziehung ist ein lebendiges Kunstwerk.",
+              "icon": "✨✨",
+              "strength_de": "Bei euch wird es nie langweilig.",
+              "tip_de": "Bewahrt auch einige Klassiker."
+            },
+            "selective_selective": {
+              "title_de": "Qualitäts-Fokus",
+              "description_de": "Wenige, aber bedeutungsvolle Rituale – ihr wisst, was zählt.",
+              "icon": "💎💎",
+              "strength_de": "Eure Rituale haben echte Tiefe.",
+              "tip_de": "Manchmal kann auch ein neues Ritual Freude bringen."
+            },
+            "organic_organic": {
+              "title_de": "Natürlicher Flow",
+              "description_de": "Eure Rituale entstehen von selbst. Ihr zwingt nichts, alles fließt.",
+              "icon": "🌿🌿",
+              "strength_de": "Eure Verbindung ist authentisch.",
+              "tip_de": "Manchmal kann ein bewusstes Ritual schön sein."
+            },
+            "flexible_flexible": {
+              "title_de": "Freigeister",
+              "description_de": "Ihr braucht keine festen Strukturen. Eure Verbindung lebt von Spontanität.",
+              "icon": "🌊🌊",
+              "strength_de": "Eure Flexibilität ist eure Stärke.",
+              "tip_de": "Ein paar Anker-Rituale können Geborgenheit geben."
+            },
+            "ritual_lover_ritual_creator": {
+              "title_de": "Tradition & Innovation",
+              "description_de": "Einer bewahrt, einer erneuert. Zusammen habt ihr eine lebendige Tradition.",
+              "icon": "📅✨",
+              "strength_de": "Eure Rituale entwickeln sich weiter.",
+              "tip_de": "Schätzt beide Beiträge gleich."
+            },
+            "selective_organic": {
+              "title_de": "Achtsame Natürlichkeit",
+              "description_de": "Ihr lasst entstehen, was entstehen will – und bewahrt, was wichtig ist.",
+              "icon": "💎🌿",
+              "strength_de": "Eure Rituale sind echt und bedeutsam.",
+              "tip_de": "Vertraut eurem Instinkt."
+            },
+            "balanced_balanced": {
+              "title_de": "Ritual-Chamäleons",
+              "description_de": "Ihr passt euch an, was ihr gerade braucht. Mal mehr Struktur, mal mehr Freiheit.",
+              "icon": "🎭",
+              "strength_de": "Eure Flexibilität ist beeindruckend.",
+              "tip_de": "Genießt eure Anpassungsfähigkeit!"
+            }
+          }
+        },
+        {
+          "id": "stability_04_conflict",
+          "name_de": "Wie löst ihr Spannungen?",
+          "icon": "🌈",
+          "question_de": "Wenn es zwischen euch knirscht – wie findet ihr zurück?",
+          "context_de": "Jede Beziehung kennt Reibung. Das ist normal und kann euch stärker machen. Wie geht ihr damit um?",
+          "options": [
+            { "text_de": "Ich spreche es sofort an – Klarheit ist mir wichtig.", "type": "direct", "score": 3 },
+            { "text_de": "Ich brauche erst Zeit zum Nachdenken, dann rede ich.", "type": "reflective", "score": 3 },
+            { "text_de": "Ich versuche, die Perspektive des anderen zu verstehen.", "type": "empathic", "score": 3 },
+            { "text_de": "Ich schlage praktische Lösungen vor.", "type": "solution_oriented", "score": 3 },
+            { "text_de": "Ich brauche körperliche Nähe, um wieder zu verbinden.", "type": "physical", "score": 3 }
+          ],
+          "result_pairs": {
+            "direct_direct": {
+              "title_de": "Klartext-Paar",
+              "description_de": "Ihr sprecht alles sofort aus. Konflikte werden schnell gelöst – achtet auf den Ton.",
+              "icon": "⚡⚡",
+              "strength_de": "Bei euch schwelt nichts.",
+              "tip_de": "Gebt euch gegenseitig Raum zum Verarbeiten."
+            },
+            "direct_reflective": {
+              "title_de": "Impuls & Tiefe",
+              "description_de": "Einer spricht sofort, einer denkt nach. Zusammen deckt ihr alle Ebenen ab.",
+              "icon": "⚡🔮",
+              "strength_de": "Ihr seht Konflikte von allen Seiten.",
+              "tip_de": "Respektiert beide Tempos."
+            },
+            "reflective_reflective": {
+              "title_de": "Tiefendenker",
+              "description_de": "Ihr beide verarbeitet erst. Eure Gespräche sind durchdacht – achtet darauf, dass nichts zu lange schwelt.",
+              "icon": "🔮🔮",
+              "strength_de": "Eure Konfliktlösung ist gründlich.",
+              "tip_de": "Setzt euch feste Zeiten zum Reden."
+            },
+            "empathic_empathic": {
+              "title_de": "Empathie-Team",
+              "description_de": "Ihr verstehtet beide die andere Seite. Echte Konflikte sind bei euch selten.",
+              "icon": "💕💕",
+              "strength_de": "Eure Verbindung ist tief.",
+              "tip_de": "Achtet auch auf eure eigenen Bedürfnisse."
+            },
+            "solution_oriented_solution_oriented": {
+              "title_de": "Lösungs-Profis",
+              "description_de": "Ihr beide sucht praktische Wege. Probleme werden bei euch zu Projekten.",
+              "icon": "🔧🔧",
+              "strength_de": "Ihr bleibt nie im Problem stecken.",
+              "tip_de": "Manchmal ist Fühlen wichtiger als Lösen."
+            },
+            "physical_physical": {
+              "title_de": "Körper-Sprache",
+              "description_de": "Nähe heilt bei euch. Eine Umarmung sagt mehr als tausend Worte.",
+              "icon": "🤗🤗",
+              "strength_de": "Eure körperliche Verbindung ist stark.",
+              "tip_de": "Manche Dinge müssen auch ausgesprochen werden."
+            },
+            "direct_empathic": {
+              "title_de": "Klarheit & Verständnis",
+              "description_de": "Einer spricht direkt, einer hört empathisch. Eine kraftvolle Kombination.",
+              "icon": "⚡💕",
+              "strength_de": "Ihr werdet gehört UND verstanden.",
+              "tip_de": "Wechselt manchmal die Rollen."
+            },
+            "reflective_solution_oriented": {
+              "title_de": "Denken & Handeln",
+              "description_de": "Einer denkt nach, einer findet Lösungen. Zusammen seid ihr gründlich und effektiv.",
+              "icon": "🔮🔧",
+              "strength_de": "Eure Lösungen sind durchdacht.",
+              "tip_de": "Feiert auch kleine Fortschritte."
+            },
+            "balanced_balanced": {
+              "title_de": "Konflikt-Chamäleons",
+              "description_de": "Ihr macht, was die Situation braucht. Mal direkt, mal reflektiert, mal praktisch.",
+              "icon": "🌈",
+              "strength_de": "Eure Flexibilität ist eure Stärke.",
+              "tip_de": "Vertraut eurem gemeinsamen Instinkt!"
+            }
+          }
+        },
+        {
+          "id": "stability_05_decisions",
+          "name_de": "Wer trifft Entscheidungen?",
+          "icon": "⚖️",
+          "question_de": "Wenn eine wichtige Entscheidung ansteht – wie geht ihr vor?",
+          "context_de": "Eine große Anschaffung, ein Umzug, eine Lebensveränderung. Wie kommt ihr zu Entscheidungen?",
+          "options": [
+            { "text_de": "Ich recherchiere, analysiere und präsentiere Optionen.", "type": "analyst", "score": 3 },
+            { "text_de": "Ich höre auf mein Bauchgefühl und entscheide schnell.", "type": "intuitive", "score": 3 },
+            { "text_de": "Ich hole alle Meinungen ein und suche Konsens.", "type": "consensus", "score": 3 },
+            { "text_de": "Ich folge gerne der Expertise meines Partners.", "type": "follower", "score": 3 },
+            { "text_de": "Wir wechseln uns ab – mal entscheidest du, mal ich.", "type": "rotating", "score": 3 }
+          ],
+          "result_pairs": {
+            "analyst_analyst": {
+              "title_de": "Daten-Duo",
+              "description_de": "Ihr beide analysiert gründlich. Eure Entscheidungen sind fundiert – achtet auf Entscheidungslähmung.",
+              "icon": "📊📊",
+              "strength_de": "Eure Entscheidungen sind wasserdicht.",
+              "tip_de": "Setzt euch Deadlines."
+            },
+            "analyst_intuitive": {
+              "title_de": "Kopf & Bauch",
+              "description_de": "Einer analysiert, einer spürt. Zusammen habt ihr alle Informationen.",
+              "icon": "📊💫",
+              "strength_de": "Eure Entscheidungen sind vollständig.",
+              "tip_de": "Vertraut beiden Methoden gleichermaßen."
+            },
+            "intuitive_intuitive": {
+              "title_de": "Bauchgefühl-Team",
+              "description_de": "Ihr entscheidet schnell und aus dem Gefühl. Eure Spontanität ist eure Stärke.",
+              "icon": "💫💫",
+              "strength_de": "Ihr seid entscheidungsfreudig.",
+              "tip_de": "Bei großen Entscheidungen kann etwas Recherche helfen."
+            },
+            "consensus_consensus": {
+              "title_de": "Konsens-Meister",
+              "description_de": "Ihr findet immer einen gemeinsamen Weg. Echte Teamarbeit!",
+              "icon": "🤝🤝",
+              "strength_de": "Eure Entscheidungen tragen beide Handschriften.",
+              "tip_de": "Manchmal ist es okay, wenn einer entscheidet."
+            },
+            "follower_follower": {
+              "title_de": "Gegenseitiges Vertrauen",
+              "description_de": "Ihr vertraut beide dem anderen. Achtet darauf, dass jemand die Führung übernimmt.",
+              "icon": "🙏🙏",
+              "strength_de": "Euer Vertrauen ineinander ist groß.",
+              "tip_de": "Definiert Bereiche, in denen jeder führt."
+            },
+            "rotating_rotating": {
+              "title_de": "Wechsel-Kapitäne",
+              "description_de": "Ihr wechselt euch ab. Fair und ausgewogen!",
+              "icon": "🔄🔄",
+              "strength_de": "Keiner dominiert, beide führen.",
+              "tip_de": "Genießt euer ausgewogenes System!"
+            },
+            "analyst_consensus": {
+              "title_de": "Daten & Dialog",
+              "description_de": "Einer bringt Fakten, einer sucht Konsens. Fundierte Entscheidungen mit beider Zustimmung.",
+              "icon": "📊🤝",
+              "strength_de": "Eure Entscheidungen sind klug und getragen.",
+              "tip_de": "Balanciert Gründlichkeit und Einigung."
+            },
+            "intuitive_follower": {
+              "title_de": "Impuls & Vertrauen",
+              "description_de": "Einer spürt, einer folgt. Eine klare, schnelle Dynamik.",
+              "icon": "💫🙏",
+              "strength_de": "Ihr seid schnell und einig.",
+              "tip_de": "Der Follower darf auch mal führen."
+            },
+            "balanced_balanced": {
+              "title_de": "Entscheidungs-Allrounder",
+              "description_de": "Ihr macht, was die Situation braucht. Mal Analyse, mal Bauch, mal Konsens.",
+              "icon": "⚖️",
+              "strength_de": "Eure Flexibilität ist eure Stärke.",
+              "tip_de": "Feiert eure Vielseitigkeit!"
+            }
+          }
+        }
+      ]
+    },
+    
+    "future": {
+      "name_de": "Zukunft",
+      "name_en": "Future",
+      "buff_name": "Future-Forward",
+      "buff_description": "Ihr blickt gemeinsam nach vorn.",
+      "quiz_count": 5,
+      "quizzes": [
+        {
+          "id": "future_01_vision",
+          "name_de": "Wer träumt von der Zukunft?",
+          "icon": "🔮",
+          "question_de": "Wenn ihr an eure gemeinsame Zukunft denkt – wer malt die großen Bilder?",
+          "context_de": "Die Zukunft liegt offen vor euch. Träume, Hoffnungen, Möglichkeiten. Wie nähert ihr euch dem Unbekannten?",
+          "options": [
+            { "text_de": "Ich träume groß – ich male uns Bilder von dem, was sein könnte.", "type": "visionary", "score": 3 },
+            { "text_de": "Ich denke in konkreten Schritten – Träume sind schön, aber Pläne bringen uns weiter.", "type": "builder", "score": 3 },
+            { "text_de": "Ich lebe im Jetzt – die Zukunft kommt von allein.", "type": "present_focused", "score": 3 },
+            { "text_de": "Ich plane Sicherheit – die Basis muss stimmen, bevor wir träumen.", "type": "security_focused", "score": 3 },
+            { "text_de": "Wir träumen gemeinsam – im Gespräch entstehen unsere Visionen.", "type": "co_creator", "score": 3 }
+          ],
+          "result_pairs": {
+            "visionary_visionary": {
+              "title_de": "Doppel-Träumer",
+              "description_de": "Ihr träumt beide groß! Eure Visionen sind inspirierend – achtet darauf, auch umzusetzen.",
+              "icon": "🔮🔮",
+              "strength_de": "Eure gemeinsamen Träume sind kraftvoll.",
+              "tip_de": "Plant auch konkrete erste Schritte."
+            },
+            "visionary_builder": {
+              "title_de": "Traum & Tat",
+              "description_de": "Einer träumt, einer baut. Die perfekte Kombination für große Ziele.",
+              "icon": "🔮🔨",
+              "strength_de": "Eure Träume werden Realität.",
+              "tip_de": "Würdigt beide Beiträge gleichermaßen."
+            },
+            "builder_builder": {
+              "title_de": "Macher-Duo",
+              "description_de": "Ihr setzt beide um. Was ihr anpackt, wird fertig.",
+              "icon": "🔨🔨",
+              "strength_de": "Eure Umsetzungskraft ist enorm.",
+              "tip_de": "Gönnt euch manchmal Zeit zum Träumen."
+            },
+            "present_focused_present_focused": {
+              "title_de": "Im-Jetzt-Meister",
+              "description_de": "Ihr lebt im Moment. Das ist eine Gabe – aber plant auch für später.",
+              "icon": "☀️☀️",
+              "strength_de": "Ihr genießt das Leben.",
+              "tip_de": "Ein bisschen Zukunftsplanung kann Sicherheit geben."
+            },
+            "security_focused_security_focused": {
+              "title_de": "Sicherheits-Team",
+              "description_de": "Ihr beide plant die Basis. Eure Zukunft steht auf solidem Fundament.",
+              "icon": "🏰🏰",
+              "strength_de": "Ihr seid abgesichert.",
+              "tip_de": "Lasst auch Raum für Träume und Abenteuer."
+            },
+            "visionary_security_focused": {
+              "title_de": "Traum & Fundament",
+              "description_de": "Einer träumt hoch, einer baut die Basis. Zusammen seid ihr unschlagbar.",
+              "icon": "🔮🏰",
+              "strength_de": "Eure Visionen haben Bodenhaftung.",
+              "tip_de": "Beide Perspektiven sind gleich wichtig."
+            },
+            "co_creator_co_creator": {
+              "title_de": "Gemeinsame Vision",
+              "description_de": "Eure Träume entstehen im Dialog. Was ihr zusammen erschafft, trägt beider Handschrift.",
+              "icon": "✨✨",
+              "strength_de": "Eure Zukunft gehört euch beiden.",
+              "tip_de": "Genießt eure kreative Partnerschaft!"
+            },
+            "builder_present_focused": {
+              "title_de": "Aktion & Augenblick",
+              "description_de": "Einer plant, einer genießt. Zusammen seid ihr effektiv und glücklich.",
+              "icon": "🔨☀️",
+              "strength_de": "Ihr balanciert Tun und Sein.",
+              "tip_de": "Lernt voneinander."
+            },
+            "balanced_balanced": {
+              "title_de": "Zukunfts-Chamäleons",
+              "description_de": "Ihr macht, was der Moment braucht. Mal träumen, mal bauen, mal genießen.",
+              "icon": "🎯",
+              "strength_de": "Eure Flexibilität ist eure Stärke.",
+              "tip_de": "Feiert eure Vielseitigkeit!"
+            }
+          }
+        },
+        {
+          "id": "future_02_building",
+          "name_de": "Wer setzt Pläne um?",
+          "icon": "🔨",
+          "question_de": "Wenn ihr ein gemeinsames Ziel habt – wer macht den ersten Schritt?",
+          "context_de": "Ein Traum wurde geboren. Jetzt geht es ans Umsetzen. Wie packt ihr es an?",
+          "options": [
+            { "text_de": "Ich lege sofort los – Learning by Doing!", "type": "action_first", "score": 3 },
+            { "text_de": "Ich erstelle einen Plan und arbeite ihn ab.", "type": "systematic", "score": 3 },
+            { "text_de": "Ich recherchiere erst gründlich, dann starte ich.", "type": "researcher", "score": 3 },
+            { "text_de": "Ich warte auf den richtigen Moment.", "type": "opportunist", "score": 3 },
+            { "text_de": "Wir entscheiden gemeinsam den ersten Schritt.", "type": "collaborative", "score": 3 }
+          ],
+          "result_pairs": {
+            "action_first_action_first": {
+              "title_de": "Doppel-Starter",
+              "description_de": "Ihr legt beide sofort los! Achtet darauf, in die gleiche Richtung zu laufen.",
+              "icon": "🚀🚀",
+              "strength_de": "Euer Tempo ist unschlagbar.",
+              "tip_de": "Koordiniert euch kurz vor dem Start."
+            },
+            "action_first_systematic": {
+              "title_de": "Sprint & Marathon",
+              "description_de": "Einer startet, einer plant. Zusammen seid ihr schnell UND nachhaltig.",
+              "icon": "🚀📋",
+              "strength_de": "Ihr seid effektiv auf allen Ebenen.",
+              "tip_de": "Würdigt beide Stile."
+            },
+            "systematic_systematic": {
+              "title_de": "Plan-Profis",
+              "description_de": "Ihr plant beide gründlich. Eure Projekte sind durchdacht – achtet auf Überplanung.",
+              "icon": "📋📋",
+              "strength_de": "Eure Pläne sind wasserdicht.",
+              "tip_de": "Manchmal ist Starten wichtiger als perfekt Planen."
+            },
+            "researcher_researcher": {
+              "title_de": "Wissens-Sammler",
+              "description_de": "Ihr recherchiert beide ausgiebig. Eure Entscheidungen sind fundiert – irgendwann muss es aber losgehen!",
+              "icon": "📚📚",
+              "strength_de": "Ihr seid bestens informiert.",
+              "tip_de": "Setzt euch Deadlines fürs Starten."
+            },
+            "opportunist_opportunist": {
+              "title_de": "Moment-Surfer",
+              "description_de": "Ihr wartet beide auf den richtigen Moment. Das kann klug sein – oder zur Verzögerung führen.",
+              "icon": "🌊🌊",
+              "strength_de": "Ihr erkennt gute Gelegenheiten.",
+              "tip_de": "Manchmal muss man den Moment selbst erschaffen."
+            },
+            "collaborative_collaborative": {
+              "title_de": "Team-Starter",
+              "description_de": "Ihr startet immer gemeinsam. Echte Partnerschaft von Anfang an!",
+              "icon": "🤝🤝",
+              "strength_de": "Eure Projekte tragen beider Handschrift.",
+              "tip_de": "Genießt eure Teamarbeit!"
+            },
+            "action_first_researcher": {
+              "title_de": "Testen & Lernen",
+              "description_de": "Einer probiert, einer recherchiert. Zusammen lernt ihr am schnellsten.",
+              "icon": "🚀📚",
+              "strength_de": "Ihr kombiniert Praxis und Theorie.",
+              "tip_de": "Tauscht manchmal die Rollen."
+            },
+            "systematic_opportunist": {
+              "title_de": "Plan & Timing",
+              "description_de": "Einer plant, einer wartet auf den Moment. Zusammen startet ihr vorbereitet UND zur richtigen Zeit.",
+              "icon": "📋🌊",
+              "strength_de": "Eure Projekte starten optimal.",
+              "tip_de": "Vertraut auf beider Instinkte."
+            },
+            "balanced_balanced": {
+              "title_de": "Starter-Chamäleons",
+              "description_de": "Ihr macht, was das Projekt braucht. Mal schnell, mal geplant, mal gemeinsam.",
+              "icon": "🎯",
+              "strength_de": "Eure Flexibilität ist eure Stärke.",
+              "tip_de": "Feiert eure Anpassungsfähigkeit!"
+            }
+          }
+        },
+        {
+          "id": "future_03_ambition",
+          "name_de": "Wie hoch sind eure Ziele?",
+          "icon": "🎯",
+          "question_de": "Wenn ihr an gemeinsame Ziele denkt – wie groß dürfen sie sein?",
+          "context_de": "Ziele können nah oder fern sein, bescheiden oder ambitioniert. Was passt zu euch?",
+          "options": [
+            { "text_de": "Je größer, desto besser – wir können alles schaffen!", "type": "high_ambition", "score": 3 },
+            { "text_de": "Realistische Ziele, die wir auch erreichen können.", "type": "realistic", "score": 3 },
+            { "text_de": "Kleine Schritte – jeder Fortschritt zählt.", "type": "incremental", "score": 3 },
+            { "text_de": "Ich bin zufrieden, wie es ist – Ziele setzen mich unter Druck.", "type": "content", "score": 3 },
+            { "text_de": "Wir finden gemeinsam die richtige Größe.", "type": "adaptive", "score": 3 }
+          ],
+          "result_pairs": {
+            "high_ambition_high_ambition": {
+              "title_de": "Himmelsstürmer",
+              "description_de": "Ihr beide zielt hoch! Eure Energie ist ansteckend – achtet auf realistische Etappen.",
+              "icon": "🚀🚀",
+              "strength_de": "Gemeinsam bewegt ihr Berge.",
+              "tip_de": "Feiert auch kleine Erfolge."
+            },
+            "high_ambition_realistic": {
+              "title_de": "Traum & Realität",
+              "description_de": "Einer träumt groß, einer hält den Boden. Die perfekte Balance!",
+              "icon": "🚀⚓",
+              "strength_de": "Eure Ziele sind ambitioniert UND erreichbar.",
+              "tip_de": "Beide Perspektiven sind wertvoll."
+            },
+            "realistic_realistic": {
+              "title_de": "Bodenhaftung-Team",
+              "description_de": "Ihr setzt realistische Ziele und erreicht sie. Kontinuierlicher Fortschritt!",
+              "icon": "⚓⚓",
+              "strength_de": "Ihr seid zuverlässig erfolgreich.",
+              "tip_de": "Gönnt euch manchmal einen großen Traum."
+            },
+            "incremental_incremental": {
+              "title_de": "Schritt-für-Schritt",
+              "description_de": "Kleine Schritte, große Reise. Ihr wisst, dass Marathons gewonnen werden.",
+              "icon": "👣👣",
+              "strength_de": "Eure Ausdauer ist bewundernswert.",
+              "tip_de": "Manchmal kann ein Sprint auch gut tun."
+            },
+            "content_content": {
+              "title_de": "Zufriedenheits-Meister",
+              "description_de": "Ihr seid glücklich, wie es ist. Das ist eine Gabe!",
+              "icon": "☀️☀️",
+              "strength_de": "Euer Glück ist nicht an Ziele gebunden.",
+              "tip_de": "Ein gemeinsames Projekt kann auch Spaß machen."
+            },
+            "adaptive_adaptive": {
+              "title_de": "Flexible Zielsetzung",
+              "description_de": "Ihr findet gemeinsam, was passt. Eure Ziele wachsen mit euch.",
+              "icon": "🎯🎯",
+              "strength_de": "Eure Ziele passen immer zu eurer Situation.",
+              "tip_de": "Vertraut eurem gemeinsamen Instinkt!"
+            },
+            "high_ambition_content": {
+              "title_de": "Antrieb & Genügsamkeit",
+              "description_de": "Einer will mehr, einer ist zufrieden. Findet die Balance, die euch beide erfüllt.",
+              "icon": "🚀☀️",
+              "strength_de": "Ihr könnt voneinander lernen.",
+              "tip_de": "Respektiert beide Bedürfnisse."
+            },
+            "realistic_incremental": {
+              "title_de": "Plan & Schritt",
+              "description_de": "Realistische Ziele, kleine Schritte. Eure Methode ist nachhaltig und erfolgreich.",
+              "icon": "⚓👣",
+              "strength_de": "Ihr kommt stetig voran.",
+              "tip_de": "Feiert eure Fortschritte!"
+            },
+            "balanced_balanced": {
+              "title_de": "Ziel-Chamäleons",
+              "description_de": "Eure Ziele passen sich an. Mal groß, mal klein, immer richtig.",
+              "icon": "🎯",
+              "strength_de": "Eure Flexibilität ist eure Stärke.",
+              "tip_de": "Genießt eure Anpassungsfähigkeit!"
+            }
+          }
+        },
+        {
+          "id": "future_04_security",
+          "name_de": "Wie viel Sicherheit braucht ihr?",
+          "icon": "🛡️",
+          "question_de": "Wie wichtig ist euch finanzielle und materielle Sicherheit?",
+          "context_de": "Sicherheit kann Freiheit geben oder einschränken. Was ist euer gemeinsames Maß?",
+          "options": [
+            { "text_de": "Sehr wichtig – ich brauche ein solides Fundament.", "type": "security_high", "score": 3 },
+            { "text_de": "Ausreichend – genug, um ruhig schlafen zu können.", "type": "security_moderate", "score": 3 },
+            { "text_de": "Weniger wichtig – ich lebe gerne mit etwas Risiko.", "type": "security_low", "score": 3 },
+            { "text_de": "Ich vertraue darauf, dass es immer einen Weg gibt.", "type": "trusting", "score": 3 },
+            { "text_de": "Wir balancieren Sicherheit und Abenteuer.", "type": "balanced", "score": 3 }
+          ],
+          "result_pairs": {
+            "security_high_security_high": {
+              "title_de": "Sicherheits-Festung",
+              "description_de": "Ihr beide braucht ein solides Fundament. Eure Zukunft steht auf sicherem Boden.",
+              "icon": "🏰🏰",
+              "strength_de": "Ihr seid bestens abgesichert.",
+              "tip_de": "Lasst auch Raum für Abenteuer."
+            },
+            "security_high_security_low": {
+              "title_de": "Anker & Abenteurer",
+              "description_de": "Einer braucht Sicherheit, einer liebt Risiko. Findet die Balance, die euch beide erfüllt.",
+              "icon": "🏰🎢",
+              "strength_de": "Ihr ergänzt euch perfekt.",
+              "tip_de": "Respektiert beide Bedürfnisse."
+            },
+            "security_moderate_security_moderate": {
+              "title_de": "Goldene Mitte",
+              "description_de": "Genug Sicherheit für ruhigen Schlaf, genug Freiheit für Träume. Perfekt!",
+              "icon": "⚖️⚖️",
+              "strength_de": "Eure Balance ist ideal.",
+              "tip_de": "Ihr habt es gut getroffen!"
+            },
+            "security_low_security_low": {
+              "title_de": "Freigeister",
+              "description_de": "Ihr beide liebt das Risiko. Aufregend – achtet auf ein Minimum an Absicherung.",
+              "icon": "🎢🎢",
+              "strength_de": "Euer Leben ist ein Abenteuer.",
+              "tip_de": "Ein kleiner Notfallplan kann nicht schaden."
+            },
+            "trusting_trusting": {
+              "title_de": "Vertrauens-Meister",
+              "description_de": "Ihr vertraut beide auf das Leben. Diese Gelassenheit ist ein Geschenk.",
+              "icon": "🙏🙏",
+              "strength_de": "Eure Zuversicht ist ansteckend.",
+              "tip_de": "Ein wenig Planung schadet trotzdem nicht."
+            },
+            "balanced_balanced": {
+              "title_de": "Flexibles Sicherheitsnetz",
+              "description_de": "Ihr balanciert Sicherheit und Freiheit nach Bedarf. Klug!",
+              "icon": "🎯🎯",
+              "strength_de": "Ihr passt euch an, was ihr braucht.",
+              "tip_de": "Genießt eure Flexibilität!"
+            },
+            "security_high_trusting": {
+              "title_de": "Plan & Vertrauen",
+              "description_de": "Einer plant, einer vertraut. Zusammen seid ihr vorbereitet UND entspannt.",
+              "icon": "🏰🙏",
+              "strength_de": "Ihr kombiniert Vorsorge mit Gelassenheit.",
+              "tip_de": "Beide Ansätze haben ihren Wert."
+            },
+            "security_moderate_security_low": {
+              "title_de": "Basis & Freiheit",
+              "description_de": "Eine solide Basis, aber mit Raum für Abenteuer. Eine gute Mischung!",
+              "icon": "⚖️🎢",
+              "strength_de": "Ihr seid abgesichert und flexibel.",
+              "tip_de": "Findet eure gemeinsame Komfortzone."
+            },
+            "trusting_balanced": {
+              "title_de": "Flow & Anpassung",
+              "description_de": "Vertrauen trifft Flexibilität. Ihr navigiert das Leben mit Leichtigkeit.",
+              "icon": "🙏🎯",
+              "strength_de": "Ihr macht euch nicht verrückt.",
+              "tip_de": "Eure Gelassenheit ist inspirierend!"
+            }
+          }
+        },
+        {
+          "id": "future_05_growth",
+          "name_de": "Wie wollt ihr euch entwickeln?",
+          "icon": "🌱",
+          "question_de": "Was bedeutet persönliches Wachstum für euch als Paar?",
+          "context_de": "Wachstum kann viele Formen haben – beruflich, persönlich, spirituell, gemeinsam. Was zählt für euch?",
+          "options": [
+            { "text_de": "Gemeinsam wachsen – unsere Entwicklung ist ein Teamprojekt.", "type": "together", "score": 3 },
+            { "text_de": "Individuell wachsen und die Erkenntnisse teilen.", "type": "individual_share", "score": 3 },
+            { "text_de": "Wachstum passiert von allein – wir müssen es nicht erzwingen.", "type": "organic_growth", "score": 3 },
+            { "text_de": "Aktiv lernen – Kurse, Bücher, Erfahrungen.", "type": "active_learning", "score": 3 },
+            { "text_de": "Wachstum durch Herausforderungen – sie machen uns stärker.", "type": "challenge_driven", "score": 3 }
+          ],
+          "result_pairs": {
+            "together_together": {
+              "title_de": "Wachstums-Team",
+              "description_de": "Ihr wachst gemeinsam. Eure Entwicklung ist ein Paarprojekt!",
+              "icon": "🌱🌱",
+              "strength_de": "Ihr entwickelt euch synchron.",
+              "tip_de": "Lasst auch Raum für individuelle Wege."
+            },
+            "together_individual_share": {
+              "title_de": "Gemeinsam & Individuell",
+              "description_de": "Einer wächst im Team, einer individuell – und ihr teilt alles. Perfekte Balance!",
+              "icon": "🌱✨",
+              "strength_de": "Ihr bereichert euch gegenseitig.",
+              "tip_de": "Beide Wege sind wertvoll."
+            },
+            "individual_share_individual_share": {
+              "title_de": "Zwei Wege, ein Ziel",
+              "description_de": "Ihr wachst individuell und teilt die Erkenntnisse. Eure Beziehung profitiert von euren persönlichen Reisen.",
+              "icon": "✨✨",
+              "strength_de": "Ihr bringt ständig Neues ein.",
+              "tip_de": "Plant auch gemeinsame Wachstumserlebnisse."
+            },
+            "organic_growth_organic_growth": {
+              "title_de": "Natürlicher Flow",
+              "description_de": "Wachstum passiert bei euch von allein. Keine Zwänge, nur Leben.",
+              "icon": "🌿🌿",
+              "strength_de": "Eure Entwicklung ist authentisch.",
+              "tip_de": "Manchmal kann ein bewusster Impuls helfen."
+            },
+            "active_learning_active_learning": {
+              "title_de": "Lern-Enthusiasten",
+              "description_de": "Ihr beide lernt aktiv! Kurse, Bücher, Workshops – ihr seid immer dabei.",
+              "icon": "📚📚",
+              "strength_de": "Ihr entwickelt euch ständig weiter.",
+              "tip_de": "Integriert auch, was ihr lernt."
+            },
+            "challenge_driven_challenge_driven": {
+              "title_de": "Herausforderungs-Sucher",
+              "description_de": "Ihr wachst durch Herausforderungen. Was euch nicht umbringt, macht euch stärker – gemeinsam.",
+              "icon": "💪💪",
+              "strength_de": "Hindernisse machen euch nur besser.",
+              "tip_de": "Gönnt euch auch Erholungsphasen."
+            },
+            "together_active_learning": {
+              "title_de": "Team-Studenten",
+              "description_de": "Ihr lernt zusammen und aktiv. Gemeinsame Kurse, geteilte Bücher – eure Entwicklung ist ein Projekt.",
+              "icon": "🌱📚",
+              "strength_de": "Ihr macht Lernen zum Paarevent.",
+              "tip_de": "Genießt den Prozess!"
+            },
+            "organic_growth_challenge_driven": {
+              "title_de": "Flow & Kraft",
+              "description_de": "Einer lässt wachsen, einer sucht Herausforderungen. Zusammen seid ihr natürlich UND stark.",
+              "icon": "🌿💪",
+              "strength_de": "Ihr balanciert Ruhe und Action.",
+              "tip_de": "Beide Wege führen zum Wachstum."
+            },
+            "balanced_balanced": {
+              "title_de": "Wachstums-Chamäleons",
+              "description_de": "Ihr wachst, wie es passt. Mal gemeinsam, mal individuell, mal aktiv, mal organisch.",
+              "icon": "🎯",
+              "strength_de": "Eure Flexibilität ist eure Stärke.",
+              "tip_de": "Feiert eure Vielseitigkeit!"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

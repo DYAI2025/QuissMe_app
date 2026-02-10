@@ -1,0 +1,880 @@
+{
+  "meta_cluster": {
+    "id": "love_languages_meta_01",
+    "public_name": {
+      "de-DE": "Die fünf Stimmen",
+      "en-US": "The Five Voices"
+    },
+    "public_subtitle": {
+      "de-DE": "Die 5 Sprachen der Liebe – Sprecht ihr sie schon?",
+      "en-US": "The 5 Love Languages – Are you speaking them yet?"
+    },
+    "teaser": {
+      "de-DE": "Wie sagst du 'Ich liebe dich' – ohne es zu sagen? Fünf Quizze. Eine Sprache, die nur dir gehört.",
+      "en-US": "How do you say 'I love you' – without saying it? Five quizzes. One language that's yours alone."
+    },
+    "hidden_clusters": ["words", "time", "gifts", "service", "touch"],
+    "reveal": {
+      "compute_primary_cluster": {
+        "method": "sum_selected_option_scores_by_hidden_cluster",
+        "clusters": ["words", "time", "gifts", "service", "touch"],
+        "tie_breaker": "if_tie_then_profile_mosaic_duo"
+      },
+      "show_secondary_cluster": true,
+      "badge_assignment": "primary_cluster → avatar_badge"
+    },
+    "shared_gate": {
+      "require_both_partners": true
+    },
+    "quiz_order": [
+      "love_words_01",
+      "love_time_01",
+      "love_gifts_01",
+      "love_service_01",
+      "love_touch_01"
+    ],
+    "duo_insight_zones": {
+      "same_primary": {
+        "zone": "flow",
+        "label": { "de-DE": "Ihr sprecht dieselbe Sprache – das macht vieles leicht.", "en-US": "You speak the same language – that makes a lot of things easy." }
+      },
+      "complementary": {
+        "zone": "spark",
+        "label": { "de-DE": "Ihr ergänzt euch. Was der eine gibt, braucht der andere.", "en-US": "You complement each other. What one gives, the other needs." }
+      },
+      "distant": {
+        "zone": "talk",
+        "label": { "de-DE": "Eure Sprachen unterscheiden sich – das ist kein Problem, sondern eine Einladung zum Übersetzen.", "en-US": "Your languages differ – that's not a problem, it's an invitation to translate." }
+      },
+      "talk_pairs": [
+        "words_service",
+        "time_gifts",
+        "touch_words"
+      ]
+    },
+    "badge_prompts": {
+      "words": "Faceted speech bubble with tiny heart detail, warm gold tones, low-poly 3D, transparent background, premium cinematic",
+      "time": "Faceted hourglass, amber sand, golden light particles, low-poly 3D, transparent background, premium cinematic",
+      "gifts": "Faceted gift box slightly open, warm ribbon, soft glow, low-poly 3D, transparent background, premium cinematic",
+      "service": "Faceted clasped hands, warm earth tones, gentle strength, low-poly 3D, transparent background, premium cinematic",
+      "touch": "Faceted interlinked fingers, warm rose-gold, soft pulse glow, low-poly 3D, transparent background, premium cinematic"
+    }
+  },
+  "quizzes": [
+    {
+      "id": "love_words_01",
+      "hidden_cluster": "words",
+      "facet_label": { "de-DE": "Lob & Anerkennung", "en-US": "Words of Affirmation" },
+      "axis_key": "closeness",
+      "tone": "warm_minimal",
+      "narrator_id": "lyra",
+      "type_model": {
+        "types": ["poet", "ermutiger", "spiegler"],
+        "labels": {
+          "poet": { "de-DE": "Poet:in", "en-US": "Poet" },
+          "ermutiger": { "de-DE": "Ermutiger:in", "en-US": "Encourager" },
+          "spiegler": { "de-DE": "Spiegler:in", "en-US": "Mirror" }
+        },
+        "compute": "max_type_score"
+      },
+      "questions": [
+        {
+          "id": "w_q1",
+          "text": {
+            "de-DE": "Dein:e Partner:in hatte einen richtig guten Tag. Was macht dich am meisten glücklich?",
+            "en-US": "Your partner had a really great day. What makes you happiest?"
+          },
+          "options": [
+            {
+              "id": "A",
+              "text": { "de-DE": "Wenn er/sie dir begeistert davon erzählt – und du hörst die Freude in jedem Wort", "en-US": "When they excitedly tell you about it – and you hear the joy in every word" },
+              "type_scores": { "poet": 0.2, "ermutiger": 0.1, "spiegler": 0.7 },
+              "cluster_scores": { "words": 0.4, "time": 0.2, "gifts": 0.0, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.1 }
+            },
+            {
+              "id": "B",
+              "text": { "de-DE": "Wenn ihr den Abend zusammen feiert – einfach da sein und genießen", "en-US": "When you celebrate the evening together – just being there and enjoying it" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.3, "spiegler": 0.3 },
+              "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.1 },
+              "duo_trait_deltas": { "closeness": 0.1 }
+            },
+            {
+              "id": "C",
+              "text": { "de-DE": "Wenn du sagst: 'Ich bin so stolz auf dich' – und es genau so meinst", "en-US": "When you say: 'I'm so proud of you' – and you mean every word" },
+              "type_scores": { "poet": 0.3, "ermutiger": 0.7, "spiegler": 0.1 },
+              "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.15 }
+            },
+            {
+              "id": "D",
+              "text": { "de-DE": "Wenn du ihm/ihr spontan eine Kleinigkeit mitbringst, die zum Anlass passt", "en-US": "When you spontaneously bring a little something that fits the occasion" },
+              "type_scores": { "poet": 0.4, "ermutiger": 0.2, "spiegler": 0.1 },
+              "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.4, "service": 0.1, "touch": 0.0 },
+              "duo_trait_deltas": { "play": 0.1 }
+            }
+          ]
+        },
+        {
+          "id": "w_q2",
+          "text": {
+            "de-DE": "Ihr sitzt abends zusammen. Was würde dich am meisten freuen?",
+            "en-US": "You're sitting together in the evening. What would make you happiest?"
+          },
+          "options": [
+            {
+              "id": "A",
+              "text": { "de-DE": "Ein ehrliches Kompliment über etwas, das dir wirklich wichtig ist", "en-US": "An honest compliment about something that really matters to you" },
+              "type_scores": { "poet": 0.6, "ermutiger": 0.3, "spiegler": 0.2 },
+              "cluster_scores": { "words": 0.4, "time": 0.1, "gifts": 0.0, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.15 }
+            },
+            {
+              "id": "B",
+              "text": { "de-DE": "Handy weg, volle Aufmerksamkeit – nur ihr zwei", "en-US": "Phone away, full attention – just the two of you" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.2, "spiegler": 0.3 },
+              "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.1 },
+              "duo_trait_deltas": { "closeness": 0.1 }
+            },
+            {
+              "id": "C",
+              "text": { "de-DE": "Eine kleine Überraschung auf dem Tisch – muss nichts Großes sein", "en-US": "A little surprise on the table – doesn't have to be big" },
+              "type_scores": { "poet": 0.2, "ermutiger": 0.1, "spiegler": 0.1 },
+              "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.4, "service": 0.1, "touch": 0.0 },
+              "duo_trait_deltas": { "play": 0.1 }
+            },
+            {
+              "id": "D",
+              "text": { "de-DE": "Den Kopf an die Schulter lehnen – ohne Worte, einfach nah", "en-US": "Leaning your head on their shoulder – no words, just close" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.1, "spiegler": 0.4 },
+              "cluster_scores": { "words": 0.0, "time": 0.1, "gifts": 0.0, "service": 0.0, "touch": 0.4 },
+              "duo_trait_deltas": { "closeness": 0.15 }
+            }
+          ]
+        },
+        {
+          "id": "w_q3",
+          "text": {
+            "de-DE": "Dein:e Partner:in postet ein Foto von euch. Was berührt dich am meisten?",
+            "en-US": "Your partner posts a photo of you two. What touches you the most?"
+          },
+          "options": [
+            {
+              "id": "A",
+              "text": { "de-DE": "Der Text dazu – liebevoll und persönlich", "en-US": "The caption – loving and personal" },
+              "type_scores": { "poet": 0.8, "ermutiger": 0.2, "spiegler": 0.1 },
+              "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.1, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.1 }
+            },
+            {
+              "id": "B",
+              "text": { "de-DE": "Dass er/sie sich die Zeit genommen hat, das Bild auszusuchen", "en-US": "That they took the time to pick the photo" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.3, "spiegler": 0.3 },
+              "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.2, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.05 }
+            },
+            {
+              "id": "C",
+              "text": { "de-DE": "Die Erinnerung an den Moment auf dem Foto", "en-US": "The memory of the moment in the photo" },
+              "type_scores": { "poet": 0.2, "ermutiger": 0.2, "spiegler": 0.5 },
+              "cluster_scores": { "words": 0.1, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.1 },
+              "duo_trait_deltas": { "closeness": 0.1 }
+            },
+            {
+              "id": "D",
+              "text": { "de-DE": "Dass er/sie euch öffentlich zeigt – 'Das ist mein Mensch'", "en-US": "That they show you publicly – 'This is my person'" },
+              "type_scores": { "poet": 0.3, "ermutiger": 0.6, "spiegler": 0.2 },
+              "cluster_scores": { "words": 0.3, "time": 0.0, "gifts": 0.1, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.1 }
+            }
+          ]
+        },
+        {
+          "id": "w_q4",
+          "text": {
+            "de-DE": "Du hast etwas Neues gewagt – und es hat geklappt. Was wünschst du dir von deinem/deiner Partner:in?",
+            "en-US": "You tried something new – and it worked. What do you wish from your partner?"
+          },
+          "options": [
+            {
+              "id": "A",
+              "text": { "de-DE": "'Du bist unglaublich' – gesagt mit echtem Staunen", "en-US": "'You're incredible' – said with genuine awe" },
+              "type_scores": { "poet": 0.3, "ermutiger": 0.8, "spiegler": 0.1 },
+              "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.15 }
+            },
+            {
+              "id": "B",
+              "text": { "de-DE": "Ein High-Five, eine feste Umarmung – Körper sagt mehr als Worte", "en-US": "A high-five, a tight hug – body says more than words" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.2, "spiegler": 0.2 },
+              "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 },
+              "duo_trait_deltas": { "play": 0.1, "closeness": 0.1 }
+            },
+            {
+              "id": "C",
+              "text": { "de-DE": "Dass er/sie heute Abend alles übernimmt – du hast es dir verdient", "en-US": "That they take over everything tonight – you've earned it" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.1, "spiegler": 0.3 },
+              "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.05 }
+            },
+            {
+              "id": "D",
+              "text": { "de-DE": "Zusammen anstoßen – Moment bewusst feiern", "en-US": "Toast together – consciously celebrate the moment" },
+              "type_scores": { "poet": 0.2, "ermutiger": 0.3, "spiegler": 0.4 },
+              "cluster_scores": { "words": 0.1, "time": 0.3, "gifts": 0.1, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "play": 0.1 }
+            }
+          ]
+        },
+        {
+          "id": "w_q5",
+          "text": {
+            "de-DE": "Morgens, noch im Halbschlaf. Was bringt dein Herz zum Lächeln?",
+            "en-US": "Morning, still half-asleep. What makes your heart smile?"
+          },
+          "options": [
+            {
+              "id": "A",
+              "text": { "de-DE": "Eine kleine Nachricht auf dem Kissen oder am Spiegel", "en-US": "A little note on the pillow or mirror" },
+              "type_scores": { "poet": 0.8, "ermutiger": 0.2, "spiegler": 0.1 },
+              "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.2, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.15 }
+            },
+            {
+              "id": "B",
+              "text": { "de-DE": "Kaffee steht schon da – ohne dass du fragen musstest", "en-US": "Coffee's already there – without you having to ask" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.1, "spiegler": 0.3 },
+              "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.1, "service": 0.4, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.1 }
+            },
+            {
+              "id": "C",
+              "text": { "de-DE": "Ein Arm, der sich im Schlaf um dich legt", "en-US": "An arm that wraps around you in sleep" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.1, "spiegler": 0.4 },
+              "cluster_scores": { "words": 0.0, "time": 0.1, "gifts": 0.0, "service": 0.0, "touch": 0.4 },
+              "duo_trait_deltas": { "closeness": 0.2 }
+            },
+            {
+              "id": "D",
+              "text": { "de-DE": "'Schlaf ruhig noch – ich mach das' (und meint alles: Kinder, Frühstück, Welt)", "en-US": "'Sleep in – I've got this' (and means everything: kids, breakfast, world)" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.4, "spiegler": 0.2 },
+              "cluster_scores": { "words": 0.2, "time": 0.0, "gifts": 0.0, "service": 0.3, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.1 }
+            }
+          ]
+        },
+        {
+          "id": "w_q6",
+          "text": {
+            "de-DE": "Ihr hattet einen anstrengenden Tag – getrennt voneinander. Was braucht die Wiedersehens-Sekunde?",
+            "en-US": "You had an exhausting day – apart from each other. What does the reunion moment need?"
+          },
+          "options": [
+            {
+              "id": "A",
+              "text": { "de-DE": "'Hey. Ich hab heute an dich gedacht.' – Einfach nur das.", "en-US": "'Hey. I thought about you today.' – Just that." },
+              "type_scores": { "poet": 0.6, "ermutiger": 0.3, "spiegler": 0.2 },
+              "cluster_scores": { "words": 0.4, "time": 0.1, "gifts": 0.0, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.15 }
+            },
+            {
+              "id": "B",
+              "text": { "de-DE": "Wortlose Umarmung an der Tür – lang genug, dass der Tag abfällt", "en-US": "Wordless hug at the door – long enough for the day to fall away" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.1, "spiegler": 0.3 },
+              "cluster_scores": { "words": 0.0, "time": 0.1, "gifts": 0.0, "service": 0.0, "touch": 0.4 },
+              "duo_trait_deltas": { "closeness": 0.2 }
+            },
+            {
+              "id": "C",
+              "text": { "de-DE": "Essen ist schon fertig – 'Setz dich hin, ich hab gekocht'", "en-US": "Dinner's already done – 'Sit down, I cooked'" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.2, "spiegler": 0.2 },
+              "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.1 }
+            },
+            {
+              "id": "D",
+              "text": { "de-DE": "Einfach nebeneinander auf der Couch – nichts reden, nur ankommen", "en-US": "Just sitting next to each other on the couch – no talking, just arriving" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.1, "spiegler": 0.5 },
+              "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.2 },
+              "duo_trait_deltas": { "closeness": 0.1 }
+            }
+          ]
+        },
+        {
+          "id": "w_q7",
+          "text": {
+            "de-DE": "Dein:e Partner:in ist unsicher wegen einer Entscheidung. Was hilft am meisten?",
+            "en-US": "Your partner is unsure about a decision. What helps the most?"
+          },
+          "options": [
+            {
+              "id": "A",
+              "text": { "de-DE": "'Ich vertraue dir – egal wie du dich entscheidest'", "en-US": "'I trust you – whatever you decide'" },
+              "type_scores": { "poet": 0.2, "ermutiger": 0.8, "spiegler": 0.1 },
+              "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.15 }
+            },
+            {
+              "id": "B",
+              "text": { "de-DE": "Sich Zeit nehmen und gemeinsam durchdenken", "en-US": "Taking time and thinking it through together" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.3, "spiegler": 0.4 },
+              "cluster_scores": { "words": 0.1, "time": 0.4, "gifts": 0.0, "service": 0.1, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.1 }
+            },
+            {
+              "id": "C",
+              "text": { "de-DE": "Recherchieren, Pro-Contra-Liste machen – praktisch unterstützen", "en-US": "Researching, making a pro-con list – practical support" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.1, "spiegler": 0.2 },
+              "cluster_scores": { "words": 0.0, "time": 0.1, "gifts": 0.0, "service": 0.4, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.05 }
+            },
+            {
+              "id": "D",
+              "text": { "de-DE": "Hand halten und sagen: 'Wir schaffen das zusammen'", "en-US": "Holding hands and saying: 'We'll figure this out together'" },
+              "type_scores": { "poet": 0.3, "ermutiger": 0.4, "spiegler": 0.3 },
+              "cluster_scores": { "words": 0.2, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.3 },
+              "duo_trait_deltas": { "closeness": 0.15 }
+            }
+          ]
+        },
+        {
+          "id": "w_q8",
+          "text": {
+            "de-DE": "Welche digitale Nachricht von deinem/deiner Partner:in bringt dich am meisten zum Strahlen?",
+            "en-US": "Which digital message from your partner makes you glow the most?"
+          },
+          "options": [
+            {
+              "id": "A",
+              "text": { "de-DE": "Eine Sprachnachricht, in der du die Wärme in der Stimme hörst", "en-US": "A voice message where you hear the warmth in their voice" },
+              "type_scores": { "poet": 0.7, "ermutiger": 0.3, "spiegler": 0.2 },
+              "cluster_scores": { "words": 0.4, "time": 0.1, "gifts": 0.0, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.15 }
+            },
+            {
+              "id": "B",
+              "text": { "de-DE": "Ein Foto von etwas, das ihn/sie an dich erinnert hat", "en-US": "A photo of something that reminded them of you" },
+              "type_scores": { "poet": 0.3, "ermutiger": 0.1, "spiegler": 0.4 },
+              "cluster_scores": { "words": 0.1, "time": 0.0, "gifts": 0.3, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "play": 0.1 }
+            },
+            {
+              "id": "C",
+              "text": { "de-DE": "'Ich komm heute früher – hab was Schönes geplant'", "en-US": "'I'm coming home early – I've planned something nice'" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.2, "spiegler": 0.3 },
+              "cluster_scores": { "words": 0.1, "time": 0.3, "gifts": 0.1, "service": 0.1, "touch": 0.0 },
+              "duo_trait_deltas": { "play": 0.1, "closeness": 0.1 }
+            },
+            {
+              "id": "D",
+              "text": { "de-DE": "Drei Worte. Kein Kontext nötig.", "en-US": "Three words. No context needed." },
+              "type_scores": { "poet": 0.5, "ermutiger": 0.5, "spiegler": 0.1 },
+              "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.1 },
+              "duo_trait_deltas": { "closeness": 0.2 }
+            }
+          ]
+        },
+        {
+          "id": "w_q9",
+          "text": {
+            "de-DE": "Ihr feiert Jahrestag. Was macht den Tag für dich besonders?",
+            "en-US": "You're celebrating your anniversary. What makes the day special for you?"
+          },
+          "options": [
+            {
+              "id": "A",
+              "text": { "de-DE": "Ein Brief – handgeschrieben, ehrlich, vielleicht etwas unbeholfen", "en-US": "A letter – handwritten, honest, maybe a bit clumsy" },
+              "type_scores": { "poet": 0.9, "ermutiger": 0.2, "spiegler": 0.1 },
+              "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.2, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.2 }
+            },
+            {
+              "id": "B",
+              "text": { "de-DE": "Ein gemeinsames Erlebnis, nur für euch zwei geplant", "en-US": "A shared experience, planned just for the two of you" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.2, "spiegler": 0.4 },
+              "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.1, "service": 0.1, "touch": 0.0 },
+              "duo_trait_deltas": { "play": 0.1, "closeness": 0.1 }
+            },
+            {
+              "id": "C",
+              "text": { "de-DE": "Ein Geschenk, das zeigt: 'Ich kenne dich wirklich'", "en-US": "A gift that says: 'I really know you'" },
+              "type_scores": { "poet": 0.2, "ermutiger": 0.1, "spiegler": 0.5 },
+              "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.4, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.1 }
+            },
+            {
+              "id": "D",
+              "text": { "de-DE": "Ein ganzer Tag ohne Pflichten – nur füreinander da sein", "en-US": "A whole day without obligations – just there for each other" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.3, "spiegler": 0.3 },
+              "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.2 },
+              "duo_trait_deltas": { "closeness": 0.15 }
+            }
+          ]
+        },
+        {
+          "id": "w_q10",
+          "text": {
+            "de-DE": "Dein:e Partner:in überrascht dich mit etwas Unerwartetem. Was trifft dich am tiefsten?",
+            "en-US": "Your partner surprises you with something unexpected. What hits deepest?"
+          },
+          "options": [
+            {
+              "id": "A",
+              "text": { "de-DE": "Er/sie hat etwas aufgeschrieben, das er/sie normalerweise nie sagen würde", "en-US": "They wrote down something they'd normally never say" },
+              "type_scores": { "poet": 0.7, "ermutiger": 0.4, "spiegler": 0.2 },
+              "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.1, "service": 0.0, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.2 }
+            },
+            {
+              "id": "B",
+              "text": { "de-DE": "Er/sie hat dir etwas abgenommen, von dem du nicht wusstest, dass es dich belastet", "en-US": "They took something off your plate you didn't know was weighing on you" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.2, "spiegler": 0.4 },
+              "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.1 }
+            },
+            {
+              "id": "C",
+              "text": { "de-DE": "Ein Moment, in dem ihr euch anschaut und beide wisst: das hier ist echt", "en-US": "A moment where you look at each other and both know: this is real" },
+              "type_scores": { "poet": 0.2, "ermutiger": 0.2, "spiegler": 0.6 },
+              "cluster_scores": { "words": 0.1, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.2 },
+              "duo_trait_deltas": { "closeness": 0.2 }
+            },
+            {
+              "id": "D",
+              "text": { "de-DE": "Etwas, das er/sie offensichtlich mit viel Mühe vorbereitet hat", "en-US": "Something they clearly put a lot of effort into preparing" },
+              "type_scores": { "poet": 0.1, "ermutiger": 0.3, "spiegler": 0.3 },
+              "cluster_scores": { "words": 0.0, "time": 0.1, "gifts": 0.3, "service": 0.2, "touch": 0.0 },
+              "duo_trait_deltas": { "closeness": 0.1 }
+            }
+          ]
+        }
+      ],
+      "zone_tokens": {
+        "flow": {
+          "de-DE": { "insight_strength": "Worte sind eure gemeinsame Melodie.", "insight_growth": "Manchmal reichen auch die leisen Töne.", "micro_step": "Vielleicht: Heute ein ehrliches Kompliment – ganz ohne Anlass." },
+          "en-US": { "insight_strength": "Words are your shared melody.", "insight_growth": "Sometimes the quiet notes are enough.", "micro_step": "Maybe: An honest compliment today – for no reason at all." }
+        },
+        "spark": {
+          "de-DE": { "insight_strength": "Einer spricht, der andere hört – beides hat Kraft.", "insight_growth": "Den eigenen Dialekt des anderen zu lernen, lohnt sich.", "micro_step": "Vielleicht: Frag 'Was hättest du heute gern gehört?'" },
+          "en-US": { "insight_strength": "One speaks, the other listens – both have power.", "insight_growth": "Learning each other's dialect is worth it.", "micro_step": "Maybe: Ask 'What would you have liked to hear today?'" }
+        },
+        "talk": {
+          "de-DE": { "insight_strength": "Eure Liebessprachen sind verschieden – und das ist okay.", "insight_growth": "Ein kleines Wörterbuch füreinander kann Wunder wirken.", "micro_step": "Vielleicht: 'Was bedeutet für dich Anerkennung?'" },
+          "en-US": { "insight_strength": "Your love languages differ – and that's okay.", "insight_growth": "A little dictionary for each other can work wonders.", "micro_step": "Maybe: 'What does appreciation mean to you?'" }
+        }
+      }
+    },
+    {
+      "id": "love_time_01",
+      "hidden_cluster": "time",
+      "facet_label": { "de-DE": "Zweisamkeit", "en-US": "Quality Time" },
+      "axis_key": "closeness",
+      "tone": "warm_minimal",
+      "narrator_id": "tide",
+      "type_model": {
+        "types": ["ritualmensch", "momentsammler", "stillegeniesser"],
+        "labels": {
+          "ritualmensch": { "de-DE": "Ritualmensch", "en-US": "Ritualist" },
+          "momentsammler": { "de-DE": "Momentsammler:in", "en-US": "Moment Collector" },
+          "stillegeniesser": { "de-DE": "Stille-Genießer:in", "en-US": "Silence Savorer" }
+        },
+        "compute": "max_type_score"
+      },
+      "questions": [
+        {
+          "id": "t_q1",
+          "text": { "de-DE": "Sonntagmorgen, nichts geplant. Was wäre perfekt?", "en-US": "Sunday morning, nothing planned. What would be perfect?" },
+          "options": [
+            { "id": "A", "text": { "de-DE": "Zusammen lange frühstücken – Handy bleibt in der Schublade", "en-US": "Long breakfast together – phones stay in the drawer" }, "type_scores": { "ritualmensch": 0.7, "momentsammler": 0.2, "stillegeniesser": 0.3 }, "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.1 }, "duo_trait_deltas": { "closeness": 0.15 } },
+            { "id": "B", "text": { "de-DE": "Spontan raus – wohin, ist egal, Hauptsache zusammen", "en-US": "Spontaneously go out – doesn't matter where, as long as together" }, "type_scores": { "ritualmensch": 0.1, "momentsammler": 0.8, "stillegeniesser": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.15 } },
+            { "id": "C", "text": { "de-DE": "Nebeneinander lesen, ab und zu eine Stelle vorlesen", "en-US": "Reading side by side, occasionally reading a passage aloud" }, "type_scores": { "ritualmensch": 0.3, "momentsammler": 0.1, "stillegeniesser": 0.7 }, "cluster_scores": { "words": 0.1, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.1 }, "duo_trait_deltas": { "closeness": 0.1 } },
+            { "id": "D", "text": { "de-DE": "Zusammen etwas kochen, das dauert – der Weg ist das Ziel", "en-US": "Cook something together that takes time – the journey is the goal" }, "type_scores": { "ritualmensch": 0.4, "momentsammler": 0.4, "stillegeniesser": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.2, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.1, "closeness": 0.1 } }
+          ]
+        },
+        {
+          "id": "t_q2",
+          "text": { "de-DE": "Mitten im Alltagsstress – was gibt euch als Paar am meisten Halt?", "en-US": "In the middle of daily stress – what gives you the most anchor as a couple?" },
+          "options": [
+            { "id": "A", "text": { "de-DE": "Ein festes Ritual – z.B. abends 10 Minuten nur füreinander", "en-US": "A fixed ritual – e.g. 10 minutes in the evening just for each other" }, "type_scores": { "ritualmensch": 0.9, "momentsammler": 0.1, "stillegeniesser": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+            { "id": "B", "text": { "de-DE": "Kleine Nachrichten zwischendurch – 'Denke an dich'", "en-US": "Small messages in between – 'Thinking of you'" }, "type_scores": { "ritualmensch": 0.2, "momentsammler": 0.3, "stillegeniesser": 0.1 }, "cluster_scores": { "words": 0.4, "time": 0.1, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+            { "id": "C", "text": { "de-DE": "Aufgaben aufteilen – gemeinsam den Laden schmeißen gibt Nähe", "en-US": "Dividing tasks – running things together creates closeness" }, "type_scores": { "ritualmensch": 0.2, "momentsammler": 0.2, "stillegeniesser": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.1, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.05 } },
+            { "id": "D", "text": { "de-DE": "Abends aneinander gekuschelt einschlafen – egal wie der Tag war", "en-US": "Falling asleep cuddled up – no matter how the day was" }, "type_scores": { "ritualmensch": 0.3, "momentsammler": 0.1, "stillegeniesser": 0.5 }, "cluster_scores": { "words": 0.0, "time": 0.1, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.2 } }
+          ]
+        },
+        {
+          "id": "t_q3",
+          "text": { "de-DE": "Ihr seid im Urlaub. Welcher Moment bleibt hängen?", "en-US": "You're on vacation. Which moment sticks?" },
+          "options": [
+            { "id": "A", "text": { "de-DE": "Ein Abendessen, bei dem die Gespräche so tief werden, dass die Zeit verschwindet", "en-US": "A dinner where conversations go so deep that time disappears" }, "type_scores": { "ritualmensch": 0.2, "momentsammler": 0.7, "stillegeniesser": 0.3 }, "cluster_scores": { "words": 0.2, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+            { "id": "B", "text": { "de-DE": "Zusammen etwas Neues entdecken – ein Ort, den keiner vorher kannte", "en-US": "Discovering something new together – a place neither knew before" }, "type_scores": { "ritualmensch": 0.1, "momentsammler": 0.8, "stillegeniesser": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.15 } },
+            { "id": "C", "text": { "de-DE": "Einfach am Strand liegen und nichts tun – zusammen still sein", "en-US": "Just lying on the beach doing nothing – being quiet together" }, "type_scores": { "ritualmensch": 0.2, "momentsammler": 0.1, "stillegeniesser": 0.8 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.2 }, "duo_trait_deltas": { "closeness": 0.15 } },
+            { "id": "D", "text": { "de-DE": "Ein spontanes Mitbringsel vom Markt – 'Das musste ich dir holen'", "en-US": "A spontaneous souvenir from the market – 'I had to get this for you'" }, "type_scores": { "ritualmensch": 0.1, "momentsammler": 0.3, "stillegeniesser": 0.1 }, "cluster_scores": { "words": 0.1, "time": 0.0, "gifts": 0.4, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.1 } }
+          ]
+        },
+        {
+          "id": "t_q4",
+          "text": { "de-DE": "Wie fühlt sich 'echte Aufmerksamkeit' für dich an?", "en-US": "What does 'real attention' feel like for you?" },
+          "options": [
+            { "id": "A", "text": { "de-DE": "Wenn jemand sich erinnert, was du vor Wochen beiläufig erzählt hast", "en-US": "When someone remembers what you casually mentioned weeks ago" }, "type_scores": { "ritualmensch": 0.2, "momentsammler": 0.3, "stillegeniesser": 0.4 }, "cluster_scores": { "words": 0.2, "time": 0.2, "gifts": 0.1, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+            { "id": "B", "text": { "de-DE": "Wenn jemand sein Handy weglegt und dich wirklich anschaut", "en-US": "When someone puts their phone away and really looks at you" }, "type_scores": { "ritualmensch": 0.3, "momentsammler": 0.2, "stillegeniesser": 0.6 }, "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.2 } },
+            { "id": "C", "text": { "de-DE": "Wenn jemand sagt: 'Erzähl mir mehr' – und es auch meint", "en-US": "When someone says: 'Tell me more' – and means it" }, "type_scores": { "ritualmensch": 0.1, "momentsammler": 0.4, "stillegeniesser": 0.2 }, "cluster_scores": { "words": 0.3, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+            { "id": "D", "text": { "de-DE": "Wenn jemand etwas für dich erledigt, ohne dass du darum bitten musstest", "en-US": "When someone takes care of something for you without you having to ask" }, "type_scores": { "ritualmensch": 0.2, "momentsammler": 0.1, "stillegeniesser": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } }
+          ]
+        },
+        {
+          "id": "t_q5",
+          "text": { "de-DE": "Ihr habt euch länger nicht gesehen. Was macht das Wiedersehen perfekt?", "en-US": "You haven't seen each other for a while. What makes the reunion perfect?" },
+          "options": [
+            { "id": "A", "text": { "de-DE": "Sofort loslabern – alles erzählen, was passiert ist", "en-US": "Immediately talking – telling everything that happened" }, "type_scores": { "ritualmensch": 0.1, "momentsammler": 0.6, "stillegeniesser": 0.1 }, "cluster_scores": { "words": 0.3, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+            { "id": "B", "text": { "de-DE": "Erst mal ankommen – zusammen auf der Couch, still, nah", "en-US": "First just arrive – together on the couch, quiet, close" }, "type_scores": { "ritualmensch": 0.3, "momentsammler": 0.1, "stillegeniesser": 0.7 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.3 }, "duo_trait_deltas": { "closeness": 0.2 } },
+            { "id": "C", "text": { "de-DE": "Du hast ein kleines Mitbringsel dabei – 'Ich hab an dich gedacht'", "en-US": "You brought a little something – 'I thought of you'" }, "type_scores": { "ritualmensch": 0.2, "momentsammler": 0.3, "stillegeniesser": 0.1 }, "cluster_scores": { "words": 0.1, "time": 0.0, "gifts": 0.4, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.1 } },
+            { "id": "D", "text": { "de-DE": "Euer Wiedersehens-Ritual – egal was, Hauptsache es ist eures", "en-US": "Your reunion ritual – doesn't matter what, as long as it's yours" }, "type_scores": { "ritualmensch": 0.8, "momentsammler": 0.2, "stillegeniesser": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.1 }, "duo_trait_deltas": { "closeness": 0.15 } }
+          ]
+        },
+        {
+          "id": "t_q6",
+          "text": { "de-DE": "Wenn ihr etwas zusammen macht – was zählt für dich am meisten?", "en-US": "When you do something together – what matters most to you?" },
+          "options": [
+            { "id": "A", "text": { "de-DE": "Dass wir uns dabei wirklich unterhalten – nicht nur nebenher", "en-US": "That we really talk during it – not just in passing" }, "type_scores": { "ritualmensch": 0.2, "momentsammler": 0.5, "stillegeniesser": 0.2 }, "cluster_scores": { "words": 0.2, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+            { "id": "B", "text": { "de-DE": "Dass wir beide voll dabei sind – keine halben Sachen", "en-US": "That we're both fully present – no half measures" }, "type_scores": { "ritualmensch": 0.4, "momentsammler": 0.3, "stillegeniesser": 0.4 }, "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+            { "id": "C", "text": { "de-DE": "Dass es spontan passiert – nicht durchgetaktet", "en-US": "That it happens spontaneously – not scheduled" }, "type_scores": { "ritualmensch": 0.0, "momentsammler": 0.8, "stillegeniesser": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.15 } },
+            { "id": "D", "text": { "de-DE": "Dass es etwas Neues ist – zusammen wachsen durch neue Erfahrungen", "en-US": "That it's something new – growing together through new experiences" }, "type_scores": { "ritualmensch": 0.1, "momentsammler": 0.6, "stillegeniesser": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.1, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.1, "closeness": 0.05 } }
+          ]
+        },
+        {
+          "id": "t_q7",
+          "text": { "de-DE": "Ein verregneter Nachmittag. Kein Plan. Was wird daraus?", "en-US": "A rainy afternoon. No plan. What happens?" },
+          "options": [
+            { "id": "A", "text": { "de-DE": "Ein tiefes Gespräch, das nirgendwo hinführen muss", "en-US": "A deep conversation that doesn't need to go anywhere" }, "type_scores": { "ritualmensch": 0.2, "momentsammler": 0.3, "stillegeniesser": 0.6 }, "cluster_scores": { "words": 0.2, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+            { "id": "B", "text": { "de-DE": "Zusammen ein Projekt starten – Regal aufbauen, Rezept ausprobieren", "en-US": "Starting a project together – build a shelf, try a recipe" }, "type_scores": { "ritualmensch": 0.3, "momentsammler": 0.5, "stillegeniesser": 0.0 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.0, "service": 0.3, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.15 } },
+            { "id": "C", "text": { "de-DE": "Einfach beieinander liegen und dem Regen zuhören", "en-US": "Just lying next to each other listening to the rain" }, "type_scores": { "ritualmensch": 0.2, "momentsammler": 0.1, "stillegeniesser": 0.8 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.3 }, "duo_trait_deltas": { "closeness": 0.2 } },
+            { "id": "D", "text": { "de-DE": "Alte Fotos angucken – 'Weißt du noch?'", "en-US": "Looking at old photos – 'Remember when?'" }, "type_scores": { "ritualmensch": 0.5, "momentsammler": 0.4, "stillegeniesser": 0.2 }, "cluster_scores": { "words": 0.1, "time": 0.3, "gifts": 0.1, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } }
+          ]
+        },
+        {
+          "id": "t_q8",
+          "text": { "de-DE": "Euer Alltag ist voll. Wie schafft ihr Inseln der Zweisamkeit?", "en-US": "Your daily life is packed. How do you create islands of togetherness?" },
+          "options": [
+            { "id": "A", "text": { "de-DE": "Feste Zeiten blocken – Date Night ist heilig", "en-US": "Block fixed times – Date Night is sacred" }, "type_scores": { "ritualmensch": 0.9, "momentsammler": 0.1, "stillegeniesser": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+            { "id": "B", "text": { "de-DE": "Kleine Momente kapern – gemeinsam Zähneputzen zählt auch", "en-US": "Hijack small moments – brushing teeth together counts too" }, "type_scores": { "ritualmensch": 0.2, "momentsammler": 0.7, "stillegeniesser": 0.3 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.1 }, "duo_trait_deltas": { "play": 0.1, "closeness": 0.1 } },
+            { "id": "C", "text": { "de-DE": "Abends im Bett – die letzten 15 Minuten gehören uns", "en-US": "In bed at night – the last 15 minutes belong to us" }, "type_scores": { "ritualmensch": 0.6, "momentsammler": 0.1, "stillegeniesser": 0.5 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.2 }, "duo_trait_deltas": { "closeness": 0.15 } },
+            { "id": "D", "text": { "de-DE": "Gemeinsame Aufgaben werden zum Teamwork – dabei entsteht Verbindung", "en-US": "Shared tasks become teamwork – connection emerges from that" }, "type_scores": { "ritualmensch": 0.2, "momentsammler": 0.3, "stillegeniesser": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.0, "service": 0.3, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.05 } }
+          ]
+        },
+        {
+          "id": "t_q9",
+          "text": { "de-DE": "Ihr seid auf einer Party. Wann fühlt ihr euch am meisten als Paar?", "en-US": "You're at a party. When do you feel most like a couple?" },
+          "options": [
+            { "id": "A", "text": { "de-DE": "Wenn ihr euch durch den Raum anseht – ein Blick, der nur euch gehört", "en-US": "When you look at each other across the room – a glance only you two share" }, "type_scores": { "ritualmensch": 0.2, "momentsammler": 0.6, "stillegeniesser": 0.4 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.0, "service": 0.0, "touch": 0.2 }, "duo_trait_deltas": { "closeness": 0.15 } },
+            { "id": "B", "text": { "de-DE": "Wenn er/sie dich anderen gegenüber lobend erwähnt", "en-US": "When they mention you warmly to others" }, "type_scores": { "ritualmensch": 0.1, "momentsammler": 0.2, "stillegeniesser": 0.1 }, "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+            { "id": "C", "text": { "de-DE": "Wenn ihr zusammen früher geht – 'Komm, wir haben genug'", "en-US": "When you leave together early – 'Come on, we've had enough'" }, "type_scores": { "ritualmensch": 0.3, "momentsammler": 0.3, "stillegeniesser": 0.6 }, "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.1 }, "duo_trait_deltas": { "closeness": 0.15 } },
+            { "id": "D", "text": { "de-DE": "Wenn eine Hand beiläufig auf deinem Rücken liegt", "en-US": "When a hand rests casually on your back" }, "type_scores": { "ritualmensch": 0.1, "momentsammler": 0.2, "stillegeniesser": 0.3 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.15 } }
+          ]
+        },
+        {
+          "id": "t_q10",
+          "text": { "de-DE": "Was ist für dich die schönste Form, jemandem zu sagen: 'Du bist mir wichtig'?", "en-US": "What's the most beautiful way to tell someone: 'You matter to me'?" },
+          "options": [
+            { "id": "A", "text": { "de-DE": "Sich einen ganzen Tag freihalten – nur für diese Person", "en-US": "Keeping a whole day free – just for that person" }, "type_scores": { "ritualmensch": 0.5, "momentsammler": 0.4, "stillegeniesser": 0.3 }, "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.2 } },
+            { "id": "B", "text": { "de-DE": "Es aussprechen – klar, direkt, ohne Umwege", "en-US": "Saying it – clearly, directly, without detours" }, "type_scores": { "ritualmensch": 0.1, "momentsammler": 0.2, "stillegeniesser": 0.1 }, "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+            { "id": "C", "text": { "de-DE": "Etwas tun, das ihm/ihr das Leben leichter macht", "en-US": "Doing something that makes their life easier" }, "type_scores": { "ritualmensch": 0.2, "momentsammler": 0.1, "stillegeniesser": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+            { "id": "D", "text": { "de-DE": "Einfach da sein – zuverlässig, ohne Wenn und Aber", "en-US": "Simply being there – reliably, no ifs and buts" }, "type_scores": { "ritualmensch": 0.5, "momentsammler": 0.1, "stillegeniesser": 0.6 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.1, "touch": 0.1 }, "duo_trait_deltas": { "closeness": 0.15 } }
+          ]
+        }
+      ],
+      "zone_tokens": {
+        "flow": {
+          "de-DE": { "insight_strength": "Zeit füreinander ist eure Superkraft.", "insight_growth": "Achtet darauf, dass Rituale nicht zur Pflicht werden.", "micro_step": "Vielleicht: Heute bewusst 10 Minuten nur füreinander." },
+          "en-US": { "insight_strength": "Time together is your superpower.", "insight_growth": "Make sure rituals don't become obligations.", "micro_step": "Maybe: Consciously 10 minutes just for each other today." }
+        },
+        "spark": {
+          "de-DE": { "insight_strength": "Einer plant gern, der andere lebt im Moment – beides ist wertvoll.", "insight_growth": "Findet euren Rhythmus zwischen Struktur und Spontaneität.", "micro_step": "Vielleicht: 'Was ist dein liebster gemeinsamer Moment diese Woche?'" },
+          "en-US": { "insight_strength": "One likes to plan, the other lives in the moment – both are valuable.", "insight_growth": "Find your rhythm between structure and spontaneity.", "micro_step": "Maybe: 'What's your favorite shared moment this week?'" }
+        },
+        "talk": {
+          "de-DE": { "insight_strength": "Zweisamkeit bedeutet für euch etwas Verschiedenes – das ist kein Fehler.", "insight_growth": "Übersetzt füreinander, was 'echte Zeit' für jeden heißt.", "micro_step": "Vielleicht: 'Wann fühlst du dich mir am nächsten?'" },
+          "en-US": { "insight_strength": "Togetherness means something different for each of you – that's not a flaw.", "insight_growth": "Translate for each other what 'real time' means.", "micro_step": "Maybe: 'When do you feel closest to me?'" }
+        }
+      }
+    },
+    {
+      "id": "love_gifts_01",
+      "hidden_cluster": "gifts",
+      "facet_label": { "de-DE": "Geschenke & Gesten", "en-US": "Gifts & Gestures" },
+      "axis_key": "closeness",
+      "tone": "playful",
+      "narrator_id": "fable",
+      "type_model": {
+        "types": ["symboliker", "alltagszauberer", "erlebnisschenker"],
+        "labels": {
+          "symboliker": { "de-DE": "Symboliker:in", "en-US": "Symbolist" },
+          "alltagszauberer": { "de-DE": "Alltagszauberer:in", "en-US": "Everyday Magician" },
+          "erlebnisschenker": { "de-DE": "Erlebnisschenker:in", "en-US": "Experience Giver" }
+        },
+        "compute": "max_type_score"
+      },
+      "questions": [
+        { "id": "g_q1", "text": { "de-DE": "Dein:e Partner:in kommt nach Hause und hat etwas dabei. Was freut dich am meisten?", "en-US": "Your partner comes home with something. What makes you happiest?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Dein Lieblingssnack – er/sie hat daran gedacht", "en-US": "Your favorite snack – they thought of it" }, "type_scores": { "symboliker": 0.2, "alltagszauberer": 0.8, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.4, "service": 0.1, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "B", "text": { "de-DE": "Eine Blume vom Wegesrand – ungeplant, aber aufmerksam", "en-US": "A flower from the roadside – unplanned, but thoughtful" }, "type_scores": { "symboliker": 0.7, "alltagszauberer": 0.3, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.4, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "C", "text": { "de-DE": "Zwei Tickets für etwas, das ihr zusammen erleben könnt", "en-US": "Two tickets for something you can experience together" }, "type_scores": { "symboliker": 0.1, "alltagszauberer": 0.1, "erlebnisschenker": 0.8 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.3, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.15 } },
+          { "id": "D", "text": { "de-DE": "Gute Laune und die Worte: 'Ich freu mich, dass ich wieder bei dir bin'", "en-US": "Good mood and the words: 'I'm glad to be back with you'" }, "type_scores": { "symboliker": 0.2, "alltagszauberer": 0.2, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.4, "time": 0.1, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } }
+        ] },
+        { "id": "g_q2", "text": { "de-DE": "Ein Geschenk berührt dich am meisten, wenn…", "en-US": "A gift touches you the most when…" }, "options": [
+          { "id": "A", "text": { "de-DE": "…es zeigt, dass jemand dich genau kennt", "en-US": "…it shows someone really knows you" }, "type_scores": { "symboliker": 0.6, "alltagszauberer": 0.3, "erlebnisschenker": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.1, "gifts": 0.4, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "B", "text": { "de-DE": "…es völlig überraschend kommt", "en-US": "…it comes completely unexpectedly" }, "type_scores": { "symboliker": 0.2, "alltagszauberer": 0.7, "erlebnisschenker": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.4, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.15 } },
+          { "id": "C", "text": { "de-DE": "…es eine Erinnerung schafft, die bleibt", "en-US": "…it creates a memory that stays" }, "type_scores": { "symboliker": 0.3, "alltagszauberer": 0.1, "erlebnisschenker": 0.7 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.3, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "D", "text": { "de-DE": "…die Worte dazu genauso wichtig sind wie das Geschenk selbst", "en-US": "…the words that come with it are as important as the gift itself" }, "type_scores": { "symboliker": 0.4, "alltagszauberer": 0.2, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.3, "time": 0.0, "gifts": 0.2, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } }
+        ] },
+        { "id": "g_q3", "text": { "de-DE": "Was ist für dich die wertvollste Art, an jemanden zu denken?", "en-US": "What's the most valuable way to think of someone?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Ein Foto schicken: 'Das hat mich an dich erinnert'", "en-US": "Sending a photo: 'This reminded me of you'" }, "type_scores": { "symboliker": 0.5, "alltagszauberer": 0.4, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.1, "time": 0.0, "gifts": 0.3, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "B", "text": { "de-DE": "Etwas mitbringen, das perfekt in den Alltag passt", "en-US": "Bringing something that fits perfectly into daily life" }, "type_scores": { "symboliker": 0.1, "alltagszauberer": 0.8, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.4, "service": 0.1, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "C", "text": { "de-DE": "Anrufen, nur um die Stimme zu hören", "en-US": "Calling, just to hear their voice" }, "type_scores": { "symboliker": 0.2, "alltagszauberer": 0.1, "erlebnisschenker": 0.2 }, "cluster_scores": { "words": 0.3, "time": 0.2, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "D", "text": { "de-DE": "Einen gemeinsamen Ausflug planen – 'Ich hab was für uns'", "en-US": "Planning a shared outing – 'I've got something for us'" }, "type_scores": { "symboliker": 0.1, "alltagszauberer": 0.1, "erlebnisschenker": 0.8 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.3, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.15 } }
+        ] },
+        { "id": "g_q4", "text": { "de-DE": "Geburtstag. Was macht den Tag für dich besonders?", "en-US": "Birthday. What makes the day special for you?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Ein Geschenk, das zeigt: 'Ich kenne deine Welt'", "en-US": "A gift that shows: 'I know your world'" }, "type_scores": { "symboliker": 0.7, "alltagszauberer": 0.2, "erlebnisschenker": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.4, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "B", "text": { "de-DE": "Ein ganzer Tag, geplant nur für dich – voller Überraschungen", "en-US": "A whole day, planned just for you – full of surprises" }, "type_scores": { "symboliker": 0.1, "alltagszauberer": 0.3, "erlebnisschenker": 0.7 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.2, "service": 0.1, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.15 } },
+          { "id": "C", "text": { "de-DE": "Eine Rede, ein Toast – Worte, die du nie vergisst", "en-US": "A speech, a toast – words you'll never forget" }, "type_scores": { "symboliker": 0.3, "alltagszauberer": 0.1, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.4, "time": 0.1, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "D", "text": { "de-DE": "Dass alles organisiert ist, ohne dass du dich kümmern musst", "en-US": "That everything is organized without you having to worry" }, "type_scores": { "symboliker": 0.1, "alltagszauberer": 0.2, "erlebnisschenker": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } }
+        ] },
+        { "id": "g_q5", "text": { "de-DE": "Was ist das schönste 'Geschenk', das kein Geld kostet?", "en-US": "What's the most beautiful 'gift' that costs no money?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Zeit – ungeteilte, bewusste Aufmerksamkeit", "en-US": "Time – undivided, conscious attention" }, "type_scores": { "symboliker": 0.2, "alltagszauberer": 0.1, "erlebnisschenker": 0.3 }, "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.1, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "B", "text": { "de-DE": "Ein selbstgemachtes Etwas – Brief, Zeichnung, Playlist", "en-US": "Something handmade – letter, drawing, playlist" }, "type_scores": { "symboliker": 0.6, "alltagszauberer": 0.3, "erlebnisschenker": 0.2 }, "cluster_scores": { "words": 0.1, "time": 0.0, "gifts": 0.4, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "C", "text": { "de-DE": "Ein Erlebnis zusammen – Sonnenuntergang, Wanderung, Nachtschwimmen", "en-US": "An experience together – sunset, hike, night swimming" }, "type_scores": { "symboliker": 0.1, "alltagszauberer": 0.1, "erlebnisschenker": 0.8 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.2, "service": 0.0, "touch": 0.1 }, "duo_trait_deltas": { "play": 0.15 } },
+          { "id": "D", "text": { "de-DE": "Eine Umarmung, die so fest ist, dass alles andere verschwindet", "en-US": "A hug so tight that everything else disappears" }, "type_scores": { "symboliker": 0.2, "alltagszauberer": 0.1, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.2 } }
+        ] },
+        { "id": "g_q6", "text": { "de-DE": "Du siehst beim Einkaufen etwas, das perfekt zu deinem/deiner Partner:in passt. Was tust du?", "en-US": "While shopping, you see something perfect for your partner. What do you do?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Sofort kaufen – 'Die Freude in den Augen ist unbezahlbar'", "en-US": "Buy it immediately – 'The joy in their eyes is priceless'" }, "type_scores": { "symboliker": 0.3, "alltagszauberer": 0.7, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.4, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.1 } },
+          { "id": "B", "text": { "de-DE": "Foto schicken: 'Schau mal, das schreit nach dir!'", "en-US": "Send a photo: 'Look, this screams you!'" }, "type_scores": { "symboliker": 0.4, "alltagszauberer": 0.4, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.2, "time": 0.0, "gifts": 0.3, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.1, "closeness": 0.05 } },
+          { "id": "C", "text": { "de-DE": "Merken und für einen besonderen Anlass aufheben", "en-US": "Remember it and save it for a special occasion" }, "type_scores": { "symboliker": 0.6, "alltagszauberer": 0.2, "erlebnisschenker": 0.3 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.4, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "D", "text": { "de-DE": "Stattdessen zusammen hingehen – das Aussuchen ist der beste Teil", "en-US": "Go there together instead – picking it out is the best part" }, "type_scores": { "symboliker": 0.1, "alltagszauberer": 0.2, "erlebnisschenker": 0.7 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.2, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.1, "closeness": 0.1 } }
+        ] },
+        { "id": "g_q7", "text": { "de-DE": "Dein:e Partner:in hat eine schwierige Woche. Was ist deine Art zu zeigen: 'Ich seh dich'?", "en-US": "Your partner has a tough week. How do you show: 'I see you'?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Eine kleine Aufmerksamkeit hinterlassen – Schokolade, Notiz, Blume", "en-US": "Leave a small token – chocolate, note, flower" }, "type_scores": { "symboliker": 0.5, "alltagszauberer": 0.5, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.1, "time": 0.0, "gifts": 0.4, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "B", "text": { "de-DE": "Alles abnehmen, was geht – Haushalt, Einkauf, Kinder", "en-US": "Take over everything possible – housework, shopping, kids" }, "type_scores": { "symboliker": 0.1, "alltagszauberer": 0.2, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "C", "text": { "de-DE": "Abends Arm um die Schulter und sagen: 'Ich bin da'", "en-US": "Arm around shoulder in the evening and say: 'I'm here'" }, "type_scores": { "symboliker": 0.2, "alltagszauberer": 0.1, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.2, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.3 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "D", "text": { "de-DE": "Etwas planen, worauf er/sie sich freuen kann – 'Am Wochenende machen wir…'", "en-US": "Plan something they can look forward to – 'This weekend we'll…'" }, "type_scores": { "symboliker": 0.1, "alltagszauberer": 0.2, "erlebnisschenker": 0.8 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.3, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.1 } }
+        ] },
+        { "id": "g_q8", "text": { "de-DE": "Welches Mitbringsel aus dem Urlaub hat den größten Wert für dich?", "en-US": "Which souvenir from vacation has the most value for you?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Ein Stein, eine Muschel – etwas, das die Erinnerung trägt", "en-US": "A stone, a shell – something that carries the memory" }, "type_scores": { "symboliker": 0.8, "alltagszauberer": 0.1, "erlebnisschenker": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.1, "gifts": 0.4, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "B", "text": { "de-DE": "Ein lokales Produkt, das man zu Hause genießen kann", "en-US": "A local product you can enjoy at home" }, "type_scores": { "symboliker": 0.2, "alltagszauberer": 0.7, "erlebnisschenker": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.4, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.1 } },
+          { "id": "C", "text": { "de-DE": "Fotos und Videos – die Momente konservieren", "en-US": "Photos and videos – preserving the moments" }, "type_scores": { "symboliker": 0.3, "alltagszauberer": 0.2, "erlebnisschenker": 0.5 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.2, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "D", "text": { "de-DE": "Die Erfahrung selbst – 'Ich brauch nichts, ich hab den Moment'", "en-US": "The experience itself – 'I don't need anything, I have the moment'" }, "type_scores": { "symboliker": 0.1, "alltagszauberer": 0.1, "erlebnisschenker": 0.6 }, "cluster_scores": { "words": 0.0, "time": 0.4, "gifts": 0.0, "service": 0.0, "touch": 0.1 }, "duo_trait_deltas": { "closeness": 0.1 } }
+        ] },
+        { "id": "g_q9", "text": { "de-DE": "Dein:e Partner:in vergisst ein Datum, das dir wichtig ist. Was tut am meisten weh?", "en-US": "Your partner forgets a date that matters to you. What hurts the most?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Dass die symbolische Geste fehlt – es ging nie ums Geschenk", "en-US": "That the symbolic gesture is missing – it was never about the gift" }, "type_scores": { "symboliker": 0.8, "alltagszauberer": 0.2, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.1, "gifts": 0.4, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": -0.1 } },
+          { "id": "B", "text": { "de-DE": "Dass kein gemeinsamer Moment daraus entstanden ist", "en-US": "That no shared moment came from it" }, "type_scores": { "symboliker": 0.1, "alltagszauberer": 0.1, "erlebnisschenker": 0.6 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.2, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": -0.05 } },
+          { "id": "C", "text": { "de-DE": "Dass keine Worte kamen – nicht mal ein 'Alles Gute'", "en-US": "That no words came – not even a 'Happy birthday'" }, "type_scores": { "symboliker": 0.2, "alltagszauberer": 0.1, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.1, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": -0.1 } },
+          { "id": "D", "text": { "de-DE": "Eigentlich nicht so schlimm – wichtiger ist, was wir im Alltag füreinander tun", "en-US": "Not that bad really – what matters more is what we do for each other daily" }, "type_scores": { "symboliker": 0.0, "alltagszauberer": 0.4, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": -0.1, "service": 0.3, "touch": 0.1 }, "duo_trait_deltas": { "closeness": 0.05 } }
+        ] },
+        { "id": "g_q10", "text": { "de-DE": "Was macht eine Geste für dich 'perfekt'?", "en-US": "What makes a gesture 'perfect' for you?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Sie passt genau – als hätte jemand dein Herz gelesen", "en-US": "It fits exactly – as if someone read your heart" }, "type_scores": { "symboliker": 0.7, "alltagszauberer": 0.3, "erlebnisschenker": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.4, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.2 } },
+          { "id": "B", "text": { "de-DE": "Sie kommt aus dem Nichts – weil der Alltag die besten Bühnen hat", "en-US": "It comes from nowhere – because everyday life has the best stages" }, "type_scores": { "symboliker": 0.2, "alltagszauberer": 0.8, "erlebnisschenker": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.4, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.15 } },
+          { "id": "C", "text": { "de-DE": "Sie schafft einen Moment, der euch verbindet", "en-US": "It creates a moment that connects you" }, "type_scores": { "symboliker": 0.2, "alltagszauberer": 0.1, "erlebnisschenker": 0.7 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.3, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "D", "text": { "de-DE": "Sie braucht keine Worte – du spürst sie einfach", "en-US": "It needs no words – you just feel it" }, "type_scores": { "symboliker": 0.3, "alltagszauberer": 0.1, "erlebnisschenker": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.1, "service": 0.0, "touch": 0.3 }, "duo_trait_deltas": { "closeness": 0.15 } }
+        ] }
+      ],
+      "zone_tokens": {
+        "flow": {
+          "de-DE": { "insight_strength": "Kleine Gesten sind eure geheime Sprache.", "insight_growth": "Manchmal ist die Geste hinter der Geste das Eigentliche.", "micro_step": "Vielleicht: Heute eine Mini-Aufmerksamkeit – ohne Anlass." },
+          "en-US": { "insight_strength": "Small gestures are your secret language.", "insight_growth": "Sometimes the gesture behind the gesture is what matters.", "micro_step": "Maybe: A tiny token of attention today – for no reason." }
+        },
+        "spark": {
+          "de-DE": { "insight_strength": "Einer schenkt Dinge, der andere Zeit – beides ist Liebe.", "insight_growth": "Den Wert in der Geste des anderen sehen lernen.", "micro_step": "Vielleicht: 'Was ist das Schönste, das ich dir je geschenkt habe?'" },
+          "en-US": { "insight_strength": "One gives things, the other gives time – both are love.", "insight_growth": "Learning to see the value in the other's gesture.", "micro_step": "Maybe: 'What's the most beautiful thing I ever gave you?'" }
+        },
+        "talk": {
+          "de-DE": { "insight_strength": "Eure Gestensprachen sind verschieden – und das ist eine Chance.", "insight_growth": "Ein kleiner Spickzettel füreinander macht alles leichter.", "micro_step": "Vielleicht: 'Welche kleine Geste hat dich zuletzt berührt?'" },
+          "en-US": { "insight_strength": "Your gesture languages differ – and that's an opportunity.", "insight_growth": "A little cheat sheet for each other makes everything easier.", "micro_step": "Maybe: 'What small gesture touched you most recently?'" }
+        }
+      }
+    },
+    {
+      "id": "love_service_01",
+      "hidden_cluster": "service",
+      "facet_label": { "de-DE": "Hilfsbereitschaft", "en-US": "Acts of Service" },
+      "axis_key": "closeness",
+      "tone": "warm_minimal",
+      "narrator_id": "forge",
+      "type_model": {
+        "types": ["vordenker", "teamplayer", "stiller_held"],
+        "labels": {
+          "vordenker": { "de-DE": "Vordenker:in", "en-US": "Proactive Planner" },
+          "teamplayer": { "de-DE": "Teamplayer:in", "en-US": "Team Player" },
+          "stiller_held": { "de-DE": "Stille:r Held:in", "en-US": "Silent Hero" }
+        },
+        "compute": "max_type_score"
+      },
+      "questions": [
+        { "id": "s_q1", "text": { "de-DE": "Dein:e Partner:in ist krank. Was ist dein erster Impuls?", "en-US": "Your partner is sick. What's your first impulse?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Suppe kochen, Tee bringen, Decke holen – alles organisieren", "en-US": "Cook soup, bring tea, get a blanket – organize everything" }, "type_scores": { "vordenker": 0.7, "teamplayer": 0.2, "stiller_held": 0.3 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "B", "text": { "de-DE": "Daneben liegen und Gesellschaft leisten – krank sein ist einsam", "en-US": "Lie next to them and keep them company – being sick is lonely" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.3, "stiller_held": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.2 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "C", "text": { "de-DE": "'Was brauchst du? Sag mir, was ich tun kann.'", "en-US": "'What do you need? Tell me what I can do.'" }, "type_scores": { "vordenker": 0.2, "teamplayer": 0.7, "stiller_held": 0.1 }, "cluster_scores": { "words": 0.2, "time": 0.0, "gifts": 0.0, "service": 0.3, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "D", "text": { "de-DE": "Leise alles erledigen – Haushalt, Kinder, Einkauf – ohne Aufhebens", "en-US": "Quietly handle everything – housework, kids, shopping – without fuss" }, "type_scores": { "vordenker": 0.2, "teamplayer": 0.1, "stiller_held": 0.8 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } }
+        ] },
+        { "id": "s_q2", "text": { "de-DE": "Liebe zeigt sich im Alltag am stärksten durch…", "en-US": "Love shows itself most strongly in daily life through…" }, "options": [
+          { "id": "A", "text": { "de-DE": "…Dinge erledigen, bevor der andere daran denkt", "en-US": "…handling things before the other even thinks of them" }, "type_scores": { "vordenker": 0.8, "teamplayer": 0.1, "stiller_held": 0.3 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "B", "text": { "de-DE": "…gemeinsam den Alltag rocken – als echtes Team", "en-US": "…rocking daily life together – as a real team" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.8, "stiller_held": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.0, "service": 0.3, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "C", "text": { "de-DE": "…Worte, die den anderen aufbauen", "en-US": "…words that lift the other up" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.2, "stiller_held": 0.1 }, "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "D", "text": { "de-DE": "…physische Nähe – eine Berührung sagt mehr als tausend To-Do-Listen", "en-US": "…physical closeness – a touch says more than a thousand to-do lists" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.1, "stiller_held": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.15 } }
+        ] },
+        { "id": "s_q3", "text": { "de-DE": "Der Geschirrspüler ist voll, keiner hat Lust. Was passiert bei euch?", "en-US": "The dishwasher is full, nobody feels like it. What happens with you?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Einer macht es einfach – ohne Diskussion, ohne Punktesammeln", "en-US": "One just does it – no discussion, no scorekeeping" }, "type_scores": { "vordenker": 0.3, "teamplayer": 0.1, "stiller_held": 0.8 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.05 } },
+          { "id": "B", "text": { "de-DE": "Zusammen machen – einer räumt ein, der andere wischt", "en-US": "Do it together – one loads, the other wipes" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.8, "stiller_held": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.0, "service": 0.3, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.05, "closeness": 0.05 } },
+          { "id": "C", "text": { "de-DE": "'Ich mach das, du ruhst dich aus' – bewusst schenken", "en-US": "'I'll do it, you rest' – consciously giving" }, "type_scores": { "vordenker": 0.5, "teamplayer": 0.2, "stiller_held": 0.4 }, "cluster_scores": { "words": 0.1, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "D", "text": { "de-DE": "Musik an, Wein auf – aus der Pflicht wird ein Moment", "en-US": "Music on, wine out – turning chores into a moment" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.5, "stiller_held": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.1, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.15 } }
+        ] },
+        { "id": "s_q4", "text": { "de-DE": "Wann fühlst du dich am meisten unterstützt?", "en-US": "When do you feel most supported?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Wenn jemand Probleme löst, bevor ich sie überhaupt formuliert habe", "en-US": "When someone solves problems before I've even articulated them" }, "type_scores": { "vordenker": 0.9, "teamplayer": 0.1, "stiller_held": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "B", "text": { "de-DE": "Wenn jemand sagt: 'Wir schaffen das zusammen'", "en-US": "When someone says: 'We'll handle this together'" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.6, "stiller_held": 0.1 }, "cluster_scores": { "words": 0.3, "time": 0.1, "gifts": 0.0, "service": 0.1, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "C", "text": { "de-DE": "Wenn mir jemand den Rücken freihält – leise, verlässlich", "en-US": "When someone has my back – quietly, reliably" }, "type_scores": { "vordenker": 0.2, "teamplayer": 0.1, "stiller_held": 0.8 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "D", "text": { "de-DE": "Wenn jemand mir Raum gibt und gleichzeitig da ist", "en-US": "When someone gives me space and is there at the same time" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.3, "stiller_held": 0.3 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.1 }, "duo_trait_deltas": { "closeness": 0.1 } }
+        ] },
+        { "id": "s_q5", "text": { "de-DE": "Dein:e Partner:in hat einen stressigen Termin. Was tust du?", "en-US": "Your partner has a stressful appointment. What do you do?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Auto tanken, Outfit rauslegen, Route checken – alles vorbereiten", "en-US": "Fill up the car, lay out outfit, check the route – prepare everything" }, "type_scores": { "vordenker": 0.9, "teamplayer": 0.1, "stiller_held": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "B", "text": { "de-DE": "'Du rockst das' – aufmunternde Worte mit auf den Weg", "en-US": "'You've got this' – encouraging words to send them off" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.3, "stiller_held": 0.1 }, "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "C", "text": { "de-DE": "Anbieten, mitzukommen – moralische Unterstützung vor Ort", "en-US": "Offer to come along – moral support on site" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.7, "stiller_held": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.2, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "D", "text": { "de-DE": "Abends etwas Schönes vorbereiten – damit der Tag gut endet", "en-US": "Prepare something nice for the evening – so the day ends well" }, "type_scores": { "vordenker": 0.3, "teamplayer": 0.2, "stiller_held": 0.6 }, "cluster_scores": { "words": 0.0, "time": 0.1, "gifts": 0.1, "service": 0.3, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } }
+        ] },
+        { "id": "s_q6", "text": { "de-DE": "Welche alltägliche Handlung fühlt sich für dich am meisten nach Liebe an?", "en-US": "Which everyday action feels most like love to you?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Wenn der Kühlschrank gefüllt ist, ohne dass jemand gefragt hat", "en-US": "When the fridge is stocked without anyone asking" }, "type_scores": { "vordenker": 0.5, "teamplayer": 0.1, "stiller_held": 0.6 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "B", "text": { "de-DE": "Ein 'Danke' für etwas, das selbstverständlich schien", "en-US": "A 'thank you' for something that seemed obvious" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.3, "stiller_held": 0.2 }, "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.0, "service": 0.1, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "C", "text": { "de-DE": "Wenn jemand abends fragt: 'Wie war dein Tag – wirklich?'", "en-US": "When someone asks in the evening: 'How was your day – really?'" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.4, "stiller_held": 0.1 }, "cluster_scores": { "words": 0.2, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "D", "text": { "de-DE": "Eine Umarmung im Vorbeigehen – kurz, warm, beiläufig", "en-US": "A hug in passing – brief, warm, casual" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.1, "stiller_held": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.15 } }
+        ] },
+        { "id": "s_q7", "text": { "de-DE": "Wie sieht 'Fürsorge' in eurer Beziehung aus?", "en-US": "What does 'caring' look like in your relationship?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Vorausdenken – Arzttermine, Versicherung, Reiseplanung übernehmen", "en-US": "Thinking ahead – taking over doctor's appointments, insurance, travel planning" }, "type_scores": { "vordenker": 0.9, "teamplayer": 0.1, "stiller_held": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.05 } },
+          { "id": "B", "text": { "de-DE": "Abwechselnd füreinander da sein – heute du, morgen ich", "en-US": "Taking turns being there for each other – today you, tomorrow me" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.8, "stiller_held": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.1, "gifts": 0.0, "service": 0.3, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "C", "text": { "de-DE": "Die kleinen Dinge im Hintergrund erledigen – ohne Dankbarkeit zu erwarten", "en-US": "Handling the small things in the background – without expecting gratitude" }, "type_scores": { "vordenker": 0.2, "teamplayer": 0.1, "stiller_held": 0.8 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "D", "text": { "de-DE": "Emotionale Verfügbarkeit – 'Ich bin da, wenn du mich brauchst'", "en-US": "Emotional availability – 'I'm here when you need me'" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.4, "stiller_held": 0.2 }, "cluster_scores": { "words": 0.1, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.1 }, "duo_trait_deltas": { "closeness": 0.15 } }
+        ] },
+        { "id": "s_q8", "text": { "de-DE": "Ihr zieht um. Was ist dein Part?", "en-US": "You're moving. What's your role?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Checkliste, Timeline, Umzugsfirma – das große Bild", "en-US": "Checklist, timeline, moving company – the big picture" }, "type_scores": { "vordenker": 0.9, "teamplayer": 0.1, "stiller_held": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.05 } },
+          { "id": "B", "text": { "de-DE": "Zusammen packen, zusammen schleppen – Teamwork macht's leichter", "en-US": "Packing together, carrying together – teamwork makes it easier" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.8, "stiller_held": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.0, "service": 0.3, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.05, "closeness": 0.1 } },
+          { "id": "C", "text": { "de-DE": "Die Sachen erledigen, die keiner sieht – Ummeldung, Internet, Nachsendeantrag", "en-US": "Taking care of the things nobody sees – address change, internet, mail forwarding" }, "type_scores": { "vordenker": 0.3, "teamplayer": 0.1, "stiller_held": 0.7 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.05 } },
+          { "id": "D", "text": { "de-DE": "Für die gute Stimmung sorgen – Pizza bestellen, Musik auflegen, Pausen einbauen", "en-US": "Keeping spirits up – ordering pizza, playing music, scheduling breaks" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.4, "stiller_held": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.1, "service": 0.1, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.15 } }
+        ] },
+        { "id": "s_q9", "text": { "de-DE": "Was nervt dich am meisten bei 'Hilfe'?", "en-US": "What annoys you most about 'help'?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Wenn sie ungefragt kommt und eigentlich Kontrolle ist", "en-US": "When it comes unsolicited and is actually control" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.5, "stiller_held": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.0, "service": 0.1, "touch": 0.0 }, "duo_trait_deltas": {} },
+          { "id": "B", "text": { "de-DE": "Wenn sie halb gemacht wird – dann lieber gar nicht", "en-US": "When it's done halfway – then better not at all" }, "type_scores": { "vordenker": 0.6, "teamplayer": 0.1, "stiller_held": 0.4 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.3, "touch": 0.0 }, "duo_trait_deltas": {} },
+          { "id": "C", "text": { "de-DE": "Wenn sie laut inszeniert wird – echte Hilfe braucht kein Publikum", "en-US": "When it's loudly staged – real help doesn't need an audience" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.1, "stiller_held": 0.8 }, "cluster_scores": { "words": -0.1, "time": 0.0, "gifts": 0.0, "service": 0.3, "touch": 0.0 }, "duo_trait_deltas": {} },
+          { "id": "D", "text": { "de-DE": "Wenn ich danach ein 'Dankeschön-Schulden-Gefühl' habe", "en-US": "When I'm left with a 'thank-you-debt' feeling" }, "type_scores": { "vordenker": 0.2, "teamplayer": 0.5, "stiller_held": 0.2 }, "cluster_scores": { "words": 0.1, "time": 0.0, "gifts": 0.0, "service": 0.1, "touch": 0.0 }, "duo_trait_deltas": {} }
+        ] },
+        { "id": "s_q10", "text": { "de-DE": "Dein:e Partner:in sagt 'Danke' für etwas Alltägliches. Was löst das in dir aus?", "en-US": "Your partner says 'thank you' for something everyday. What does it trigger in you?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Freude – es fühlt sich gut an, gesehen zu werden", "en-US": "Joy – it feels good to be seen" }, "type_scores": { "vordenker": 0.2, "teamplayer": 0.3, "stiller_held": 0.5 }, "cluster_scores": { "words": 0.3, "time": 0.0, "gifts": 0.0, "service": 0.2, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "B", "text": { "de-DE": "Überraschung – 'Das war doch selbstverständlich'", "en-US": "Surprise – 'That was just normal'" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.2, "stiller_held": 0.7 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.3, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.05 } },
+          { "id": "C", "text": { "de-DE": "Motivation – 'Gern, ich mach gern mehr davon'", "en-US": "Motivation – 'Gladly, I like doing more of that'" }, "type_scores": { "vordenker": 0.4, "teamplayer": 0.5, "stiller_held": 0.2 }, "cluster_scores": { "words": 0.2, "time": 0.0, "gifts": 0.0, "service": 0.3, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "D", "text": { "de-DE": "Nähe – 'Danke' ist manchmal intimer als 'Ich liebe dich'", "en-US": "Closeness – 'Thank you' is sometimes more intimate than 'I love you'" }, "type_scores": { "vordenker": 0.1, "teamplayer": 0.3, "stiller_held": 0.3 }, "cluster_scores": { "words": 0.3, "time": 0.1, "gifts": 0.0, "service": 0.1, "touch": 0.1 }, "duo_trait_deltas": { "closeness": 0.2 } }
+        ] }
+      ],
+      "zone_tokens": {
+        "flow": {
+          "de-DE": { "insight_strength": "Ihr zeigt Liebe durch Taten – das ist eine stille Superkraft.", "insight_growth": "Manchmal lohnt es sich, die Taten auch in Worte zu fassen.", "micro_step": "Vielleicht: Heute bewusst 'Danke' sagen – für etwas Alltägliches." },
+          "en-US": { "insight_strength": "You show love through actions – that's a quiet superpower.", "insight_growth": "Sometimes it's worth putting those actions into words.", "micro_step": "Maybe: Consciously say 'thank you' today – for something everyday." }
+        },
+        "spark": {
+          "de-DE": { "insight_strength": "Einer macht, der andere spricht – beides zählt.", "insight_growth": "Die Sprache des anderen zu erkennen, verdoppelt die Wirkung.", "micro_step": "Vielleicht: 'Was kann ich dir heute abnehmen?'" },
+          "en-US": { "insight_strength": "One acts, the other speaks – both count.", "insight_growth": "Recognizing the other's language doubles the impact.", "micro_step": "Maybe: 'What can I take off your plate today?'" }
+        },
+        "talk": {
+          "de-DE": { "insight_strength": "Fürsorge sieht bei euch unterschiedlich aus – und das ist wertvoll.", "insight_growth": "Ein kleiner Abgleich macht sichtbar, was der andere eigentlich gibt.", "micro_step": "Vielleicht: 'Was tust du für mich, das ich vielleicht übersehe?'" },
+          "en-US": { "insight_strength": "Care looks different for each of you – and that's valuable.", "insight_growth": "A small alignment makes visible what the other actually gives.", "micro_step": "Maybe: 'What do you do for me that I might overlook?'" }
+        }
+      }
+    },
+    {
+      "id": "love_touch_01",
+      "hidden_cluster": "touch",
+      "facet_label": { "de-DE": "Körperliche Nähe", "en-US": "Physical Touch" },
+      "axis_key": "closeness",
+      "tone": "playful",
+      "narrator_id": "ember",
+      "type_model": {
+        "types": ["initiator", "hafen", "stromkreis"],
+        "labels": {
+          "initiator": { "de-DE": "Initiator:in", "en-US": "Initiator" },
+          "hafen": { "de-DE": "Hafen", "en-US": "Harbor" },
+          "stromkreis": { "de-DE": "Stromkreis", "en-US": "Circuit" }
+        },
+        "compute": "max_type_score"
+      },
+      "questions": [
+        { "id": "p_q1", "text": { "de-DE": "Ihr kommt nach einem langen Tag zusammen. Was ist dein erster Impuls?", "en-US": "You come together after a long day. What's your first impulse?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Sofort umarmen – Körper zuerst, Worte später", "en-US": "Hug immediately – body first, words later" }, "type_scores": { "initiator": 0.8, "hafen": 0.2, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "B", "text": { "de-DE": "Nebeneinander setzen, Schulter an Schulter – Stille reicht", "en-US": "Sit next to each other, shoulder to shoulder – silence is enough" }, "type_scores": { "initiator": 0.1, "hafen": 0.7, "stromkreis": 0.3 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.0, "service": 0.0, "touch": 0.3 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "C", "text": { "de-DE": "Erstmal erzählen, was passiert ist – Verbindung durch Worte", "en-US": "First talk about what happened – connection through words" }, "type_scores": { "initiator": 0.1, "hafen": 0.2, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.3, "time": 0.2, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "D", "text": { "de-DE": "Etwas zusammen machen – kochen, spazieren, den Abend aktiv gestalten", "en-US": "Do something together – cook, walk, actively shape the evening" }, "type_scores": { "initiator": 0.2, "hafen": 0.1, "stromkreis": 0.4 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.1, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.1 } }
+        ] },
+        { "id": "p_q2", "text": { "de-DE": "Welche Berührung gibt dir am meisten das Gefühl von Zuhause?", "en-US": "Which touch gives you the greatest feeling of home?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Eine Hand, die sich in deine legt – beiläufig, selbstverständlich", "en-US": "A hand that slips into yours – casually, naturally" }, "type_scores": { "initiator": 0.3, "hafen": 0.3, "stromkreis": 0.6 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "B", "text": { "de-DE": "Eine Umarmung von hinten – unerwartet und warm", "en-US": "A hug from behind – unexpected and warm" }, "type_scores": { "initiator": 0.7, "hafen": 0.2, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.2 } },
+          { "id": "C", "text": { "de-DE": "Kopf auf dem Schoß – sich fallen lassen können", "en-US": "Head on lap – being able to let go" }, "type_scores": { "initiator": 0.1, "hafen": 0.8, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.1, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.2 } },
+          { "id": "D", "text": { "de-DE": "Gemeinsam einschlafen – verschränkt, nah, synchron", "en-US": "Falling asleep together – intertwined, close, in sync" }, "type_scores": { "initiator": 0.2, "hafen": 0.3, "stromkreis": 0.7 }, "cluster_scores": { "words": 0.0, "time": 0.1, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.2 } }
+        ] },
+        { "id": "p_q3", "text": { "de-DE": "Ihr seid unter Leuten. Wie zeigt ihr Verbundenheit?", "en-US": "You're among people. How do you show connection?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Hand auf dem Knie, Arm um die Schulter – beiläufiger Kontakt", "en-US": "Hand on the knee, arm around shoulder – casual contact" }, "type_scores": { "initiator": 0.7, "hafen": 0.2, "stromkreis": 0.3 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "B", "text": { "de-DE": "Blicke, die nur ihr versteht – Berührung ohne Berührung", "en-US": "Glances only you understand – touch without touch" }, "type_scores": { "initiator": 0.2, "hafen": 0.3, "stromkreis": 0.4 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.0, "service": 0.0, "touch": 0.2 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "C", "text": { "de-DE": "Euch von der Gruppe lösen und kurz nur füreinander da sein", "en-US": "Breaking away from the group and being there just for each other briefly" }, "type_scores": { "initiator": 0.3, "hafen": 0.5, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.2 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "D", "text": { "de-DE": "Den anderen lobend erwähnen – 'Mein:e Partner:in hat neulich…'", "en-US": "Mentioning the other approvingly – 'My partner recently…'" }, "type_scores": { "initiator": 0.1, "hafen": 0.1, "stromkreis": 0.1 }, "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } }
+        ] },
+        { "id": "p_q4", "text": { "de-DE": "Dein:e Partner:in weint. Was tust du instinktiv?", "en-US": "Your partner is crying. What do you do instinctively?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Festhalten – keine Worte, nur Arme", "en-US": "Hold them – no words, just arms" }, "type_scores": { "initiator": 0.5, "hafen": 0.6, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.2 } },
+          { "id": "B", "text": { "de-DE": "Fragen: 'Was ist passiert? Erzähl mir.'", "en-US": "Ask: 'What happened? Tell me.'" }, "type_scores": { "initiator": 0.1, "hafen": 0.2, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.2, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "C", "text": { "de-DE": "Etwas tun – Taschentuch holen, Wasser bringen, Raum schaffen", "en-US": "Do something – get tissues, bring water, create space" }, "type_scores": { "initiator": 0.2, "hafen": 0.1, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "D", "text": { "de-DE": "Einfach da bleiben – sitzen, atmen, warten", "en-US": "Just stay – sit, breathe, wait" }, "type_scores": { "initiator": 0.1, "hafen": 0.7, "stromkreis": 0.3 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.2 }, "duo_trait_deltas": { "closeness": 0.15 } }
+        ] },
+        { "id": "p_q5", "text": { "de-DE": "Wie wichtig ist dir Berührung im Vergleich zu Worten?", "en-US": "How important is touch compared to words for you?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Eine Berührung sagt mir mehr als jeder Satz", "en-US": "A touch tells me more than any sentence" }, "type_scores": { "initiator": 0.5, "hafen": 0.3, "stromkreis": 0.5 }, "cluster_scores": { "words": -0.1, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "B", "text": { "de-DE": "Beides zusammen – eine Umarmung mit den richtigen Worten ist unschlagbar", "en-US": "Both together – a hug with the right words is unbeatable" }, "type_scores": { "initiator": 0.3, "hafen": 0.3, "stromkreis": 0.4 }, "cluster_scores": { "words": 0.2, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.3 }, "duo_trait_deltas": { "closeness": 0.2 } },
+          { "id": "C", "text": { "de-DE": "Worte kommen zuerst – aber die Hand danach macht den Unterschied", "en-US": "Words come first – but the hand afterward makes the difference" }, "type_scores": { "initiator": 0.2, "hafen": 0.4, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.3, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.2 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "D", "text": { "de-DE": "Ehrlich? Ich brauche nicht viel Berührung – andere Dinge zählen mehr", "en-US": "Honestly? I don't need much touch – other things matter more" }, "type_scores": { "initiator": 0.0, "hafen": 0.1, "stromkreis": 0.1 }, "cluster_scores": { "words": 0.1, "time": 0.1, "gifts": 0.1, "service": 0.1, "touch": -0.2 }, "duo_trait_deltas": {} }
+        ] },
+        { "id": "p_q6", "text": { "de-DE": "Morgens im Bett, der Wecker hat noch nicht geklingelt. Was machst du?", "en-US": "Morning in bed, the alarm hasn't gone off yet. What do you do?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Näher rutschen – die Wärme des anderen ist das Beste am Morgen", "en-US": "Scoot closer – the other's warmth is the best thing about mornings" }, "type_scores": { "initiator": 0.6, "hafen": 0.2, "stromkreis": 0.5 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "B", "text": { "de-DE": "Leise liegen bleiben – den Moment genießen, ohne etwas zu stören", "en-US": "Lie still – enjoying the moment without disturbing anything" }, "type_scores": { "initiator": 0.1, "hafen": 0.5, "stromkreis": 0.3 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.2 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "C", "text": { "de-DE": "Aufstehen und Kaffee machen – die erste Tat zählt", "en-US": "Get up and make coffee – the first act counts" }, "type_scores": { "initiator": 0.2, "hafen": 0.1, "stromkreis": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.4, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.05 } },
+          { "id": "D", "text": { "de-DE": "'Guten Morgen' flüstern – die erste Verbindung ist ein Wort", "en-US": "Whisper 'Good morning' – the first connection is a word" }, "type_scores": { "initiator": 0.2, "hafen": 0.2, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.3, "time": 0.1, "gifts": 0.0, "service": 0.0, "touch": 0.1 }, "duo_trait_deltas": { "closeness": 0.1 } }
+        ] },
+        { "id": "p_q7", "text": { "de-DE": "Ihr streitet. Was hilft am ehesten, wieder zueinander zu finden?", "en-US": "You're arguing. What helps most to find your way back to each other?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Eine Umarmung mitten im Streit – Körper versteht, was der Kopf nicht kann", "en-US": "A hug in the middle of the fight – body understands what the mind can't" }, "type_scores": { "initiator": 0.8, "hafen": 0.2, "stromkreis": 0.3 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.2 } },
+          { "id": "B", "text": { "de-DE": "Pause machen und dann aussprechen – Klarheit schafft Nähe", "en-US": "Take a break and then talk it out – clarity creates closeness" }, "type_scores": { "initiator": 0.1, "hafen": 0.3, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.2, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "C", "text": { "de-DE": "Etwas zusammen tun – der Streit löst sich auf, wenn man wieder Team ist", "en-US": "Do something together – the argument dissolves when you're a team again" }, "type_scores": { "initiator": 0.1, "hafen": 0.2, "stromkreis": 0.3 }, "cluster_scores": { "words": 0.0, "time": 0.2, "gifts": 0.0, "service": 0.2, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.1 } },
+          { "id": "D", "text": { "de-DE": "Abends im Bett – nebeneinander liegen und langsam wieder ankommen", "en-US": "In bed at night – lying next to each other and slowly coming back" }, "type_scores": { "initiator": 0.2, "hafen": 0.6, "stromkreis": 0.5 }, "cluster_scores": { "words": 0.0, "time": 0.1, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.15 } }
+        ] },
+        { "id": "p_q8", "text": { "de-DE": "Wie tankt dein Körper Nähe auf?", "en-US": "How does your body recharge on closeness?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Regelmäßig – ich brauche täglichen Kontakt wie einen Rhythmus", "en-US": "Regularly – I need daily contact like a rhythm" }, "type_scores": { "initiator": 0.3, "hafen": 0.2, "stromkreis": 0.8 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "B", "text": { "de-DE": "Intensiv aber selten – eine tiefe Umarmung hält lange", "en-US": "Intense but rare – one deep embrace lasts a long time" }, "type_scores": { "initiator": 0.4, "hafen": 0.5, "stromkreis": 0.1 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.3 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "C", "text": { "de-DE": "Beiläufig – kleine Berührungen im Alltag reichen", "en-US": "Casually – small touches in daily life are enough" }, "type_scores": { "initiator": 0.2, "hafen": 0.3, "stromkreis": 0.5 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.3 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "D", "text": { "de-DE": "Eher durch Gespräche und gemeinsame Zeit – Worte sind meine Berührung", "en-US": "More through conversations and shared time – words are my touch" }, "type_scores": { "initiator": 0.1, "hafen": 0.1, "stromkreis": 0.1 }, "cluster_scores": { "words": 0.2, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": -0.1 }, "duo_trait_deltas": { "closeness": 0.1 } }
+        ] },
+        { "id": "p_q9", "text": { "de-DE": "Ihr seht zusammen einen emotionalen Film. Was passiert bei dir?", "en-US": "You're watching an emotional movie together. What happens with you?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Du rückst automatisch näher und suchst Körperkontakt", "en-US": "You automatically move closer and seek physical contact" }, "type_scores": { "initiator": 0.7, "hafen": 0.2, "stromkreis": 0.4 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "B", "text": { "de-DE": "Du willst danach darüber reden – teilen, was es ausgelöst hat", "en-US": "You want to talk about it afterwards – share what it triggered" }, "type_scores": { "initiator": 0.1, "hafen": 0.2, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.2, "time": 0.3, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "C", "text": { "de-DE": "'Ich bin froh, dass ich das mit dir erlebe' – ein leiser Satz reicht", "en-US": "'I'm glad I'm experiencing this with you' – a quiet sentence is enough" }, "type_scores": { "initiator": 0.1, "hafen": 0.3, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.3, "time": 0.1, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "D", "text": { "de-DE": "Du denkst: 'Sowas möchte ich uns auch mal schenken'", "en-US": "You think: 'I'd like to give us something like this too'" }, "type_scores": { "initiator": 0.2, "hafen": 0.1, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.3, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "play": 0.1 } }
+        ] },
+        { "id": "p_q10", "text": { "de-DE": "Wenn du an die schönsten Momente mit deinem/deiner Partner:in denkst – was spürst du zuerst?", "en-US": "When you think of the most beautiful moments with your partner – what do you feel first?" }, "options": [
+          { "id": "A", "text": { "de-DE": "Wärme – als wäre die Berührung noch auf der Haut", "en-US": "Warmth – as if the touch is still on your skin" }, "type_scores": { "initiator": 0.4, "hafen": 0.4, "stromkreis": 0.5 }, "cluster_scores": { "words": 0.0, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.4 }, "duo_trait_deltas": { "closeness": 0.2 } },
+          { "id": "B", "text": { "de-DE": "Worte – ein Satz, der sich eingebrannt hat", "en-US": "Words – a sentence that's burned in" }, "type_scores": { "initiator": 0.1, "hafen": 0.2, "stromkreis": 0.1 }, "cluster_scores": { "words": 0.4, "time": 0.0, "gifts": 0.0, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.15 } },
+          { "id": "C", "text": { "de-DE": "Ein Bild – ein Ort, ein Licht, eine Szene", "en-US": "An image – a place, a light, a scene" }, "type_scores": { "initiator": 0.1, "hafen": 0.2, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.0, "time": 0.3, "gifts": 0.1, "service": 0.0, "touch": 0.0 }, "duo_trait_deltas": { "closeness": 0.1 } },
+          { "id": "D", "text": { "de-DE": "Dankbarkeit – dass jemand so für mich da war", "en-US": "Gratitude – that someone was there for me like that" }, "type_scores": { "initiator": 0.1, "hafen": 0.3, "stromkreis": 0.2 }, "cluster_scores": { "words": 0.1, "time": 0.0, "gifts": 0.0, "service": 0.2, "touch": 0.1 }, "duo_trait_deltas": { "closeness": 0.15 } }
+        ] }
+      ],
+      "zone_tokens": {
+        "flow": {
+          "de-DE": { "insight_strength": "Berührung ist eure Muttersprache – ihr versteht euch ohne Worte.", "insight_growth": "Manchmal lohnt es sich, den Körper auch in Worte zu übersetzen.", "micro_step": "Vielleicht: Heute eine Berührung bewusst verlängern." },
+          "en-US": { "insight_strength": "Touch is your mother tongue – you understand each other without words.", "insight_growth": "Sometimes it's worth translating the body into words too.", "micro_step": "Maybe: Consciously extend a touch today." }
+        },
+        "spark": {
+          "de-DE": { "insight_strength": "Einer braucht Nähe, der andere Raum – beides ist Liebe.", "insight_growth": "Den Rhythmus des anderen spüren lernen.", "micro_step": "Vielleicht: 'Wie viel Nähe brauchst du heute?'" },
+          "en-US": { "insight_strength": "One needs closeness, the other space – both are love.", "insight_growth": "Learning to feel the other's rhythm.", "micro_step": "Maybe: 'How much closeness do you need today?'" }
+        },
+        "talk": {
+          "de-DE": { "insight_strength": "Eure Körpersprachen unterscheiden sich – und das ist okay.", "insight_growth": "Ein kleines Gespräch über Nähe kann vieles klären.", "micro_step": "Vielleicht: 'Welche Berührung gibt dir am meisten Geborgenheit?'" },
+          "en-US": { "insight_strength": "Your body languages differ – and that's okay.", "insight_growth": "A small conversation about closeness can clarify a lot.", "micro_step": "Maybe: 'Which touch gives you the most sense of safety?'" }
+        }
+      }
+    }
+  ]
+}
