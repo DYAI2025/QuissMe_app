@@ -37,19 +37,12 @@ export default function QuizResultScreen() {
   const loadResult = async () => {
     try {
       if (!resultId) return;
-      // Fetch from the submit response stored data
-      const res = await fetch(`${process.env.EXPO_PUBLIC_BACKEND_URL}/api/quiz/results/solo`);
-      // Try fetching all results to find our one
-      // Actually we need a single result endpoint, let me use a workaround
-      // The result was returned from submit, let's use the couple results endpoint
-      const allResults = await res.json();
-      const found = allResults.find((r: any) => r.id === resultId);
+      const found = await api.getQuizResult(resultId);
       if (found) {
         setResult(found);
       }
     } catch (e) {
-      // Fallback: try direct fetch through a different pattern
-      console.log('Fetching result via couple endpoint');
+      console.log('Could not load result:', e);
     } finally {
       setLoading(false);
     }
