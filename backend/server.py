@@ -139,7 +139,7 @@ Halte es leicht, spielerisch und ermutigend. Kein klinischer Ton. Max 150 Wörte
         return response
     except Exception as e:
         logger.error(f"Gemini interpretation error: {e}")
-        return f"Eure Sterne erzählen eine besondere Geschichte zusammen. Die Verbindung zwischen euren Zeichen birgt wunderbare Möglichkeiten – für Nähe, Wachstum und gemeinsame Abenteuer. Lasst euch überraschen, was ihr zusammen entdecken werdet!"
+        return "Eure Sterne erzählen eine besondere Geschichte zusammen. Die Verbindung zwischen euren Zeichen birgt wunderbare Möglichkeiten – für Nähe, Wachstum und gemeinsame Abenteuer. Lasst euch überraschen, was ihr zusammen entdecken werdet!"
 
 
 # ─── API Routes ───
