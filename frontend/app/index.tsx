@@ -43,7 +43,7 @@ export default function SplashScreen() {
 
   return (
     <View style={styles.container}>
-      {starAnims.map((star, i) => (
+      {STAR_POSITIONS.map((star, i) => (
         <Animated.View
           key={i}
           style={[
@@ -53,7 +53,7 @@ export default function SplashScreen() {
               top: star.y,
               width: star.size,
               height: star.size,
-              opacity: star.opacity,
+              opacity: starAnims[i],
             },
           ]}
         />
