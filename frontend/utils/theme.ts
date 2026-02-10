@@ -37,6 +37,16 @@ export const COLORS = {
     medium: '#34D399',
     building: '#818CF8',
   },
+  functional: {
+    success: '#34D399',
+    error: '#F87171',
+  },
+  // Legacy aliases
+  dusk: {
+    gold: '#D4A338',
+    textPrimary: '#FFF5E1',
+    textSecondary: '#FFD6BA',
+  },
 };
 
 export const SPACING = { xs: 4, s: 8, m: 16, l: 24, xl: 32, xxl: 48 };
