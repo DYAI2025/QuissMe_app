@@ -627,6 +627,231 @@ async def get_garden(couple_id: str):
     return {"garden": couple.get("garden", {"items": [], "level": 1})}
 
 
+# ─── Stats System ───
+
+def get_stat_library_meta() -> dict:
+    """Get stat library metadata and all stats."""
+    return STAT_LIBRARY
+
+def get_all_stat_keys() -> list:
+    """Get all stat keys from library."""
+    return [s["stat_key"] for s in STAT_LIBRARY.get("stats", [])]
+
+def get_stat_info(stat_key: str) -> dict:
+    """Get stat info from library."""
+    for s in STAT_LIBRARY.get("stats", []):
+        if s["stat_key"] == stat_key:
+            return s
+    return {}
+
+def calculate_tendency(value: float) -> str:
+    """Calculate tendency label from 0-100 value."""
+    thresholds = STAT_LIBRARY.get("meta", {}).get("tendency_thresholds", {"high": 70, "medium": 40})
+    if value >= thresholds["high"]:
+        return "high"
+    elif value >= thresholds["medium"]:
+        return "medium"
+    return "building"
+
+def ewma_update(old_value: float, target: float, alpha: float = None) -> float:
+    """Exponentially weighted moving average update."""
+    if alpha is None:
+        alpha = STAT_LIBRARY.get("meta", {}).get("ewma_alpha", 0.15)
+    return (1 - alpha) * old_value + alpha * target
+
+async def get_or_create_duo_stats(couple_id: str) -> dict:
+    """Get or initialize duo_stats for a couple."""
+    duo_stats = await db.duo_stats.find_one({"couple_id": couple_id}, {"_id": 0})
+    if duo_stats:
+        return duo_stats
+    
+    # Initialize with default values (50 = neutral starting point)
+    initial_stats = {}
+    for stat in STAT_LIBRARY.get("stats", []):
+        if stat.get("tier") == "core":
+            initial_stats[stat["stat_key"]] = {
+                "value_0_100": 50,
+                "history": [],
+                "last_updated": datetime.now(timezone.utc).isoformat()
+            }
+    
+    duo_stats_doc = {
+        "couple_id": couple_id,
+        "stats": initial_stats,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "updated_at": datetime.now(timezone.utc).isoformat()
+    }
+    await db.duo_stats.insert_one(duo_stats_doc)
+    return duo_stats_doc
+
+async def update_duo_stats_from_quiz(couple_id: str, answers_a: dict, answers_b: dict, quiz: dict):
+    """
+    Update duo_stats after quiz completion using EWMA.
+    Formula: pair_signal = 0.65*similarity + 0.35*complementarity
+    """
+    duo_stats = await get_or_create_duo_stats(couple_id)
+    stats = duo_stats.get("stats", {})
+    
+    # Get quiz stat_tags (if available)
+    stat_tags = quiz.get("stat_tags", [])
+    if not stat_tags:
+        # Fallback: derive from hidden_cluster
+        cluster = quiz.get("hidden_cluster", "")
+        if cluster in ["words", "touch"]:
+            stat_tags = ["tenderness", "appreciation", "playfulness"]
+        elif cluster in ["time", "service"]:
+            stat_tags = ["rituals", "teamwork", "daily_design"]
+        elif cluster in ["gifts", "future"]:
+            stat_tags = ["growth_mode", "spaciousness", "fluidity"]
+        elif cluster == "stability":
+            stat_tags = ["repair_skill", "soft_under_stress", "boundaries"]
+        elif cluster == "passion":
+            stat_tags = ["initiation", "attunement", "tenderness"]
+        else:
+            stat_tags = ["attunement", "teamwork", "balance"]
+    
+    # Calculate similarity and complementarity from answer comparison
+    sums_a = answers_a.get("cluster_sums", {}) if answers_a else {}
+    sums_b = answers_b.get("cluster_sums", {}) if answers_b else {}
+    
+    # Normalize to 0-1
+    all_keys = set(list(sums_a.keys()) + list(sums_b.keys()))
+    max_a = max(sums_a.values()) if sums_a else 1
+    max_b = max(sums_b.values()) if sums_b else 1
+    
+    norm_a = {k: sums_a.get(k, 0) / max_a if max_a > 0 else 0 for k in all_keys}
+    norm_b = {k: sums_b.get(k, 0) / max_b if max_b > 0 else 0 for k in all_keys}
+    
+    # Calculate average difference across response dimensions
+    diffs = []
+    for k in all_keys:
+        diff = abs(norm_a.get(k, 0) - norm_b.get(k, 0))
+        diffs.append(diff)
+    
+    avg_diff = sum(diffs) / len(diffs) if diffs else 0.5
+    
+    # similarity = 1 - diff
+    similarity = 1 - avg_diff
+    
+    # complementarity peaks at diff = 0.35 (sweet spot)
+    import math
+    mu = 0.35
+    sigma = 0.15
+    complementarity = math.exp(-((avg_diff - mu)**2) / (2 * sigma**2))
+    
+    # pair_signal = 0.65*similarity + 0.35*complementarity
+    pair_signal = 0.65 * similarity + 0.35 * complementarity
+    target = 100 * pair_signal
+    
+    # Update each relevant stat with EWMA
+    alpha = STAT_LIBRARY.get("meta", {}).get("ewma_alpha", 0.15)
+    now = datetime.now(timezone.utc).isoformat()
+    
+    for stat_key in stat_tags:
+        if stat_key in stats:
+            old_value = stats[stat_key].get("value_0_100", 50)
+            new_value = ewma_update(old_value, target, alpha)
+            
+            # Update with history (keep last 10)
+            history = stats[stat_key].get("history", [])[-9:]
+            history.append({"value": old_value, "timestamp": now})
+            
+            stats[stat_key] = {
+                "value_0_100": round(new_value, 1),
+                "history": history,
+                "last_updated": now
+            }
+        else:
+            # Initialize stat if not present
+            stats[stat_key] = {
+                "value_0_100": round(target, 1),
+                "history": [],
+                "last_updated": now
+            }
+    
+    await db.duo_stats.update_one(
+        {"couple_id": couple_id},
+        {"$set": {"stats": stats, "updated_at": now}}
+    )
+    
+    return stats
+
+
+@api_router.get("/stats/{couple_id}")
+async def get_duo_stats(couple_id: str):
+    """
+    Get all duo stats with library metadata for UI rendering.
+    Returns stats with current values, tendencies, and copy templates.
+    """
+    duo_stats = await get_or_create_duo_stats(couple_id)
+    stats_data = duo_stats.get("stats", {})
+    
+    # Enrich with library metadata
+    enriched_stats = []
+    for lib_stat in STAT_LIBRARY.get("stats", []):
+        if lib_stat.get("tier") != "core":
+            continue
+        
+        stat_key = lib_stat["stat_key"]
+        current = stats_data.get(stat_key, {"value_0_100": 50})
+        value = current.get("value_0_100", 50)
+        tendency = calculate_tendency(value)
+        
+        copy_templates = lib_stat.get("copy_templates", {}).get("de-DE", {})
+        tendency_text = copy_templates.get(f"tendency_{tendency}", "")
+        
+        enriched_stats.append({
+            "stat_key": stat_key,
+            "name_de": lib_stat.get("name_de", stat_key),
+            "desc_de": lib_stat.get("desc_de", ""),
+            "family": lib_stat.get("family", ""),
+            "value_0_100": value,
+            "tendency": tendency,
+            "tendency_text": tendency_text,
+            "bar_color": lib_stat.get("bar_color", "#7C3AED"),
+            "display_order": lib_stat.get("display_order", 99),
+            "tooltip": copy_templates.get("tooltip", ""),
+            "last_updated": current.get("last_updated", ""),
+        })
+    
+    # Sort by display_order
+    enriched_stats.sort(key=lambda x: x["display_order"])
+    
+    # Group by family
+    families = {
+        "closeness": {"name_de": "Nähe", "icon": "\u2764\uFE0F", "stats": []},
+        "alignment": {"name_de": "Einklang", "icon": "\u2696\uFE0F", "stats": []},
+        "tension": {"name_de": "Resilienz", "icon": "\u{1F331}", "stats": []},
+    }
+    
+    for stat in enriched_stats:
+        family = stat.get("family", "closeness")
+        if family in families:
+            families[family]["stats"].append(stat)
+    
+    return {
+        "couple_id": couple_id,
+        "stats": enriched_stats,
+        "families": families,
+        "updated_at": duo_stats.get("updated_at", ""),
+        "meta": {
+            "show_percentages": False,
+            "tendency_thresholds": STAT_LIBRARY.get("meta", {}).get("tendency_thresholds", {})
+        }
+    }
+
+
+@api_router.get("/stats/library/info")
+async def get_stat_library_info():
+    """Get stat library metadata for debugging/admin."""
+    return {
+        "schema_version": STAT_LIBRARY.get("_schema_version", "unknown"),
+        "generated": STAT_LIBRARY.get("_generated", "unknown"),
+        "core_stats_count": len([s for s in STAT_LIBRARY.get("stats", []) if s.get("tier") == "core"]),
+        "stats": [{"key": s["stat_key"], "name": s.get("name_de")} for s in STAT_LIBRARY.get("stats", [])]
+    }
+
+
 @api_router.get("/cycles/{couple_id}")
 async def get_couple_cycles(couple_id: str):
     cycles = await db.cluster_cycles.find({"couple_id": couple_id}, {"_id": 0}).to_list(100)
