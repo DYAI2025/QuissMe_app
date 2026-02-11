@@ -60,6 +60,11 @@ CLUSTER_TO_SECTOR = {
     "words": "passion", "touch": "passion",
     "time": "stability", "service": "stability",
     "gifts": "future",
+    # Reibung/Reparatur cluster
+    "stability": "stability",
+    # Couples quizzes
+    "passion": "passion",
+    "future": "future",
 }
 
 TENDENCY_LABELS = {
