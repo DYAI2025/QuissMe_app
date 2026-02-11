@@ -70,4 +70,13 @@ Key endpoints: /api/quiz/wheel, /api/quiz/activate, /api/quiz/submit, /api/quiz/
 - **Gemini 3 Flash** via Emergent LLM Key - insights + couple interpretation
 - **BAFE Astro API** (with zodiac fallback)
 
-## Test Results: Backend 22/22 ✅, Frontend ✅
+## Test Results: Backend 31/31 ✅, Frontend ✅
+
+## Quiz Cluster Overview (23 Quizzes)
+| Cluster | Category | Quizzes | Questions | Sector |
+|---------|----------|---------|-----------|--------|
+| Love Languages | Liebessprache | 5 | 10 each | passion/stability/future |
+| Reibung & Reparatur | Reibung/Reparatur | 3 | 4 each | stability |
+| Couples Passion | Paar-Dynamik | 5 | 1 each | passion |
+| Couples Stability | Paar-Dynamik | 5 | 1 each | stability |
+| Couples Future | Paar-Dynamik | 5 | 1 each | future |
