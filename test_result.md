@@ -101,3 +101,121 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: |
+  Implementiere den QuissMe Stats-Screen als Liste von Balkendiagrammen, die live aus der Datenbank 
+  die Duo-Stats (0..100) laden und visualisieren. Backend-Logik für EWMA-Updates nach Quiz-Reveal.
+  Stats zeigen nur Tendenzen (hoch/mittel/im Aufbau), keine numerischen Werte im Default-Modus.
+  Debug-Toggle (5x auf Titel tippen) zeigt Prozentwerte.
+
+backend:
+  - task: "Stats Library JSON mit 17 Core Stats"
+    implemented: true
+    working: true
+    file: "backend/stat_library.json"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Stat-Library mit allen 17 Core Stats erstellt, inkl. copy_templates, bar_colors, display_order"
+
+  - task: "GET /api/stats/{couple_id} Endpoint"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Endpoint liefert alle Stats mit Metadaten, gruppiert nach Family (closeness/alignment/tension)"
+
+  - task: "duo_stats Collection mit EWMA-Update"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "EWMA-Update Funktion implementiert, wird nach Quiz-Submit aufgerufen wenn beide Partner fertig"
+
+  - task: "GET /api/stats/library/info Endpoint"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "low"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Debug-Endpoint für Stat-Library Metadaten"
+
+frontend:
+  - task: "Stats Tab mit Balkendiagrammen"
+    implemented: true
+    working: "NA"
+    file: "frontend/app/(tabs)/stats.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Stats Tab erstellt mit animierten Balken, Family-Gruppierung, Pull-to-Refresh. Web-Testing schwierig wegen React Native."
+
+  - task: "Stats Tab in Tab-Navigation"
+    implemented: true
+    working: "NA"
+    file: "frontend/app/(tabs)/_layout.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Stats Tab zwischen Explore und Garten eingefügt"
+
+  - task: "Debug-Toggle für Prozentwerte"
+    implemented: true
+    working: "NA"
+    file: "frontend/app/(tabs)/stats.tsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "5x auf Titel tippen aktiviert Debug-Modus mit Prozentanzeige"
+
+metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "GET /api/stats/{couple_id} Endpoint"
+    - "duo_stats Collection mit EWMA-Update"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "main"
+    message: |
+      Stats-Feature implementiert:
+      1. Backend: stat_library.json mit 17 Core Stats, /api/stats/{couple_id} Endpoint, EWMA-Update nach Quiz
+      2. Frontend: stats.tsx Tab mit animierten Balken, Family-Gruppierung, Debug-Toggle
+      
+      Bitte teste:
+      - GET /api/stats/{couple_id} mit verschiedenen couple_ids
+      - Prüfe ob Stats bei 50 initialisiert werden
+      - Prüfe Family-Gruppierung (closeness: 5, alignment: 5, tension: 7)
