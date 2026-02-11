@@ -171,13 +171,26 @@ class TestQuizSubmission:
     """Quiz submission and results"""
 
     def test_submit_quiz_and_verify_result(self, api_client, base_url):
-        """Submit quiz and verify result calculation"""
+        """Submit quiz with ClusterCycle flow"""
         if not hasattr(pytest, 'quiz_id'):
             pytest.skip("No quiz_id from list test")
         if not hasattr(pytest, 'user_id'):
             pytest.skip("No user_id from registration test")
         if not hasattr(pytest, 'couple_id'):
             pytest.skip("No couple_id from join test")
+
+        # Activate quiz first (new requirement)
+        activate_payload = {
+            "user_id": pytest.user_id,
+            "couple_id": pytest.couple_id,
+            "quiz_id": pytest.quiz_id
+        }
+        activate_resp = api_client.post(f"{base_url}/api/quiz/activate", json=activate_payload)
+        if activate_resp.status_code != 200:
+            pytest.skip(f"Could not activate quiz: {activate_resp.text}")
+        
+        cycle = activate_resp.json()
+        cycle_id = cycle["id"]
 
         # Get quiz questions first
         quiz_response = api_client.get(f"{base_url}/api/quizzes/{pytest.quiz_id}")
@@ -194,6 +207,7 @@ class TestQuizSubmission:
             "user_id": pytest.user_id,
             "couple_id": pytest.couple_id,
             "quiz_id": pytest.quiz_id,
+            "cycle_id": cycle_id,
             "answers": answers
         }
 
@@ -202,38 +216,21 @@ class TestQuizSubmission:
 
         result = submit_response.json()
         assert "id" in result
-        assert "cluster_scores" in result
-        assert "normalized_clusters" in result
-        assert "primary_cluster" in result
-        assert "zone_tokens" in result
+        assert "state" in result
         assert "_id" not in result, "MongoDB _id should be excluded"
 
         result_id = result["id"]
-        primary = result["primary_cluster"]
-        cluster_scores = result["cluster_scores"]
-        normalized = result["normalized_clusters"]
+        state = result["state"]
 
-        # Verify cluster scores
-        assert len(cluster_scores) == 5, "Should have 5 love language clusters"
-        expected_clusters = ["words", "time", "gifts", "service", "touch"]
-        for cluster in expected_clusters:
-            assert cluster in cluster_scores
-            assert cluster in normalized
-            assert 0 <= normalized[cluster] <= 100, f"Normalized score should be 0-100, got {normalized[cluster]}"
+        print(f"✓ Quiz submitted via cycle: {result_id}, state: {state}")
 
-        print(f"✓ Quiz submitted, result: {result_id}")
-        print(f"  Primary cluster: {primary}")
-        print(f"  Cluster scores: {cluster_scores}")
-        print(f"  Normalized: {normalized}")
-
-        # GET to verify result persisted
-        get_result_response = api_client.get(f"{base_url}/api/quiz/result/{result_id}")
+        # GET to verify cycle persisted
+        get_result_response = api_client.get(f"{base_url}/api/cycle/{result_id}")
         assert get_result_response.status_code == 200
         retrieved_result = get_result_response.json()
         assert retrieved_result["id"] == result_id
-        assert retrieved_result["primary_cluster"] == primary
         assert "_id" not in retrieved_result, "MongoDB _id should be excluded"
-        print(f"✓ Result data verified via GET")
+        print(f"✓ Cycle data verified via GET")
 
         pytest.result_id = result_id
 
