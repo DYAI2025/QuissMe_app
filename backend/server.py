@@ -654,6 +654,8 @@ async def seed_quiz_data():
     if count > 0:
         return
     logger.info("Seeding quiz data...")
+
+    # 1) Love Languages Cluster (5 quizzes × 10 questions)
     ll_path = ROOT_DIR / "love_languages_cluster.json"
     if ll_path.exists():
         with open(ll_path, 'r') as f:
@@ -668,12 +670,83 @@ async def seed_quiz_data():
                 "questions": quiz.get("questions", []),
                 "zone_tokens": quiz.get("zone_tokens", {}),
                 "category": "love_languages",
+                "sector": CLUSTER_TO_SECTOR.get(quiz.get("hidden_cluster", ""), "passion"),
                 "public_name": ll_data.get("meta_cluster", {}).get("public_name", {}),
                 "teaser": ll_data.get("meta_cluster", {}).get("teaser", {}),
                 "question_count": len(quiz.get("questions", [])),
             }
             await db.quizzes.insert_one(quiz_doc)
-    logger.info("Quiz data seeded")
+
+    # 2) Reibung/Reparatur Cluster (3 quizzes × 4 questions)
+    rr_path = ROOT_DIR / "cluster_reibung_reparatur.json"
+    if rr_path.exists():
+        with open(rr_path, 'r') as f:
+            rr_data = json.load(f)
+        for quiz in rr_data:
+            questions = quiz.get("questions", [])
+            quiz_doc = {
+                "id": quiz["id"],
+                "hidden_cluster": quiz.get("hidden_cluster", "stability"),
+                "facet_label": quiz.get("facet_label", {}),
+                "tone": quiz.get("tone", ""),
+                "type_model": quiz.get("type_model", {}),
+                "questions": questions,
+                "zone_tokens": quiz.get("zone_tokens", {}),
+                "category": "reibung_reparatur",
+                "sector": "stability",
+                "public_name": {"de-DE": "Reibung & Reparatur"},
+                "teaser": {"de-DE": "Wie ihr mit Reibung umgeht und euch danach findet"},
+                "question_count": len(questions),
+            }
+            await db.quizzes.insert_one(quiz_doc)
+
+    # 3) Couples 15 Quizzes (5 passion + 5 stability + 5 future, 1 question each with result_pairs)
+    cp_path = ROOT_DIR / "quizzme_couples_15_quizzes.json"
+    if cp_path.exists():
+        with open(cp_path, 'r') as f:
+            cp_data = json.load(f)
+        for cluster_key, cluster_data in cp_data.get("clusters", {}).items():
+            sector = cluster_key  # passion/stability/future
+            for quiz in cluster_data.get("quizzes", []):
+                # Convert couples format to standard question format
+                options = quiz.get("options", [])
+                standard_options = []
+                for i, opt in enumerate(options):
+                    opt_id = chr(65 + i)  # A, B, C, D, E
+                    # Map type to cluster_scores for compatibility
+                    opt_type = opt.get("type", "")
+                    cs = {cluster_key: opt.get("score", 3)}
+                    standard_options.append({
+                        "id": opt_id,
+                        "text": {"de-DE": opt.get("text_de", "")},
+                        "cluster_scores": cs,
+                        "type": opt_type,
+                    })
+
+                question_doc = {
+                    "id": f"{quiz['id']}_q1",
+                    "text": {"de-DE": quiz.get("question_de", "")},
+                    "context": {"de-DE": quiz.get("context_de", "")},
+                    "options": standard_options,
+                }
+
+                quiz_doc = {
+                    "id": quiz["id"],
+                    "hidden_cluster": cluster_key,
+                    "facet_label": {"de-DE": quiz.get("name_de", "")},
+                    "tone": "couple",
+                    "questions": [question_doc],
+                    "result_pairs": quiz.get("result_pairs", {}),
+                    "category": "couples",
+                    "sector": sector,
+                    "public_name": {"de-DE": cluster_data.get("name_de", cluster_key)},
+                    "teaser": {"de-DE": quiz.get("context_de", "")},
+                    "question_count": 1,
+                    "icon": quiz.get("icon", ""),
+                }
+                await db.quizzes.insert_one(quiz_doc)
+
+    logger.info("Quiz data seeded (all clusters)")
 
 
 @app.on_event("startup")
