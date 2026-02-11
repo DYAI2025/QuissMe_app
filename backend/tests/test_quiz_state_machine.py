@@ -36,14 +36,14 @@ class TestQuizWheel:
             "birth_time": "09:15",
             "birth_location": "München"
         }
-        resp_b = api_client.post(f"{BASE_URL}/api/invite/join", json=user_b_payload)
+        resp_b = api_client.post(f"{base_url}/api/invite/join", json=user_b_payload)
         assert resp_b.status_code == 200
         result = resp_b.json()
         couple_id = result["couple_id"]
         user_b_id = result["user"]["id"]
         
         # Get wheel
-        wheel_resp = api_client.get(f"{BASE_URL}/api/quiz/wheel/{couple_id}/{user_a['id']}")
+        wheel_resp = api_client.get(f"{base_url}/api/quiz/wheel/{couple_id}/{user_a['id']}")
         assert wheel_resp.status_code == 200
         wheel = wheel_resp.json()
         
@@ -93,7 +93,7 @@ class TestClusterCycleFlow:
             "quiz_id": pytest.test_quiz_id
         }
         
-        resp = api_client.post(f"{BASE_URL}/api/quiz/activate", json=activate_payload)
+        resp = api_client.post(f"{base_url}/api/quiz/activate", json=activate_payload)
         assert resp.status_code == 200, f"Activation failed: {resp.text}"
         
         cycle = resp.json()
@@ -114,7 +114,7 @@ class TestClusterCycleFlow:
             pytest.skip("No cycle_id from activation test")
         
         # Get quiz questions
-        quiz_resp = api_client.get(f"{BASE_URL}/api/quizzes/{pytest.test_quiz_id}")
+        quiz_resp = api_client.get(f"{base_url}/api/quizzes/{pytest.test_quiz_id}")
         quiz = quiz_resp.json()
         questions = quiz["questions"][:10]
         
@@ -132,7 +132,7 @@ class TestClusterCycleFlow:
             "answers": answers
         }
         
-        resp = api_client.post(f"{BASE_URL}/api/quiz/submit", json=submit_payload)
+        resp = api_client.post(f"{base_url}/api/quiz/submit", json=submit_payload)
         assert resp.status_code == 200, f"Submit failed: {resp.text}"
         
         cycle = resp.json()
@@ -149,7 +149,7 @@ class TestClusterCycleFlow:
             pytest.skip("No cycle_id from activation test")
         
         # Get quiz questions
-        quiz_resp = api_client.get(f"{BASE_URL}/api/quizzes/{pytest.test_quiz_id}")
+        quiz_resp = api_client.get(f"{base_url}/api/quizzes/{pytest.test_quiz_id}")
         quiz = quiz_resp.json()
         questions = quiz["questions"][:10]
         
@@ -167,7 +167,7 @@ class TestClusterCycleFlow:
             "answers": answers
         }
         
-        resp = api_client.post(f"{BASE_URL}/api/quiz/submit", json=submit_payload)
+        resp = api_client.post(f"{base_url}/api/quiz/submit", json=submit_payload)
         assert resp.status_code == 200, f"Submit failed: {resp.text}"
         
         cycle = resp.json()
@@ -215,7 +215,7 @@ class TestClusterCycleFlow:
         if not hasattr(pytest, 'test_cycle_id'):
             pytest.skip("No cycle_id from activation test")
         
-        resp = api_client.post(f"{BASE_URL}/api/quiz/reveal/{pytest.test_cycle_id}")
+        resp = api_client.post(f"{base_url}/api/quiz/reveal/{pytest.test_cycle_id}")
         assert resp.status_code == 200, f"Reveal failed: {resp.text}"
         
         cycle = resp.json()
@@ -252,7 +252,7 @@ class TestTendenciesAndZones:
         if not hasattr(pytest, 'test_cycle_id'):
             pytest.skip("No cycle_id from previous tests")
         
-        resp = api_client.get(f"{BASE_URL}/api/cycle/{pytest.test_cycle_id}")
+        resp = api_client.get(f"{base_url}/api/cycle/{pytest.test_cycle_id}")
         assert resp.status_code == 200
         cycle = resp.json()
         
@@ -277,7 +277,7 @@ class TestTendenciesAndZones:
         if not hasattr(pytest, 'test_cycle_id'):
             pytest.skip("No cycle_id from previous tests")
         
-        resp = api_client.get(f"{BASE_URL}/api/cycle/{pytest.test_cycle_id}")
+        resp = api_client.get(f"{base_url}/api/cycle/{pytest.test_cycle_id}")
         assert resp.status_code == 200
         cycle = resp.json()
         
@@ -306,7 +306,7 @@ class TestGardenManagement:
             pytest.skip("No cycle_id from previous tests")
         
         # Get cycle to retrieve reward choices
-        cycle_resp = api_client.get(f"{BASE_URL}/api/cycle/{pytest.test_cycle_id}")
+        cycle_resp = api_client.get(f"{base_url}/api/cycle/{pytest.test_cycle_id}")
         cycle = cycle_resp.json()
         
         if "reward_choices" not in cycle or not cycle["reward_choices"]:
@@ -322,7 +322,7 @@ class TestGardenManagement:
             "position_y": 150.7
         }
         
-        resp = api_client.post(f"{BASE_URL}/api/garden/place", json=place_payload)
+        resp = api_client.post(f"{base_url}/api/garden/place", json=place_payload)
         assert resp.status_code == 200
         result = resp.json()
         assert "garden" in result
@@ -347,7 +347,7 @@ class TestGardenManagement:
         if not hasattr(pytest, 'test_couple_id'):
             pytest.skip("No couple_id from previous tests")
         
-        resp = api_client.get(f"{BASE_URL}/api/garden/{pytest.test_couple_id}")
+        resp = api_client.get(f"{base_url}/api/garden/{pytest.test_couple_id}")
         assert resp.status_code == 200
         result = resp.json()
         assert "garden" in result
@@ -370,7 +370,7 @@ class TestErrorHandling:
             pytest.skip("No couple_id from previous tests")
         
         # Try to activate a different quiz first
-        wheel_resp = api_client.get(f"{BASE_URL}/api/quiz/wheel/{pytest.test_couple_id}/{pytest.test_user_a_id}")
+        wheel_resp = api_client.get(f"{base_url}/api/quiz/wheel/{pytest.test_couple_id}/{pytest.test_user_a_id}")
         wheel = wheel_resp.json()
         available_nodes = [n for n in wheel["nodes"] if n["state"] == "available"]
         
@@ -385,18 +385,18 @@ class TestErrorHandling:
             "couple_id": pytest.test_couple_id,
             "quiz_id": second_quiz_id
         }
-        resp = api_client.post(f"{BASE_URL}/api/quiz/activate", json=activate_payload)
+        resp = api_client.post(f"{base_url}/api/quiz/activate", json=activate_payload)
         assert resp.status_code == 200
         
         # Try to activate it again
-        resp2 = api_client.post(f"{BASE_URL}/api/quiz/activate", json=activate_payload)
+        resp2 = api_client.post(f"{base_url}/api/quiz/activate", json=activate_payload)
         assert resp2.status_code == 400, "Should prevent duplicate activation"
         
         print("✓ Duplicate activation prevented")
 
     def test_invalid_cycle_id(self, api_client, base_url):
         """404 for non-existent cycle"""
-        resp = api_client.get(f"{BASE_URL}/api/cycle/nonexistent-cycle-id")
+        resp = api_client.get(f"{base_url}/api/cycle/nonexistent-cycle-id")
         assert resp.status_code == 404
         print("✓ 404 for invalid cycle ID")
 
@@ -406,7 +406,7 @@ class TestErrorHandling:
         if not hasattr(pytest, 'test_couple_id'):
             pytest.skip("No couple_id from previous tests")
         
-        wheel_resp = api_client.get(f"{BASE_URL}/api/quiz/wheel/{pytest.test_couple_id}/{pytest.test_user_a_id}")
+        wheel_resp = api_client.get(f"{base_url}/api/quiz/wheel/{pytest.test_couple_id}/{pytest.test_user_a_id}")
         wheel = wheel_resp.json()
         available = [n for n in wheel["nodes"] if n["state"] == "available"]
         
@@ -419,14 +419,14 @@ class TestErrorHandling:
             "couple_id": pytest.test_couple_id,
             "quiz_id": available[0]["quiz_id"]
         }
-        resp = api_client.post(f"{BASE_URL}/api/quiz/activate", json=activate_payload)
+        resp = api_client.post(f"{base_url}/api/quiz/activate", json=activate_payload)
         if resp.status_code != 200:
             pytest.skip("Could not activate quiz for error test")
         
         new_cycle_id = resp.json()["id"]
         
         # Try to reveal without completing
-        reveal_resp = api_client.post(f"{BASE_URL}/api/quiz/reveal/{new_cycle_id}")
+        reveal_resp = api_client.post(f"{base_url}/api/quiz/reveal/{new_cycle_id}")
         assert reveal_resp.status_code == 400, "Should prevent early reveal"
         
         print("✓ Early reveal prevented")
