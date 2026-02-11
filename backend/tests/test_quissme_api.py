@@ -235,21 +235,21 @@ class TestQuizSubmission:
         pytest.result_id = result_id
 
     def test_get_couple_results(self, api_client, base_url):
-        """Get all results for a couple"""
+        """Get all cycles for a couple"""
         if not hasattr(pytest, 'couple_id'):
             pytest.skip("No couple_id from join test")
 
-        response = api_client.get(f"{base_url}/api/quiz/results/{pytest.couple_id}")
+        response = api_client.get(f"{base_url}/api/cycles/{pytest.couple_id}")
         assert response.status_code == 200
-        results = response.json()
-        assert isinstance(results, list)
-        assert len(results) >= 1, "Should have at least one result from previous test"
+        cycles = response.json()
+        assert isinstance(cycles, list)
+        assert len(cycles) >= 1, "Should have at least one cycle from previous test"
         
-        # Verify no _id in any result
-        for result in results:
-            assert "_id" not in result, "MongoDB _id should be excluded"
+        # Verify no _id in any cycle
+        for cycle in cycles:
+            assert "_id" not in cycle, "MongoDB _id should be excluded"
         
-        print(f"✓ Found {len(results)} results for couple")
+        print(f"✓ Found {len(cycles)} cycles for couple")
 
 
 class TestErrorHandling:
