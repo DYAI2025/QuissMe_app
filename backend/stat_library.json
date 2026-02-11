@@ -1,0 +1,407 @@
+{
+  "_schema_version": "quissme.stat_library.v1_1",
+  "_generated": "2025-06-01",
+  "meta": {
+    "display": {
+      "note": "Internal values can be 0–100; UI should prefer tendencies + warm microcopy. Avoid explicit therapeutic language; keep it playful and systemic."
+    },
+    "ewma_alpha": 0.15,
+    "tendency_thresholds": {
+      "high": 70,
+      "medium": 40
+    }
+  },
+  "stats": [
+    {
+      "stat_key": "tenderness",
+      "tier": "core",
+      "family": "closeness",
+      "axis_key": "closeness",
+      "cluster_affinity": "passion",
+      "name_de": "Zärtlichkeit",
+      "name_en": "Tenderness",
+      "desc_de": "Wie sanft und liebevoll ihr miteinander umgeht.",
+      "desc_en": "How gentle and loving you are with each other.",
+      "world_asset_family": "soft_rose",
+      "buff_category": "care",
+      "display_order": 1,
+      "bar_color": "#F472B6",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Zärtlichkeit: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Zärtlichkeit: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Zärtlichkeit: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "attunement",
+      "tier": "core",
+      "family": "closeness",
+      "axis_key": "closeness",
+      "cluster_affinity": "passion",
+      "name_de": "Einschwingen",
+      "name_en": "Attunement",
+      "desc_de": "Wie gut ihr euch aufeinander einstimmt.",
+      "desc_en": "How well you tune into each other.",
+      "world_asset_family": "wave_leaf",
+      "buff_category": "sync",
+      "display_order": 2,
+      "bar_color": "#A78BFA",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Einschwingen: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Einschwingen: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Einschwingen: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "initiation",
+      "tier": "core",
+      "family": "closeness",
+      "axis_key": "closeness",
+      "cluster_affinity": "passion",
+      "name_de": "Mut zur Nähe",
+      "name_en": "Initiation",
+      "desc_de": "Wie leicht ihr den ersten Schritt macht.",
+      "desc_en": "How easily you take the first step.",
+      "world_asset_family": "brave_bloom",
+      "buff_category": "courage",
+      "display_order": 3,
+      "bar_color": "#FB7185",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Mut zur Nähe: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Mut zur Nähe: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Mut zur Nähe: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "playfulness",
+      "tier": "core",
+      "family": "closeness",
+      "axis_key": "closeness",
+      "cluster_affinity": "passion",
+      "name_de": "Leichtigkeit",
+      "name_en": "Playfulness",
+      "desc_de": "Wie viel Spaß und Albernheit ihr teilt.",
+      "desc_en": "How much fun and silliness you share.",
+      "world_asset_family": "giggly_sprout",
+      "buff_category": "joy",
+      "display_order": 4,
+      "bar_color": "#FBBF24",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Leichtigkeit: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Leichtigkeit: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Leichtigkeit: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "appreciation",
+      "tier": "core",
+      "family": "closeness",
+      "axis_key": "closeness",
+      "cluster_affinity": "passion",
+      "name_de": "Wertschätzung",
+      "name_en": "Appreciation",
+      "desc_de": "Wie oft ihr einander lobt und dankt.",
+      "desc_en": "How often you praise and thank each other.",
+      "world_asset_family": "golden_petal",
+      "buff_category": "gratitude",
+      "display_order": 5,
+      "bar_color": "#F59E0B",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Wertschätzung: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Wertschätzung: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Wertschätzung: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "rituals",
+      "tier": "core",
+      "family": "alignment",
+      "axis_key": "alignment",
+      "cluster_affinity": "stability",
+      "name_de": "Rituale",
+      "name_en": "Rituals",
+      "desc_de": "Eure gemeinsamen kleinen Gewohnheiten.",
+      "desc_en": "Your shared little habits.",
+      "world_asset_family": "anchor_stone",
+      "buff_category": "tradition",
+      "display_order": 6,
+      "bar_color": "#2DD4BF",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Rituale: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Rituale: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Rituale: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "teamwork",
+      "tier": "core",
+      "family": "alignment",
+      "axis_key": "alignment",
+      "cluster_affinity": "stability",
+      "name_de": "Teamwork",
+      "name_en": "Teamwork",
+      "desc_de": "Wie gut ihr als Team zusammenarbeitet.",
+      "desc_en": "How well you work together as a team.",
+      "world_asset_family": "twin_leaf",
+      "buff_category": "cooperation",
+      "display_order": 7,
+      "bar_color": "#34D399",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Teamwork: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Teamwork: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Teamwork: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "decision_flow",
+      "tier": "core",
+      "family": "alignment",
+      "axis_key": "alignment",
+      "cluster_affinity": "stability",
+      "name_de": "Entscheidungs-Flow",
+      "name_en": "Decision Flow",
+      "desc_de": "Wie reibungslos ihr gemeinsam Entscheidungen trefft.",
+      "desc_en": "How smoothly you make decisions together.",
+      "world_asset_family": "compass_vine",
+      "buff_category": "clarity",
+      "display_order": 8,
+      "bar_color": "#10B981",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Entscheidungs-Flow: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Entscheidungs-Flow: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Entscheidungs-Flow: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "daily_design",
+      "tier": "core",
+      "family": "alignment",
+      "axis_key": "alignment",
+      "cluster_affinity": "stability",
+      "name_de": "Alltags-Design",
+      "name_en": "Daily Design",
+      "desc_de": "Wie stimmig euer gemeinsamer Alltag läuft.",
+      "desc_en": "How harmoniously your daily life flows together.",
+      "world_asset_family": "clock_blossom",
+      "buff_category": "routine",
+      "display_order": 9,
+      "bar_color": "#06B6D4",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Alltags-Design: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Alltags-Design: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Alltags-Design: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "balance",
+      "tier": "core",
+      "family": "alignment",
+      "axis_key": "alignment",
+      "cluster_affinity": "stability",
+      "name_de": "Balance",
+      "name_en": "Balance",
+      "desc_de": "Wie gut ihr Geben und Nehmen ausgleicht.",
+      "desc_en": "How well you balance give and take.",
+      "world_asset_family": "scale_fern",
+      "buff_category": "fairness",
+      "display_order": 10,
+      "bar_color": "#14B8A6",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Balance: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Balance: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Balance: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "repair_skill",
+      "tier": "core",
+      "family": "tension",
+      "axis_key": "tension",
+      "cluster_affinity": "future",
+      "name_de": "Zurückfinden",
+      "name_en": "Reconnection",
+      "desc_de": "Wie leicht ihr nach kurzen Haken wieder zueinander findet.",
+      "desc_en": "How easily you find each other again after a small snag.",
+      "world_asset_family": "bridge_moss",
+      "buff_category": "repair",
+      "display_order": 11,
+      "bar_color": "#8B5CF6",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Zurückfinden: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Zurückfinden: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Zurückfinden: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "boundaries",
+      "tier": "core",
+      "family": "tension",
+      "axis_key": "tension",
+      "cluster_affinity": "future",
+      "name_de": "Grenzen & Raum",
+      "name_en": "Boundaries",
+      "desc_de": "Wie gut ihr Nähe und Freiraum balanciert.",
+      "desc_en": "How well you balance closeness and personal space.",
+      "world_asset_family": "space_crystal",
+      "buff_category": "space",
+      "display_order": 12,
+      "bar_color": "#7C3AED",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Grenzen & Raum: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Grenzen & Raum: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Grenzen & Raum: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "pace_harmony",
+      "tier": "core",
+      "family": "tension",
+      "axis_key": "tension",
+      "cluster_affinity": "future",
+      "name_de": "Tempo-Harmonie",
+      "name_en": "Pace Harmony",
+      "desc_de": "Wie gut eure Lebensrhythmen zusammenpassen.",
+      "desc_en": "How well your life rhythms align.",
+      "world_asset_family": "rhythm_vine",
+      "buff_category": "timing",
+      "display_order": 13,
+      "bar_color": "#6366F1",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Tempo-Harmonie: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Tempo-Harmonie: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Tempo-Harmonie: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "soft_under_stress",
+      "tier": "core",
+      "family": "tension",
+      "axis_key": "tension",
+      "cluster_affinity": "future",
+      "name_de": "Weich bleiben",
+      "name_en": "Soft Under Stress",
+      "desc_de": "Wie sanft ihr auch unter Druck bleibt.",
+      "desc_en": "How gentle you stay even under pressure.",
+      "world_asset_family": "calm_shell",
+      "buff_category": "resilience",
+      "display_order": 14,
+      "bar_color": "#818CF8",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Weich bleiben: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Weich bleiben: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Weich bleiben: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "growth_mode",
+      "tier": "core",
+      "family": "tension",
+      "axis_key": "tension",
+      "cluster_affinity": "future",
+      "name_de": "Entfaltung",
+      "name_en": "Unfolding",
+      "desc_de": "Neugierig bleiben und gemeinsam reifen – ohne Druck.",
+      "desc_en": "Staying curious and maturing together—without pressure.",
+      "world_asset_family": "seed_spiral",
+      "buff_category": "growth",
+      "display_order": 15,
+      "bar_color": "#A78BFA",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Entfaltung: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Entfaltung: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Entfaltung: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "spaciousness",
+      "tier": "core",
+      "family": "tension",
+      "axis_key": "tension",
+      "cluster_affinity": "future",
+      "name_de": "Weite",
+      "name_en": "Spaciousness",
+      "desc_de": "Unterschiede aushalten, ohne dass es eng wird.",
+      "desc_en": "Holding differences without things feeling tight.",
+      "world_asset_family": "pine_sprig",
+      "buff_category": "space",
+      "display_order": 16,
+      "bar_color": "#C4B5FD",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Weite: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Weite: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Weite: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    },
+    {
+      "stat_key": "fluidity",
+      "tier": "core",
+      "family": "tension",
+      "axis_key": "tension",
+      "cluster_affinity": "future",
+      "name_de": "Wandlungsfreude",
+      "name_en": "Fluidity",
+      "desc_de": "Gemeinsam anpassen, wenn sich Leben und Bedürfnisse bewegen.",
+      "desc_en": "Adapting together as life and needs shift.",
+      "world_asset_family": "crystal_leaf",
+      "buff_category": "growth",
+      "display_order": 17,
+      "bar_color": "#DDD6FE",
+      "copy_templates": {
+        "de-DE": {
+          "tendency_high": "Wandlungsfreude: fühlt sich gerade ziemlich leicht an.",
+          "tendency_medium": "Wandlungsfreude: oft stimmig – mit Raum für Feinschliff.",
+          "tendency_building": "Wandlungsfreude: im Aufbau – kleine Schritte wirken hier schnell.",
+          "tooltip": "Nur eine spielerische Perspektive — kein Rat und kein Urteil."
+        }
+      }
+    }
+  ]
+}
