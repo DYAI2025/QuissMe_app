@@ -12,12 +12,10 @@ import time
 # - Buff and Reward Assignment
 # - Garden Management
 
-BASE_URL = os.environ.get('EXPO_PUBLIC_BACKEND_URL', '').rstrip('/')
-
 class TestQuizWheel:
     """Quiz Wheel and State Management"""
 
-    def test_get_wheel_for_couple(self, api_client):
+    def test_get_wheel_for_couple(self, api_client, base_url):
         """Get quiz wheel with states for a couple"""
         # First create two users and couple
         user_a_payload = {
@@ -26,7 +24,7 @@ class TestQuizWheel:
             "birth_time": "14:30",
             "birth_location": "Berlin"
         }
-        resp_a = api_client.post(f"{BASE_URL}/api/users/register", json=user_a_payload)
+        resp_a = api_client.post(f"{base_url}/api/users/register", json=user_a_payload)
         assert resp_a.status_code == 200
         user_a = resp_a.json()
         invite_code = user_a["invite_code"]
