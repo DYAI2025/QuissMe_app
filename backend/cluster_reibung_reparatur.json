@@ -1,0 +1,641 @@
+[
+  {
+    "id": "stability_04_friction_love",
+    "hidden_cluster": "stability",
+    "facet_label": {
+      "de-DE": "Liebevolle Reibung",
+      "en-US": "Loving Friction"
+    },
+    "axis_key": "tension",
+    "tone": "playful",
+    "narrator_id": "stone",
+    "type_model": {
+      "types": ["gentle_eye_roller", "dramatic_reactor", "zen_philosopher"],
+      "compute": "max_type_score"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "text": {
+          "de-DE": "Dein Partner lässt zum dritten Mal diese Woche die Schranktür offen stehen. Was passiert in dir?",
+          "en-US": "Your partner leaves the cabinet door open for the third time this week. What happens inside you?"
+        },
+        "options": [
+          {
+            "id": "A",
+            "text": {
+              "de-DE": "Ich schließe sie schweigend und schicke ein Augenroll-Emoji per WhatsApp.",
+              "en-US": "I close it silently and send an eye-roll emoji via text."
+            },
+            "type_scores": { "gentle_eye_roller": 0.8, "dramatic_reactor": 0.1, "zen_philosopher": 0.2 },
+            "cluster_scores": { "passion": 0.1, "stability": 0.3, "future": 0.0 },
+            "duo_trait_deltas": { "play": 0.1, "closeness": 0.05 }
+          },
+          {
+            "id": "B",
+            "text": {
+              "de-DE": "Ich rufe theatralisch: 'Die Schranktür! Schon wieder! Mein Erzfeind!'",
+              "en-US": "I call out dramatically: 'The cabinet door! Again! My nemesis!'"
+            },
+            "type_scores": { "gentle_eye_roller": 0.1, "dramatic_reactor": 0.8, "zen_philosopher": 0.1 },
+            "cluster_scores": { "passion": 0.3, "stability": -0.1, "future": 0.0 },
+            "duo_trait_deltas": { "play": 0.15, "closeness": 0.0 }
+          },
+          {
+            "id": "C",
+            "text": {
+              "de-DE": "Ich denke: 'Dafür kann die Person andere Dinge, die ich nicht kann.' Und schließe die Tür.",
+              "en-US": "I think: 'But they can do things I can't.' And close the door."
+            },
+            "type_scores": { "gentle_eye_roller": 0.2, "dramatic_reactor": 0.0, "zen_philosopher": 0.8 },
+            "cluster_scores": { "passion": -0.1, "stability": 0.3, "future": 0.1 },
+            "duo_trait_deltas": { "play": -0.05, "closeness": 0.1 }
+          },
+          {
+            "id": "D",
+            "text": {
+              "de-DE": "Ich klebe einen liebevollen Post-it an die Tür: 'Ich warte hier auf dich. Immer noch offen. Wie mein Herz.'",
+              "en-US": "I stick a loving post-it on the door: 'Still waiting for you. Still open. Like my heart.'"
+            },
+            "type_scores": { "gentle_eye_roller": 0.4, "dramatic_reactor": 0.3, "zen_philosopher": 0.4 },
+            "cluster_scores": { "passion": 0.2, "stability": 0.2, "future": 0.1 },
+            "duo_trait_deltas": { "play": 0.2, "closeness": 0.15 }
+          }
+        ]
+      },
+      {
+        "id": "q2",
+        "text": {
+          "de-DE": "Ihr wollt abends losgehen. Dein Partner braucht nochmal 20 Minuten länger als angekündigt. Wie reagierst du?",
+          "en-US": "You're heading out for the evening. Your partner needs another 20 minutes longer than announced. How do you react?"
+        },
+        "options": [
+          {
+            "id": "A",
+            "text": {
+              "de-DE": "Ich nutze die Zeit und scrolle entspannt durch mein Handy. Kommt schon.",
+              "en-US": "I use the time and scroll through my phone. It's fine."
+            },
+            "type_scores": { "gentle_eye_roller": 0.7, "dramatic_reactor": 0.0, "zen_philosopher": 0.4 },
+            "cluster_scores": { "passion": -0.1, "stability": 0.3, "future": 0.0 },
+            "duo_trait_deltas": { "play": -0.05, "closeness": 0.0 }
+          },
+          {
+            "id": "B",
+            "text": {
+              "de-DE": "Ich rufe alle 5 Minuten: 'Bist du fertig? Jetzt? Und jetzt?' – als Running Gag.",
+              "en-US": "I call out every 5 minutes: 'Ready yet? Now? How about now?' – as a running joke."
+            },
+            "type_scores": { "gentle_eye_roller": 0.2, "dramatic_reactor": 0.7, "zen_philosopher": 0.0 },
+            "cluster_scores": { "passion": 0.2, "stability": -0.1, "future": -0.1 },
+            "duo_trait_deltas": { "play": 0.15, "closeness": -0.05 }
+          },
+          {
+            "id": "C",
+            "text": {
+              "de-DE": "Ich denke: 'Wenn das Ergebnis dann so gut aussieht – geschenkt.'",
+              "en-US": "I think: 'If the result looks that good – totally worth it.'"
+            },
+            "type_scores": { "gentle_eye_roller": 0.3, "dramatic_reactor": 0.0, "zen_philosopher": 0.7 },
+            "cluster_scores": { "passion": 0.2, "stability": 0.2, "future": 0.0 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": 0.1 }
+          },
+          {
+            "id": "D",
+            "text": {
+              "de-DE": "Ich setze mich dazu und sage: 'Ich schaue dir gerne zu. Aber nächstes Mal sag 40 Minuten, dann bin ich vorbereitet.'",
+              "en-US": "I sit down and say: 'I love watching you. But next time say 40 minutes, so I'm prepared.'"
+            },
+            "type_scores": { "gentle_eye_roller": 0.4, "dramatic_reactor": 0.2, "zen_philosopher": 0.5 },
+            "cluster_scores": { "passion": 0.1, "stability": 0.3, "future": 0.2 },
+            "duo_trait_deltas": { "play": 0.1, "closeness": 0.15 }
+          }
+        ]
+      },
+      {
+        "id": "q3",
+        "text": {
+          "de-DE": "Dein Partner erzählt die gleiche lustige Geschichte zum fünften Mal – vor Freunden. Was machst du?",
+          "en-US": "Your partner tells the same funny story for the fifth time – in front of friends. What do you do?"
+        },
+        "options": [
+          {
+            "id": "A",
+            "text": {
+              "de-DE": "Ich lächle und denke mir meinen Teil. Die Freunde lachen ja trotzdem.",
+              "en-US": "I smile and keep my thoughts to myself. Friends are laughing anyway."
+            },
+            "type_scores": { "gentle_eye_roller": 0.8, "dramatic_reactor": 0.0, "zen_philosopher": 0.3 },
+            "cluster_scores": { "passion": -0.1, "stability": 0.3, "future": 0.0 },
+            "duo_trait_deltas": { "play": -0.05, "closeness": 0.05 }
+          },
+          {
+            "id": "B",
+            "text": {
+              "de-DE": "Ich ergänze laut die Pointe, bevor sie kommt – und zwinkere dabei.",
+              "en-US": "I deliver the punchline before they can – with a wink."
+            },
+            "type_scores": { "gentle_eye_roller": 0.2, "dramatic_reactor": 0.7, "zen_philosopher": 0.1 },
+            "cluster_scores": { "passion": 0.3, "stability": -0.1, "future": 0.0 },
+            "duo_trait_deltas": { "play": 0.2, "closeness": 0.0 }
+          },
+          {
+            "id": "C",
+            "text": {
+              "de-DE": "Ich finde es ehrlich gesagt jedes Mal wieder charmant. So begeistert kann nur diese Person sein.",
+              "en-US": "Honestly, I find it charming every time. Only this person can be that enthusiastic."
+            },
+            "type_scores": { "gentle_eye_roller": 0.1, "dramatic_reactor": 0.0, "zen_philosopher": 0.9 },
+            "cluster_scores": { "passion": 0.1, "stability": 0.2, "future": 0.1 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": 0.15 }
+          },
+          {
+            "id": "D",
+            "text": {
+              "de-DE": "Ich flüstere leise: 'Schatz, Folge 5.' – und wir grinsen uns an.",
+              "en-US": "I whisper: 'Babe, episode 5.' – and we grin at each other."
+            },
+            "type_scores": { "gentle_eye_roller": 0.5, "dramatic_reactor": 0.3, "zen_philosopher": 0.2 },
+            "cluster_scores": { "passion": 0.2, "stability": 0.2, "future": 0.0 },
+            "duo_trait_deltas": { "play": 0.2, "closeness": 0.2 }
+          }
+        ]
+      },
+      {
+        "id": "q4",
+        "text": {
+          "de-DE": "Sonntagmorgen. Dein Partner hat den letzten Kaffee getrunken und keine neue Packung aufgemacht. Wie fühlst du dich?",
+          "en-US": "Sunday morning. Your partner drank the last coffee and didn't open a new pack. How do you feel?"
+        },
+        "options": [
+          {
+            "id": "A",
+            "text": {
+              "de-DE": "Tief durchatmen. Tee geht auch. Aber ich merke es mir – still.",
+              "en-US": "Deep breath. Tea works too. But I'll remember – silently."
+            },
+            "type_scores": { "gentle_eye_roller": 0.8, "dramatic_reactor": 0.1, "zen_philosopher": 0.2 },
+            "cluster_scores": { "passion": -0.1, "stability": 0.2, "future": 0.0 },
+            "duo_trait_deltas": { "play": -0.1, "closeness": -0.05 }
+          },
+          {
+            "id": "B",
+            "text": {
+              "de-DE": "Ich inszeniere einen dramatischen Zusammenbruch auf dem Küchenstuhl. Ohne Kaffee bin ich nicht ich.",
+              "en-US": "I stage a dramatic breakdown at the kitchen chair. Without coffee I'm not myself."
+            },
+            "type_scores": { "gentle_eye_roller": 0.1, "dramatic_reactor": 0.9, "zen_philosopher": 0.0 },
+            "cluster_scores": { "passion": 0.3, "stability": -0.2, "future": -0.1 },
+            "duo_trait_deltas": { "play": 0.2, "closeness": 0.0 }
+          },
+          {
+            "id": "C",
+            "text": {
+              "de-DE": "Ich sage: 'Weißt du was – lass uns zusammen Brötchen holen gehen und unterwegs einen Kaffee trinken.'",
+              "en-US": "I say: 'You know what – let's go get pastries together and grab a coffee on the way.'"
+            },
+            "type_scores": { "gentle_eye_roller": 0.2, "dramatic_reactor": 0.1, "zen_philosopher": 0.8 },
+            "cluster_scores": { "passion": 0.1, "stability": 0.2, "future": 0.2 },
+            "duo_trait_deltas": { "play": 0.1, "closeness": 0.15 }
+          },
+          {
+            "id": "D",
+            "text": {
+              "de-DE": "Ich fotografiere die leere Packung und schicke das Bild mit dem Kommentar: 'Tatort Küche. Verdächtige:r bekannt.'",
+              "en-US": "I photograph the empty pack and send the pic with: 'Crime scene: kitchen. Suspect: identified.'"
+            },
+            "type_scores": { "gentle_eye_roller": 0.5, "dramatic_reactor": 0.5, "zen_philosopher": 0.1 },
+            "cluster_scores": { "passion": 0.2, "stability": 0.1, "future": 0.0 },
+            "duo_trait_deltas": { "play": 0.2, "closeness": 0.1 }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stability_05_blind_spot",
+    "hidden_cluster": "stability",
+    "facet_label": {
+      "de-DE": "Blinder Fleck",
+      "en-US": "Blind Spot"
+    },
+    "axis_key": "tension",
+    "tone": "warm_minimal",
+    "narrator_id": "stone",
+    "type_model": {
+      "types": ["self_aware_owl", "lovable_chaos", "sweet_denier"],
+      "compute": "max_type_score"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "text": {
+          "de-DE": "Deine beste Freundin sagt: 'Ich weiß genau, womit du deinen Partner manchmal in den Wahnsinn treibst.' Was glaubst du, meint sie?",
+          "en-US": "Your best friend says: 'I know exactly what drives your partner crazy about you.' What do you think she means?"
+        },
+        "options": [
+          {
+            "id": "A",
+            "text": {
+              "de-DE": "Wahrscheinlich, dass ich zu viel grüble und alles dreimal durchdenke, bevor ich etwas sage.",
+              "en-US": "Probably that I overthink everything and go through it three times before saying anything."
+            },
+            "type_scores": { "self_aware_owl": 0.8, "lovable_chaos": 0.0, "sweet_denier": 0.1 },
+            "cluster_scores": { "passion": -0.2, "stability": 0.3, "future": 0.1 },
+            "duo_trait_deltas": { "play": -0.1, "closeness": 0.05 }
+          },
+          {
+            "id": "B",
+            "text": {
+              "de-DE": "Vermutlich mein kreatives Chaos – ich habe halt immer 5 Projekte gleichzeitig offen.",
+              "en-US": "Probably my creative chaos – I always have 5 projects running at once."
+            },
+            "type_scores": { "self_aware_owl": 0.3, "lovable_chaos": 0.8, "sweet_denier": 0.0 },
+            "cluster_scores": { "passion": 0.3, "stability": -0.2, "future": 0.2 },
+            "duo_trait_deltas": { "play": 0.1, "closeness": -0.05 }
+          },
+          {
+            "id": "C",
+            "text": {
+              "de-DE": "Keine Ahnung ehrlich gesagt – ich bin doch eigentlich ziemlich unkompliziert?",
+              "en-US": "Honestly no idea – I'm pretty easygoing, aren't I?"
+            },
+            "type_scores": { "self_aware_owl": 0.0, "lovable_chaos": 0.2, "sweet_denier": 0.9 },
+            "cluster_scores": { "passion": 0.0, "stability": 0.1, "future": -0.1 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": -0.1 }
+          },
+          {
+            "id": "D",
+            "text": {
+              "de-DE": "Ich glaube, dass ich manchmal so in meiner Welt bin, dass ich nicht merke, wenn jemand Aufmerksamkeit braucht.",
+              "en-US": "I think sometimes I'm so in my own world that I don't notice when someone needs attention."
+            },
+            "type_scores": { "self_aware_owl": 0.7, "lovable_chaos": 0.3, "sweet_denier": 0.0 },
+            "cluster_scores": { "passion": -0.1, "stability": 0.1, "future": 0.2 },
+            "duo_trait_deltas": { "play": -0.05, "closeness": 0.1 }
+          }
+        ]
+      },
+      {
+        "id": "q2",
+        "text": {
+          "de-DE": "Stell dir vor, du könntest eine einzige Eigenschaft von dir für einen Tag 'abschalten'. Welche wäre es?",
+          "en-US": "Imagine you could switch off one trait of yours for a day. Which one would it be?"
+        },
+        "options": [
+          {
+            "id": "A",
+            "text": {
+              "de-DE": "Mein Perfektionismus. Dann wäre ich wahrscheinlich viel entspannter – und mein Partner auch.",
+              "en-US": "My perfectionism. I'd probably be way more relaxed – and so would my partner."
+            },
+            "type_scores": { "self_aware_owl": 0.9, "lovable_chaos": 0.0, "sweet_denier": 0.0 },
+            "cluster_scores": { "passion": -0.1, "stability": 0.3, "future": 0.1 },
+            "duo_trait_deltas": { "play": -0.1, "closeness": 0.1 }
+          },
+          {
+            "id": "B",
+            "text": {
+              "de-DE": "Meine Spontaneität. Obwohl – eigentlich liebe ich die. Vielleicht nur das Timing.",
+              "en-US": "My spontaneity. Although – I actually love it. Maybe just the timing."
+            },
+            "type_scores": { "self_aware_owl": 0.3, "lovable_chaos": 0.7, "sweet_denier": 0.2 },
+            "cluster_scores": { "passion": 0.3, "stability": -0.1, "future": 0.0 },
+            "duo_trait_deltas": { "play": 0.15, "closeness": 0.0 }
+          },
+          {
+            "id": "C",
+            "text": {
+              "de-DE": "Fällt mir schwer zu sagen. Ich finde eigentlich alles an mir ganz okay so.",
+              "en-US": "Hard to say. I think everything about me is pretty okay as is."
+            },
+            "type_scores": { "self_aware_owl": 0.0, "lovable_chaos": 0.1, "sweet_denier": 0.9 },
+            "cluster_scores": { "passion": 0.0, "stability": 0.1, "future": -0.2 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": -0.1 }
+          },
+          {
+            "id": "D",
+            "text": {
+              "de-DE": "Meine Ungeduld. Ich weiß genau, dass sie manchmal anstrengend ist – aber abstellen? Nicht so leicht.",
+              "en-US": "My impatience. I know it can be exhausting – but switching it off? Not that easy."
+            },
+            "type_scores": { "self_aware_owl": 0.7, "lovable_chaos": 0.2, "sweet_denier": 0.1 },
+            "cluster_scores": { "passion": 0.2, "stability": 0.0, "future": 0.1 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": 0.05 }
+          }
+        ]
+      },
+      {
+        "id": "q3",
+        "text": {
+          "de-DE": "Dein Partner seufzt hörbar, als du etwas Bestimmtes tust. Was ist wahrscheinlich gerade passiert?",
+          "en-US": "Your partner sighs audibly while you're doing something. What probably just happened?"
+        },
+        "options": [
+          {
+            "id": "A",
+            "text": {
+              "de-DE": "Ich habe wahrscheinlich wieder laut gedacht und eine halbe Diskussion mit mir selbst geführt.",
+              "en-US": "I probably thought out loud again and had half a discussion with myself."
+            },
+            "type_scores": { "self_aware_owl": 0.6, "lovable_chaos": 0.4, "sweet_denier": 0.0 },
+            "cluster_scores": { "passion": 0.1, "stability": 0.0, "future": 0.1 },
+            "duo_trait_deltas": { "play": 0.1, "closeness": 0.0 }
+          },
+          {
+            "id": "B",
+            "text": {
+              "de-DE": "Ich habe spontan die Pläne geändert. Schon wieder. Weil mir gerade eine bessere Idee kam.",
+              "en-US": "I spontaneously changed the plans. Again. Because a better idea just came to me."
+            },
+            "type_scores": { "self_aware_owl": 0.2, "lovable_chaos": 0.8, "sweet_denier": 0.1 },
+            "cluster_scores": { "passion": 0.3, "stability": -0.3, "future": 0.2 },
+            "duo_trait_deltas": { "play": 0.1, "closeness": -0.1 }
+          },
+          {
+            "id": "C",
+            "text": {
+              "de-DE": "Hmm, ich bin mir nicht sicher. Vielleicht hatte es gar nichts mit mir zu tun?",
+              "en-US": "Hmm, I'm not sure. Maybe it had nothing to do with me?"
+            },
+            "type_scores": { "self_aware_owl": 0.0, "lovable_chaos": 0.1, "sweet_denier": 0.9 },
+            "cluster_scores": { "passion": 0.0, "stability": 0.1, "future": -0.1 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": -0.15 }
+          },
+          {
+            "id": "D",
+            "text": {
+              "de-DE": "Ich war gerade wieder so im Tunnel, dass ich eine Frage nicht mitbekommen habe. Passiert mir öfter.",
+              "en-US": "I was in tunnel mode again and missed a question. Happens to me a lot."
+            },
+            "type_scores": { "self_aware_owl": 0.8, "lovable_chaos": 0.2, "sweet_denier": 0.0 },
+            "cluster_scores": { "passion": -0.1, "stability": 0.1, "future": 0.2 },
+            "duo_trait_deltas": { "play": -0.1, "closeness": 0.05 }
+          }
+        ]
+      },
+      {
+        "id": "q4",
+        "text": {
+          "de-DE": "Ein guter Freund sagt zu dir: 'Du weißt schon, dass du das immer machst, oder?' Dein erster Gedanke?",
+          "en-US": "A good friend tells you: 'You know you always do that, right?' Your first thought?"
+        },
+        "options": [
+          {
+            "id": "A",
+            "text": {
+              "de-DE": "Ja, ich weiß. Und ich arbeite dran. Ernsthaft. Langsam, aber ehrlich.",
+              "en-US": "Yeah, I know. And I'm working on it. Seriously. Slowly, but honestly."
+            },
+            "type_scores": { "self_aware_owl": 0.9, "lovable_chaos": 0.0, "sweet_denier": 0.0 },
+            "cluster_scores": { "passion": 0.0, "stability": 0.3, "future": 0.2 },
+            "duo_trait_deltas": { "play": -0.05, "closeness": 0.1 }
+          },
+          {
+            "id": "B",
+            "text": {
+              "de-DE": "Ja! Das ist halt Teil des Pakets. Love it or leave it – meistens lieben die Leute es.",
+              "en-US": "Yes! That's part of the package. Love it or leave it – most people love it."
+            },
+            "type_scores": { "self_aware_owl": 0.2, "lovable_chaos": 0.8, "sweet_denier": 0.2 },
+            "cluster_scores": { "passion": 0.3, "stability": -0.1, "future": 0.0 },
+            "duo_trait_deltas": { "play": 0.15, "closeness": 0.0 }
+          },
+          {
+            "id": "C",
+            "text": {
+              "de-DE": "Warte – was mache ich immer? Das höre ich zum ersten Mal.",
+              "en-US": "Wait – what do I always do? This is the first I'm hearing of it."
+            },
+            "type_scores": { "self_aware_owl": 0.0, "lovable_chaos": 0.0, "sweet_denier": 0.9 },
+            "cluster_scores": { "passion": 0.0, "stability": 0.0, "future": -0.2 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": -0.1 }
+          },
+          {
+            "id": "D",
+            "text": {
+              "de-DE": "Ich weiß es – aber in dem Moment kann ich einfach nicht anders. Es fühlt sich dann richtig an.",
+              "en-US": "I know – but in that moment I just can't help it. It feels right then."
+            },
+            "type_scores": { "self_aware_owl": 0.5, "lovable_chaos": 0.4, "sweet_denier": 0.2 },
+            "cluster_scores": { "passion": 0.2, "stability": 0.0, "future": 0.1 },
+            "duo_trait_deltas": { "play": 0.05, "closeness": 0.05 }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stability_06_oh_sorry",
+    "hidden_cluster": "stability",
+    "facet_label": {
+      "de-DE": "Oh, Sorry!",
+      "en-US": "Oh, Sorry!"
+    },
+    "axis_key": "tension",
+    "tone": "warm_minimal",
+    "narrator_id": "stone",
+    "type_model": {
+      "types": ["instant_hugger", "slow_reflector", "action_speaker"],
+      "compute": "max_type_score"
+    },
+    "questions": [
+      {
+        "id": "q1",
+        "text": {
+          "de-DE": "Es gab Reibung. Du merkst, dass du zu weit gegangen bist. Was passiert als Erstes?",
+          "en-US": "There was friction. You realize you went too far. What happens first?"
+        },
+        "options": [
+          {
+            "id": "A",
+            "text": {
+              "de-DE": "Ich gehe direkt hin und sage: 'Hey, das war nicht fair von mir. Tut mir leid.'",
+              "en-US": "I go straight over and say: 'Hey, that wasn't fair of me. I'm sorry.'"
+            },
+            "type_scores": { "instant_hugger": 0.9, "slow_reflector": 0.0, "action_speaker": 0.1 },
+            "cluster_scores": { "passion": 0.2, "stability": 0.2, "future": 0.0 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": 0.15 }
+          },
+          {
+            "id": "B",
+            "text": {
+              "de-DE": "Ich brauche erstmal Luft. Alleine nachdenken. Dann komme ich zurück mit klareren Worten.",
+              "en-US": "I need air first. Think alone. Then I come back with clearer words."
+            },
+            "type_scores": { "instant_hugger": 0.0, "slow_reflector": 0.9, "action_speaker": 0.1 },
+            "cluster_scores": { "passion": -0.2, "stability": 0.3, "future": 0.2 },
+            "duo_trait_deltas": { "play": -0.1, "closeness": 0.0 }
+          },
+          {
+            "id": "C",
+            "text": {
+              "de-DE": "Ich sage vielleicht nicht sofort 'sorry' – aber ich bringe einen Tee vorbei, räume die Küche auf, mache etwas Gutes.",
+              "en-US": "I might not say 'sorry' right away – but I'll bring tea, clean the kitchen, do something kind."
+            },
+            "type_scores": { "instant_hugger": 0.1, "slow_reflector": 0.2, "action_speaker": 0.9 },
+            "cluster_scores": { "passion": 0.0, "stability": 0.3, "future": 0.1 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": 0.1 }
+          },
+          {
+            "id": "D",
+            "text": {
+              "de-DE": "Ich schreibe eine lange Nachricht. Manchmal kann ich schriftlich besser ausdrücken, was ich fühle.",
+              "en-US": "I write a long message. Sometimes I can express what I feel better in writing."
+            },
+            "type_scores": { "instant_hugger": 0.2, "slow_reflector": 0.7, "action_speaker": 0.3 },
+            "cluster_scores": { "passion": 0.1, "stability": 0.1, "future": 0.2 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": 0.1 }
+          }
+        ]
+      },
+      {
+        "id": "q2",
+        "text": {
+          "de-DE": "Dein Partner sagt: 'Das hat mich verletzt.' Du siehst ein, dass es stimmt. Aber innerlich denkst du gleichzeitig: 'Ich hatte aber auch einen Punkt.' Was tust du?",
+          "en-US": "Your partner says: 'That hurt me.' You see they're right. But inside you also think: 'I had a point too.' What do you do?"
+        },
+        "options": [
+          {
+            "id": "A",
+            "text": {
+              "de-DE": "Erst das Gefühl anerkennen: 'Du hast recht, das tut mir leid.' Meinen Punkt kann ich später noch bringen.",
+              "en-US": "Acknowledge the feeling first: 'You're right, I'm sorry.' I can bring up my point later."
+            },
+            "type_scores": { "instant_hugger": 0.7, "slow_reflector": 0.3, "action_speaker": 0.0 },
+            "cluster_scores": { "passion": 0.0, "stability": 0.3, "future": 0.2 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": 0.15 }
+          },
+          {
+            "id": "B",
+            "text": {
+              "de-DE": "Ich sage beides: 'Es tut mir leid, wie ich es gesagt habe. Aber ich möchte auch, dass du meinen Punkt hörst.'",
+              "en-US": "I say both: 'I'm sorry for how I said it. But I also want you to hear my point.'"
+            },
+            "type_scores": { "instant_hugger": 0.3, "slow_reflector": 0.5, "action_speaker": 0.3 },
+            "cluster_scores": { "passion": 0.1, "stability": 0.1, "future": 0.3 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": 0.05 }
+          },
+          {
+            "id": "C",
+            "text": {
+              "de-DE": "Ich nicke und nehme mir vor, das nächste Mal anders zu formulieren. Taten zählen mehr als Worte.",
+              "en-US": "I nod and commit to saying it differently next time. Actions speak louder than words."
+            },
+            "type_scores": { "instant_hugger": 0.0, "slow_reflector": 0.3, "action_speaker": 0.8 },
+            "cluster_scores": { "passion": -0.1, "stability": 0.3, "future": 0.2 },
+            "duo_trait_deltas": { "play": -0.05, "closeness": 0.05 }
+          },
+          {
+            "id": "D",
+            "text": {
+              "de-DE": "Ehrlich: Ich kämpfe innerlich. Ich will einlenken, aber es braucht einen Moment, bis ich mein Ego leiser drehe.",
+              "en-US": "Honestly: I struggle inside. I want to give in, but it takes a moment to turn my ego down."
+            },
+            "type_scores": { "instant_hugger": 0.1, "slow_reflector": 0.8, "action_speaker": 0.1 },
+            "cluster_scores": { "passion": 0.2, "stability": 0.0, "future": 0.1 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": 0.0 }
+          }
+        ]
+      },
+      {
+        "id": "q3",
+        "text": {
+          "de-DE": "Welche Art von Entschuldigung berührt DICH am meisten, wenn du sie bekommst?",
+          "en-US": "Which kind of apology touches YOU the most when you receive one?"
+        },
+        "options": [
+          {
+            "id": "A",
+            "text": {
+              "de-DE": "Einfach eine feste, lange Umarmung. Ohne viele Worte. Dann ist fast alles wieder gut.",
+              "en-US": "Just a tight, long hug. Without many words. Then almost everything is okay again."
+            },
+            "type_scores": { "instant_hugger": 0.9, "slow_reflector": 0.0, "action_speaker": 0.2 },
+            "cluster_scores": { "passion": 0.3, "stability": 0.1, "future": -0.1 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": 0.2 }
+          },
+          {
+            "id": "B",
+            "text": {
+              "de-DE": "Wenn jemand wirklich versteht, WAS genau wehgetan hat – nicht nur 'sorry' sagt, sondern es benennt.",
+              "en-US": "When someone truly understands WHAT exactly hurt – not just 'sorry' but naming it."
+            },
+            "type_scores": { "instant_hugger": 0.1, "slow_reflector": 0.9, "action_speaker": 0.1 },
+            "cluster_scores": { "passion": 0.0, "stability": 0.2, "future": 0.3 },
+            "duo_trait_deltas": { "play": -0.05, "closeness": 0.15 }
+          },
+          {
+            "id": "C",
+            "text": {
+              "de-DE": "Wenn sich danach etwas ändert. Eine echte Entschuldigung ist für mich, wenn es beim nächsten Mal anders läuft.",
+              "en-US": "When something actually changes afterward. A real apology to me is when things go differently next time."
+            },
+            "type_scores": { "instant_hugger": 0.0, "slow_reflector": 0.3, "action_speaker": 0.9 },
+            "cluster_scores": { "passion": -0.1, "stability": 0.3, "future": 0.3 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": 0.1 }
+          },
+          {
+            "id": "D",
+            "text": {
+              "de-DE": "Ein ehrlicher Moment, in dem Verletzlichkeit sichtbar wird. Kein Skript, keine Perfektion. Einfach echt.",
+              "en-US": "An honest moment where vulnerability becomes visible. No script, no perfection. Just real."
+            },
+            "type_scores": { "instant_hugger": 0.4, "slow_reflector": 0.4, "action_speaker": 0.3 },
+            "cluster_scores": { "passion": 0.2, "stability": 0.1, "future": 0.2 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": 0.2 }
+          }
+        ]
+      },
+      {
+        "id": "q4",
+        "text": {
+          "de-DE": "Hand aufs Herz: Wofür fällt es dir am schwersten, dich zu entschuldigen?",
+          "en-US": "Hand on heart: What is it hardest for you to apologize for?"
+        },
+        "options": [
+          {
+            "id": "A",
+            "text": {
+              "de-DE": "Wenn ich finde, dass ich sachlich recht hatte – auch wenn der Ton daneben war.",
+              "en-US": "When I feel I was factually right – even if my tone was off."
+            },
+            "type_scores": { "instant_hugger": 0.1, "slow_reflector": 0.7, "action_speaker": 0.3 },
+            "cluster_scores": { "passion": 0.1, "stability": 0.0, "future": 0.2 },
+            "duo_trait_deltas": { "play": -0.05, "closeness": -0.05 }
+          },
+          {
+            "id": "B",
+            "text": {
+              "de-DE": "Wenn ich das Gefühl habe, dass meine eigenen Grenzen nicht gesehen wurden – dann fällt 'sorry' schwer.",
+              "en-US": "When I feel my own boundaries weren't seen – then 'sorry' is hard to say."
+            },
+            "type_scores": { "instant_hugger": 0.2, "slow_reflector": 0.6, "action_speaker": 0.2 },
+            "cluster_scores": { "passion": 0.1, "stability": -0.1, "future": 0.2 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": -0.1 }
+          },
+          {
+            "id": "C",
+            "text": {
+              "de-DE": "Wenn es um wiederkehrende Dinge geht, bei denen ich weiß, dass ich es wieder tun werde. Dann fühlt sich 'sorry' unehrlich an.",
+              "en-US": "When it's about recurring things I know I'll do again. Then 'sorry' feels dishonest."
+            },
+            "type_scores": { "instant_hugger": 0.0, "slow_reflector": 0.4, "action_speaker": 0.7 },
+            "cluster_scores": { "passion": 0.0, "stability": 0.2, "future": 0.1 },
+            "duo_trait_deltas": { "play": 0.0, "closeness": 0.05 }
+          },
+          {
+            "id": "D",
+            "text": {
+              "de-DE": "Ehrlich gesagt fällt es mir generell leicht, mich zu entschuldigen. Schwerer fällt mir, zu akzeptieren, dass 'sorry' alleine manchmal nicht reicht.",
+              "en-US": "Honestly, apologizing comes easy to me. What's harder is accepting that 'sorry' alone sometimes isn't enough."
+            },
+            "type_scores": { "instant_hugger": 0.7, "slow_reflector": 0.2, "action_speaker": 0.3 },
+            "cluster_scores": { "passion": 0.1, "stability": 0.2, "future": 0.2 },
+            "duo_trait_deltas": { "play": 0.05, "closeness": 0.1 }
+          }
+        ]
+      }
+    ]
+  }
+]
