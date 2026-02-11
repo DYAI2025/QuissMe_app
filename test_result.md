@@ -142,11 +142,14 @@ backend:
     file: "backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: true
         agent: "main"
         comment: "EWMA-Update Funktion implementiert, wird nach Quiz-Submit aufgerufen wenn beide Partner fertig"
+      - working: true
+        agent: "testing"
+        comment: "✅ TESTED: EWMA update working correctly. After quiz completion by both users, stats values changed from initial 50 (e.g., tenderness: 50→52.6, playfulness: 50→52.6, appreciation: 50→52.6). Formula correctly applies similarity/complementarity calculation with alpha=0.15"
 
   - task: "GET /api/stats/library/info Endpoint"
     implemented: true
