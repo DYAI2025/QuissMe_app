@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="10" tests="12" time="0.119" timestamp="2026-02-11T00:01:58.731692+00:00" hostname="agent-env-26447e6d-b7d0-49bc-a4fe-dacb9f53ab9c"><testcase classname="tests.test_quiz_state_machine.TestQuizWheel" name="test_get_wheel_for_couple" time="0.001"><failure message="requests.exceptions.MissingSchema: Invalid URL '/api/users/register': No scheme supplied. Perhaps you meant https:///api/users/register?">tests/test_quiz_state_machine.py:29: in test_get_wheel_for_couple
+    resp_a = api_client.post(f"{BASE_URL}/api/users/register", json=user_a_payload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/root/.venv/lib/python3.11/site-packages/requests/sessions.py:637: in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/root/.venv/lib/python3.11/site-packages/requests/sessions.py:575: in request
+    prep = self.prepare_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+/root/.venv/lib/python3.11/site-packages/requests/sessions.py:484: in prepare_request
+    p.prepare(
+/root/.venv/lib/python3.11/site-packages/requests/models.py:367: in prepare
+    self.prepare_url(url, params)
+/root/.venv/lib/python3.11/site-packages/requests/models.py:438: in prepare_url
+    raise MissingSchema(
+E   requests.exceptions.MissingSchema: Invalid URL '/api/users/register': No scheme supplied. Perhaps you meant https:///api/users/register?</failure></testcase><testcase classname="tests.test_quiz_state_machine.TestClusterCycleFlow" name="test_activate_quiz_creates_cycle" time="0.000"><skipped type="pytest.skip" message="No couple_id from wheel test">/app/backend/tests/test_quiz_state_machine.py:90: No couple_id from wheel test</skipped></testcase><testcase classname="tests.test_quiz_state_machine.TestClusterCycleFlow" name="test_submit_first_user_updates_to_one_completed" time="0.000"><skipped type="pytest.skip" message="No cycle_id from activation test">/app/backend/tests/test_quiz_state_machine.py:116: No cycle_id from activation test</skipped></testcase><testcase classname="tests.test_quiz_state_machine.TestClusterCycleFlow" name="test_submit_second_user_updates_to_ready_to_reveal" time="0.000"><skipped type="pytest.skip" message="No cycle_id from activation test">/app/backend/tests/test_quiz_state_machine.py:151: No cycle_id from activation test</skipped></testcase><testcase classname="tests.test_quiz_state_machine.TestClusterCycleFlow" name="test_reveal_quiz_returns_reward_choices" time="0.000"><skipped type="pytest.skip" message="No cycle_id from activation test">/app/backend/tests/test_quiz_state_machine.py:218: No cycle_id from activation test</skipped></testcase><testcase classname="tests.test_quiz_state_machine.TestTendenciesAndZones" name="test_no_percentages_in_result" time="0.000"><skipped type="pytest.skip" message="No cycle_id from previous tests">/app/backend/tests/test_quiz_state_machine.py:255: No cycle_id from previous tests</skipped></testcase><testcase classname="tests.test_quiz_state_machine.TestTendenciesAndZones" name="test_zone_is_flow_spark_or_talk" time="0.000"><skipped type="pytest.skip" message="No cycle_id from previous tests">/app/backend/tests/test_quiz_state_machine.py:280: No cycle_id from previous tests</skipped></testcase><testcase classname="tests.test_quiz_state_machine.TestGardenManagement" name="test_place_garden_item" time="0.000"><skipped type="pytest.skip" message="No couple_id from previous tests">/app/backend/tests/test_quiz_state_machine.py:306: No couple_id from previous tests</skipped></testcase><testcase classname="tests.test_quiz_state_machine.TestGardenManagement" name="test_get_garden" time="0.000"><skipped type="pytest.skip" message="No couple_id from previous tests">/app/backend/tests/test_quiz_state_machine.py:350: No couple_id from previous tests</skipped></testcase><testcase classname="tests.test_quiz_state_machine.TestErrorHandling" name="test_cannot_activate_same_quiz_twice" time="0.000"><skipped type="pytest.skip" message="No couple_id from previous tests">/app/backend/tests/test_quiz_state_machine.py:372: No couple_id from previous tests</skipped></testcase><testcase classname="tests.test_quiz_state_machine.TestErrorHandling" name="test_invalid_cycle_id" time="0.001"><failure message="requests.exceptions.MissingSchema: Invalid URL '/api/cycle/nonexistent-cycle-id': No scheme supplied. Perhaps you meant https:///api/cycle/nonexistent-cycle-id?">tests/test_quiz_state_machine.py:401: in test_invalid_cycle_id
+    resp = api_client.get(f"{BASE_URL}/api/cycle/nonexistent-cycle-id")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/root/.venv/lib/python3.11/site-packages/requests/sessions.py:602: in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+/root/.venv/lib/python3.11/site-packages/requests/sessions.py:575: in request
+    prep = self.prepare_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+/root/.venv/lib/python3.11/site-packages/requests/sessions.py:484: in prepare_request
+    p.prepare(
+/root/.venv/lib/python3.11/site-packages/requests/models.py:367: in prepare
+    self.prepare_url(url, params)
+/root/.venv/lib/python3.11/site-packages/requests/models.py:438: in prepare_url
+    raise MissingSchema(
+E   requests.exceptions.MissingSchema: Invalid URL '/api/cycle/nonexistent-cycle-id': No scheme supplied. Perhaps you meant https:///api/cycle/nonexistent-cycle-id?</failure></testcase><testcase classname="tests.test_quiz_state_machine.TestErrorHandling" name="test_reveal_before_both_complete" time="0.000"><skipped type="pytest.skip" message="No couple_id from previous tests">/app/backend/tests/test_quiz_state_machine.py:409: No couple_id from previous tests</skipped></testcase></testsuite></testsuites>
