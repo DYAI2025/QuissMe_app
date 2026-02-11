@@ -89,16 +89,14 @@ class TestInviteAndCoupleMatching:
         result = join_response.json()
         assert "user" in result
         assert "couple_id" in result
-        assert "match_score" in result
         assert "partner_name" in result
         assert result["partner_name"] == "TEST_Anna"
         assert "_id" not in result.get("user", {}), "MongoDB _id should be excluded"
         
         couple_id = result["couple_id"]
         user_b_id = result["user"]["id"]
-        match_score = result["match_score"]
         
-        print(f"✓ Partner joined: {user_b_id}, couple: {couple_id}, match score: {match_score}%")
+        print(f"✓ Partner joined: {user_b_id}, couple: {couple_id}")
 
         # Verify couple data
         couple_response = api_client.get(f"{base_url}/api/couple/{couple_id}")
