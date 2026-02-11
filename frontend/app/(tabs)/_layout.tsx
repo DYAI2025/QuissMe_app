@@ -33,6 +33,12 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="stats"
+        options={{
+          tabBarIcon: ({ focused }) => <TabIcon label="Stats" icon={'\u{1F4CA}'} focused={focused} />,
+        }}
+      />
+      <Tabs.Screen
         name="rewards"
         options={{
           tabBarIcon: ({ focused }) => <TabIcon label="Garten" icon={'\u{1F33F}'} focused={focused} />,
