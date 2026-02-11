@@ -162,6 +162,9 @@ backend:
       - working: true
         agent: "main"
         comment: "Debug-Endpoint für Stat-Library Metadaten"
+      - working: true
+        agent: "testing"
+        comment: "✅ TESTED: Returns schema_version, core_stats_count: 17, and complete stats list as expected"
 
 frontend:
   - task: "Stats Tab mit Balkendiagrammen"
