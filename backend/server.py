@@ -18,6 +18,13 @@ from emergentintegrations.llm.chat import LlmChat, UserMessage
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
+# Load Stat Library
+STAT_LIBRARY_PATH = ROOT_DIR / "stat_library.json"
+STAT_LIBRARY = {}
+if STAT_LIBRARY_PATH.exists():
+    with open(STAT_LIBRARY_PATH, 'r', encoding='utf-8') as f:
+        STAT_LIBRARY = json.load(f)
+
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
