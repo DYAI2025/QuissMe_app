@@ -127,11 +127,14 @@ backend:
     file: "backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: true
         agent: "main"
         comment: "Endpoint liefert alle Stats mit Metadaten, gruppiert nach Family (closeness/alignment/tension)"
+      - working: true
+        agent: "testing"
+        comment: "✅ TESTED: Returns exactly 17 stats, all initialized to 50, correct family grouping (closeness:5, alignment:5, tension:7), proper JSON structure with stat_key, name_de, value_0_100, tendency, tendency_text, bar_color fields"
 
   - task: "duo_stats Collection mit EWMA-Update"
     implemented: true
