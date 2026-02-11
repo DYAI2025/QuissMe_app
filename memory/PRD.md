@@ -1,96 +1,73 @@
-# QuissMe - Product Requirements Document
+# QuissMe v2 - Product Requirements Document
 
 ## Overview
-QuissMe is a relationship discovery quiz game app for couples. It combines astrology-based onboarding with interactive love language quizzes, providing couples with insights into their connection patterns.
+QuissMe is a relationship discovery quiz game for couples. V2 introduces the Living Mirror Engine (LME) Dashboard as a shared "Garden World", a circular Quiz Wheel (Cluster-Kranz), a ClusterCycle state machine, and the Flow/Spark/Talk resonance system.
 
-## Core Features (MVP)
+## Core Features
 
 ### 1. Splash / Intro Screen
-- QuissMe branding with animated star particles (Night Mode)
-- "Tippen zum Starten" CTA → navigates to onboarding
+- QuissMe branding, star particles (Night Mode), "Tippen zum Starten"
 
-### 2. Astro Onboarding (Person A)
-- Birth data input: Name, Geburtsdatum (YYYY-MM-DD), Geburtszeit (HH:MM), Geburtsort
-- API call to BAFE astrology API for zodiac calculation
-- Fallback zodiac calculation if BAFE API unavailable
-- Generates invite code for partner pairing
+### 2. Astro Onboarding
+- Birth data: Name, Date (YYYY-MM-DD), Time (HH:MM), Location
+- BAFE API for zodiac calculation (fallback: local calculation)
 
 ### 3. Personal Astro Result
-- Displays zodiac sign (Sternzeichen), moon sign, Chinese zodiac
-- Options: "Partner:in einladen" or "Solo erkunden"
+- Zodiac display, "Partner:in einladen" or "Solo erkunden"
 
-### 4. Partner Invitation
-- 6-character alphanumeric invite code generation
-- Share functionality via native Share API
-- Navigation to Waiting Room
+### 4. Partner System
+- 6-char invite code generation + Share API
+- Join screen: code + birth data → creates couple
+- AI-generated couple interpretation (Gemini 3 Flash)
 
-### 5. Partner Join (Person B)
-- Enter invite code + same birth data input
-- Creates couple pairing in database
-- Triggers Gemini AI interpretation of couple compatibility
+### 5. Tab Navigation (4 Tabs)
+- **Home** - Dashboard with Garden + Quiz Wheel
+- **Entdecken** - Quiz library by sector (Leidenschaft/Stabilität/Zukunft)
+- **Garten** - Shared garden visualization + stats
+- **Profil** - User info, zodiac, logout
 
-### 6. Waiting Room
-- Animated waiting state for partner synchronization
-- Pulsing circle + loading dots animation
+### 6. LME Dashboard (Garden + Wheel)
+- Central garden island visualization
+- Circular Quiz Wheel with 5 nodes (one per love language cluster)
+- Node states with color-coded visual feedback
+- Seeds counter (3/week) + garden stats
 
-### 7. Couple Match / Mini-Interpretation (Dusk Mode)
-- AI-generated positive couple interpretation (Gemini 3 Flash)
-- Synchronicity score display (72-95%)
-- Warm/sunset color theme for reward feeling
+### 7. Quiz State Machine (ClusterCycle)
+States: `available → activated → one_completed → ready_to_reveal → revealed`
+- **Activation**: Max 3 per week per partner, max 3 unresolved
+- **Async**: Each partner completes independently, no time pressure
+- **Gating**: Reveal only when both partners complete
+- **Quiz Flow**: 10 questions/quiz, 4 glassmorphic options, progress bar
 
-### 8. Couple Dashboard (LME)
-- Overview stats: Quiz count, Cluster count, Question count
-- 5 Love Language quiz cards:
-  - Lob & Anerkennung (Words of Affirmation)
-  - Zweisamkeit (Quality Time)
-  - Geschenke (Receiving Gifts)
-  - Hilfsbereitschaft (Acts of Service)
-  - Körperliche Nähe (Physical Touch)
-- Pull-to-refresh functionality
+### 8. Insight Drop (Warm/Dusk Mode)
+- Flow/Spark/Talk zone classification (no percentages!)
+- Tendencies: "stark ausgeprägt / im Einklang / im Aufbau" with warm sentences
+- AI-generated insight text (Gemini 3 Flash)
+- Buff (Meaning Moment): warm micro-action for the couple
 
-### 9. Quiz Flow
-- 1 question per screen, 4 glassmorphic option cards
-- Progress bar with fraction counter
-- Back navigation support
-- Auto-advance on option selection (400ms delay)
-- 10 questions per quiz
+### 9. Reward System
+- 3 choices per revealed cycle: Plant, Land piece, Deco
+- Items placed into shared garden
+- Zone resonance colors reward items
 
-### 10. Quiz Result / Insight Drop (Dusk Mode)
-- Primary love language cluster display
-- Primary type identification (if applicable)
-- Normalized score bars (0-100%) for all 5 clusters
-- Zone token insights (strength, growth, micro-step)
-- Share result functionality
-- "Nächstes Quiz" CTA
-
-## Technical Architecture
-
-### Backend (FastAPI + MongoDB)
-- **API Prefix**: /api
-- **Database**: MongoDB with collections: users, couples, quizzes, quiz_results
-- **External APIs**: BAFE Astrology API (with fallback), Gemini 3 Flash (via emergentintegrations)
-- **Quiz Data**: Seeded from JSON files on startup (5 love language quizzes × 10 questions)
-
-### Frontend (Expo Router + React Native)
-- **Navigation**: Stack-based with expo-router
-- **Design System**: Dual mood (Night/Dusk), Glassmorphism UI, 8pt grid
-- **State**: AsyncStorage for user/couple IDs
+### 10. Flow/Spark/Talk Resonance
+- **Flow**: lilac/violet/blue - calm harmonic
+- **Spark**: amber/orange/gold - dynamic energy
+- **Talk**: mauve/teal/stone - bridging ground
+- All neutral - no judgment, only resonance
 
 ## Design System
-- **Night Mode**: Navy (#0F1B2D), Indigo (#1E2D4A) - for onboarding, quiz
-- **Dusk Mode**: Purple (#2D1B4E), Gold (#D4A338) - for results, rewards
-- **Glass**: rgba(255,255,255,0.1) with BlurView, 24px border-radius
-- **Buttons**: Pill-shaped, primary accent (#7351B7)
+- **Night Mode**: #0F1B2D / #1A2740 - onboarding, quiz, dashboard
+- **Warm/Dusk Mode**: #1C1232 / #2D1B4E / #D4A338 - results, insights, rewards
+- **Glassmorphism**: BlurView, rgba borders, 24px radius
+- **No Analytics Aesthetic**: No %, no scores, only tendencies
 
-## Integration Notes
-- BAFE API returns 401 currently → zodiac fallback always active
-- Gemini 3 Flash generates German couple interpretation text
-- Emergent LLM Key: sk-emergent-726537eD25e0666F59
+## Backend Architecture (FastAPI + MongoDB)
+Collections: users, couples, quizzes, cluster_cycles
+Key endpoints: /api/quiz/wheel, /api/quiz/activate, /api/quiz/submit, /api/quiz/reveal, /api/garden/*
 
-## Future Enhancements
-- Real Google Maps picker for birth location with coordinates
-- Real-time WebSocket for waiting room synchronization
-- Premium tier: 3+ quizzes per 7-day period
-- Trading Cards (9:16) shareable result images
-- Growth Path with daily buffs and challenges
-- Multi-quiz couple results aggregation
+## Integrations
+- **Gemini 3 Flash** via Emergent LLM Key - insights + couple interpretation
+- **BAFE Astro API** (with zodiac fallback)
+
+## Test Results: Backend 22/22 ✅, Frontend ✅
