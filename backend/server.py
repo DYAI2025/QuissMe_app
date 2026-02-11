@@ -552,6 +552,10 @@ async def submit_quiz(sub: QuizAnswerSubmit):
 
         # Assign buff
         buff = random.choice(BUFF_LIBRARY)
+        
+        # Update duo_stats with EWMA
+        my_answers = {"cluster_sums": cluster_sums}
+        await update_duo_stats_from_quiz(sub.couple_id, my_answers, other_answers, quiz)
 
         update["state"] = "ready_to_reveal"
         update["result"] = {
