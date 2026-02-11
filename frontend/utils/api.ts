@@ -25,6 +25,9 @@ export const api = {
   getGarden: (coupleId: string) => apiFetch(`/api/garden/${coupleId}`),
   placeGardenItem: (d: any) => apiFetch('/api/garden/place', { method: 'POST', body: JSON.stringify(d) }),
   getQuizResult: (id: string) => apiFetch(`/api/quiz/result/${id}`),
+  // Stats API
+  getDuoStats: (coupleId: string) => apiFetch(`/api/stats/${coupleId}`),
+  getStatLibraryInfo: () => apiFetch('/api/stats/library/info'),
 };
 
 export const storage = {
