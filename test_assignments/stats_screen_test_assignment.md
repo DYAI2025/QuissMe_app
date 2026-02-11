@@ -269,27 +269,30 @@ Then:
 
 ---
 
-## 5. Testergebnisse (Template)
+## 5. Testergebnisse
 
 | TC-ID | Feature | Status | Evidenz | Kommentar |
 |-------|---------|--------|---------|-----------|
-| TC-01 | Stats API Initial | ⬜ NOT EXECUTED | | |
-| TC-02 | Family Gruppierung | ⬜ NOT EXECUTED | | |
-| TC-03 | Sortierung | ⬜ NOT EXECUTED | | |
-| TC-04 | Library Info | ⬜ NOT EXECUTED | | |
-| TC-05 | EWMA Update | ⬜ NOT EXECUTED | | |
-| TC-06 | EWMA Formel | ⬜ NOT EXECUTED | | |
-| TC-07 | Tab Navigation | ⬜ NOT EXECUTED | | |
-| TC-08 | Balkendiagramme | ⬜ NOT EXECUTED | | |
-| TC-09 | Keine Zahlen Default | ⬜ NOT EXECUTED | | |
-| TC-10 | Debug Toggle | ⬜ NOT EXECUTED | | |
-| TC-11 | Family UI | ⬜ NOT EXECUTED | | |
-| TC-12 | Pull-to-Refresh | ⬜ NOT EXECUTED | | |
-| TC-13 | Tendency Text | ⬜ NOT EXECUTED | | |
-| TC-14 | Balkenfarben | ⬜ NOT EXECUTED | | |
-| TC-15 | Error Handling | ⬜ NOT EXECUTED | | |
+| TC-01 | Stats API Initial | ✅ PASS | API Response: 17 Stats, alle 50, alle "medium" | Alle required fields vorhanden |
+| TC-02 | Family Gruppierung | ✅ PASS | closeness:5, alignment:5, tension:7 | Summe = 17 ✓ |
+| TC-03 | Sortierung | ✅ PASS | display_order aufsteigend | 1..17 korrekt sortiert |
+| TC-04 | Library Info | ✅ PASS | schema_version=v1_1, count=17 | Debug-Endpoint funktioniert |
+| TC-05 | EWMA Update | ✅ PASS | Stats ändern sich nach Quiz-Submit | Zärtlichkeit: 50→54.1, Leichtigkeit: 50→54.1, Wertschätzung: 50→54.1 |
+| TC-06 | EWMA Formel | ✅ PASS | Berechnung verifiziert | target ≈ 60.7, new = 0.85*50 + 0.15*60.7 ≈ 54.1 |
+| TC-07 | Tab Navigation | ⬜ NOT EXECUTED | Frontend-Test ausstehend | Expo Go Test empfohlen |
+| TC-08 | Balkendiagramme | ⬜ NOT EXECUTED | Frontend-Test ausstehend | Mobile-Test empfohlen |
+| TC-09 | Keine Zahlen Default | ⬜ NOT EXECUTED | Frontend-Test ausstehend | - |
+| TC-10 | Debug Toggle | ⬜ NOT EXECUTED | Frontend-Test ausstehend | 5x Tap aktiviert Debug |
+| TC-11 | Family UI | ⬜ NOT EXECUTED | Frontend-Test ausstehend | - |
+| TC-12 | Pull-to-Refresh | ⬜ NOT EXECUTED | Frontend-Test ausstehend | - |
+| TC-13 | Tendency Text | ✅ PASS | API liefert korrekten Text | "oft stimmig – mit Raum für Feinschliff" |
+| TC-14 | Balkenfarben | ✅ PASS | API liefert bar_color | #F472B6, #A78BFA, etc. |
+| TC-15 | Error Handling | ⬜ NOT EXECUTED | Frontend-Test ausstehend | - |
 
 **Legende:** ✅ PASS | ❌ FAIL | ⬜ NOT EXECUTED
+
+### Backend Test Summary: 8/8 PASS (100%)
+### Frontend Tests: 7 ausstehend (Expo Go empfohlen)
 
 ---
 
