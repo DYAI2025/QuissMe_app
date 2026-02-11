@@ -825,7 +825,7 @@ async def get_duo_stats(couple_id: str):
     families = {
         "closeness": {"name_de": "Nähe", "icon": "\u2764\uFE0F", "stats": []},
         "alignment": {"name_de": "Einklang", "icon": "\u2696\uFE0F", "stats": []},
-        "tension": {"name_de": "Resilienz", "icon": "\u{1F331}", "stats": []},
+        "tension": {"name_de": "Resilienz", "icon": "\U0001F331", "stats": []},
     }
     
     for stat in enriched_stats:
