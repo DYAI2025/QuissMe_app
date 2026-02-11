@@ -82,7 +82,7 @@ class TestQuizWheel:
 class TestClusterCycleFlow:
     """Test complete ClusterCycle state machine flow"""
 
-    def test_activate_quiz_creates_cycle(self, api_client):
+    def test_activate_quiz_creates_cycle(self, api_client, base_url):
         """Activate a quiz creates ClusterCycle in 'activated' state"""
         if not hasattr(pytest, 'test_couple_id'):
             pytest.skip("No couple_id from wheel test")
@@ -108,7 +108,7 @@ class TestClusterCycleFlow:
         print(f"✓ Quiz activated: cycle_id={cycle['id']}, state={cycle['state']}")
         pytest.test_cycle_id = cycle["id"]
 
-    def test_submit_first_user_updates_to_one_completed(self, api_client):
+    def test_submit_first_user_updates_to_one_completed(self, api_client, base_url):
         """Submit answers for first user → state becomes 'one_completed'"""
         if not hasattr(pytest, 'test_cycle_id'):
             pytest.skip("No cycle_id from activation test")
@@ -143,7 +143,7 @@ class TestClusterCycleFlow:
         
         print(f"✓ First user submitted: state={cycle['state']}, completed_by={cycle['completed_by']}")
 
-    def test_submit_second_user_updates_to_ready_to_reveal(self, api_client):
+    def test_submit_second_user_updates_to_ready_to_reveal(self, api_client, base_url):
         """Submit answers for second user → state becomes 'ready_to_reveal' with result"""
         if not hasattr(pytest, 'test_cycle_id'):
             pytest.skip("No cycle_id from activation test")
@@ -210,7 +210,7 @@ class TestClusterCycleFlow:
         print(f"  Primary cluster: {result['primary_cluster']}")
         print(f"  Buff: {buff['name']}")
 
-    def test_reveal_quiz_returns_reward_choices(self, api_client):
+    def test_reveal_quiz_returns_reward_choices(self, api_client, base_url):
         """Reveal quiz returns 3 reward choices and marks as revealed"""
         if not hasattr(pytest, 'test_cycle_id'):
             pytest.skip("No cycle_id from activation test")
@@ -247,7 +247,7 @@ class TestClusterCycleFlow:
 class TestTendenciesAndZones:
     """Verify tendencies replace percentages and zone detection works"""
 
-    def test_no_percentages_in_result(self, api_client):
+    def test_no_percentages_in_result(self, api_client, base_url):
         """Ensure NO percentage scores appear in cycle result"""
         if not hasattr(pytest, 'test_cycle_id'):
             pytest.skip("No cycle_id from previous tests")
@@ -272,7 +272,7 @@ class TestTendenciesAndZones:
         
         print(f"✓ No percentages found - only tendencies: {tendencies}")
 
-    def test_zone_is_flow_spark_or_talk(self, api_client):
+    def test_zone_is_flow_spark_or_talk(self, api_client, base_url):
         """Verify zone is one of the three resonance types"""
         if not hasattr(pytest, 'test_cycle_id'):
             pytest.skip("No cycle_id from previous tests")
@@ -298,7 +298,7 @@ class TestTendenciesAndZones:
 class TestGardenManagement:
     """Test garden item placement"""
 
-    def test_place_garden_item(self, api_client):
+    def test_place_garden_item(self, api_client, base_url):
         """Place a reward item into shared garden"""
         if not hasattr(pytest, 'test_couple_id'):
             pytest.skip("No couple_id from previous tests")
@@ -342,7 +342,7 @@ class TestGardenManagement:
         
         print(f"✓ Garden item placed: {chosen_item['name']} at ({placed['position_x']}, {placed['position_y']})")
 
-    def test_get_garden(self, api_client):
+    def test_get_garden(self, api_client, base_url):
         """Retrieve couple's garden"""
         if not hasattr(pytest, 'test_couple_id'):
             pytest.skip("No couple_id from previous tests")
@@ -364,7 +364,7 @@ class TestGardenManagement:
 class TestErrorHandling:
     """Test error cases and limits"""
 
-    def test_cannot_activate_same_quiz_twice(self, api_client):
+    def test_cannot_activate_same_quiz_twice(self, api_client, base_url):
         """Cannot activate the same quiz if already active"""
         if not hasattr(pytest, 'test_couple_id'):
             pytest.skip("No couple_id from previous tests")
@@ -394,13 +394,13 @@ class TestErrorHandling:
         
         print("✓ Duplicate activation prevented")
 
-    def test_invalid_cycle_id(self, api_client):
+    def test_invalid_cycle_id(self, api_client, base_url):
         """404 for non-existent cycle"""
         resp = api_client.get(f"{BASE_URL}/api/cycle/nonexistent-cycle-id")
         assert resp.status_code == 404
         print("✓ 404 for invalid cycle ID")
 
-    def test_reveal_before_both_complete(self, api_client):
+    def test_reveal_before_both_complete(self, api_client, base_url):
         """Cannot reveal if not ready_to_reveal state"""
         # Create a new cycle and try to reveal immediately
         if not hasattr(pytest, 'test_couple_id'):
