@@ -55,11 +55,17 @@ export const SPACING = { xs: 4, s: 8, m: 16, l: 24, xl: 32, xxl: 48 };
 export const RADIUS = { card: 24, button: 9999, input: 16, node: 28 };
 
 export const CLUSTER_INFO: Record<string, { de: string; icon: string; sector: string }> = {
+  // Love Languages
   words: { de: 'Lob & Anerkennung', icon: '\u{1F4AC}', sector: 'passion' },
   time: { de: 'Zweisamkeit', icon: '\u{1F570}', sector: 'stability' },
   gifts: { de: 'Geschenke', icon: '\u{1F381}', sector: 'future' },
   service: { de: 'Hilfsbereitschaft', icon: '\u{1F91D}', sector: 'stability' },
   touch: { de: 'Körperliche Nähe', icon: '\u{1F497}', sector: 'passion' },
+  // Reibung/Reparatur
+  stability: { de: 'Reibung & Reparatur', icon: '\u{1F527}', sector: 'stability' },
+  // Couples sectors
+  passion: { de: 'Leidenschaft', icon: '\u{1F525}', sector: 'passion' },
+  future: { de: 'Zukunft', icon: '\u2728', sector: 'future' },
 };
 
 export const STATE_VISUALS: Record<string, { color: string; label: string; badge: string }> = {
