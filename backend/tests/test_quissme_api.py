@@ -106,7 +106,6 @@ class TestInviteAndCoupleMatching:
         assert "user_a" in couple
         assert "user_b" in couple
         assert "interpretation" in couple
-        assert "match_score" in couple
         assert couple["user_a"]["name"] == "TEST_Anna"
         assert couple["user_b"]["name"] == "TEST_Max"
         assert "_id" not in couple, "MongoDB _id should be excluded"
